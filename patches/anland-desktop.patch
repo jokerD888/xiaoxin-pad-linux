@@ -1,0 +1,564 @@
+diff --git a/consumers/anland_v5/android_consumer/app/src/main/jni/native_audio.c b/consumers/anland_v5/android_consumer/app/src/main/jni/native_audio.c
+index d2d5fb9..d75dfbb 100644
+--- a/consumers/anland_v5/android_consumer/app/src/main/jni/native_audio.c
++++ b/consumers/anland_v5/android_consumer/app/src/main/jni/native_audio.c
+@@ -7,11 +7,13 @@
+ #include <android/log.h>
+ #include <errno.h>
+ #include <pthread.h>
++#include <stdatomic.h>
+ #include <stdbool.h>
+ #include <stdint.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <sys/socket.h>
++#include <sys/eventfd.h>
+ #include <poll.h>
+ #include <time.h>
+ #include <unistd.h>
+@@ -27,7 +29,6 @@
+ #define WANT_CAP_CHANNELS  1
+ #define MAX_DGRAM          (64 * 1024)
+ #define MIC_MAX_FRAMES     1024   /* upper bound on frames per mic read */
+-#define PLAY_POLL_MS       100
+ #define PLAY_RING_MS       160
+ #define PLAY_RING_MIN      (32 * 1024)
+ #define PLAY_RING_MAX      (256 * 1024)
+@@ -40,14 +41,17 @@
+ #define PLAY_IDLE_STOP_MS  1500
+ 
+ struct audio_bridge {
+-    volatile bool running;
+-    volatile bool mic_enabled;
++    atomic_bool running;
++    atomic_bool mic_enabled;
++    /* Separate eventfds: one reader must not consume another thread's wakeup. */
++    int play_wakeup;
++    int cap_wakeup;
+ 
+     /* The live connection. Set by audio_set_ctx() from the render thread, read by
+      * the audio threads -- same lightweight convention as the event thread's
+      * s->ctx. get_audio_fd() returns -1 in fallback, so a stale-but-valid ctx just
+      * yields no fd rather than misbehaving. */
+-    display_ctx *volatile ctx;
++    display_ctx * _Atomic ctx;
+ 
+     pthread_t play_thread;
+     pthread_t cap_thread;
+@@ -60,15 +64,15 @@ struct audio_bridge {
+     int cap_rate, cap_channels;
+ 
+     /* Latency presets in ms (0 = engine default), set from the settings UI. */
+-    volatile int play_latency_ms;
+-    volatile int cap_latency_ms;
+-    volatile bool resend_formats;   /* a preset/device change -> re-announce */
++    atomic_int play_latency_ms;
++    atomic_int cap_latency_ms;
++    atomic_bool resend_formats;   /* a preset/device change -> re-announce */
+ 
+     /* User "audio keep-alive" toggle. On: keep the output stream running (fed
+      * near-silent keepalive) for maximum burst reliability, at a little standby
+      * power. Off (default): the play thread idle-stops the stream after silence
+      * so the audio path can sleep. */
+-    volatile bool keepalive_enabled;
++    atomic_bool keepalive_enabled;
+ 
+     /*
+      * Playback is pull-driven by an AAudio data callback. The socket thread only
+@@ -83,7 +87,7 @@ struct audio_bridge {
+     size_t play_ring_head;
+     size_t play_ring_tail;
+     size_t play_ring_fill;
+-    volatile bool play_error;
++    atomic_bool play_error;
+     bool play_idle;
+     int play_keepalive_phase;
+     int play_wake_fade_frames;
+@@ -91,6 +95,30 @@ struct audio_bridge {
+     uint8_t rx[MAX_DGRAM];
+ };
+ 
++static void wake_audio(int fd)
++{
++    uint64_t one = 1;
++    ssize_t n;
++    do { n = write(fd, &one, sizeof(one)); } while (n < 0 && errno == EINTR);
++    /* EAGAIN means a wakeup is already pending. */
++}
++
++static void consume_wakeup(int fd)
++{
++    uint64_t value;
++    ssize_t n;
++    do { n = read(fd, &value, sizeof(value)); } while (n < 0 && errno == EINTR);
++}
++
++static void wait_control(int fd, int timeout_ms)
++{
++    struct pollfd pfd = { .fd = fd, .events = POLLIN };
++    int n;
++    do { n = poll(&pfd, 1, timeout_ms); } while (n < 0 && errno == EINTR);
++    if (n > 0 && (pfd.revents & POLLIN))
++        consume_wakeup(fd);
++}
++
+ static int current_fd(struct audio_bridge *b)
+ {
+     display_ctx *ctx = b->ctx;
+@@ -317,6 +345,7 @@ static void play_error_cb(AAudioStream *stream, void *userdata, aaudio_result_t
+     struct audio_bridge *b = userdata;
+     if (b) {
+         b->play_error = true;
++        wake_audio(b->play_wakeup);
+         LOGE("output stream error: %s", AAudio_convertResultToText(error));
+     }
+ }
+@@ -501,6 +530,18 @@ static void send_format(int fd, uint32_t role, uint32_t rate, uint32_t channels,
+ 
+ /* ---- playback: socket -> speaker ---- */
+ 
++static int playback_wait_timeout(struct audio_bridge *b, uint64_t last_pcm_ms)
++{
++    if (!b->keepalive_enabled && b->play) {
++        aaudio_stream_state_t state = AAudioStream_getState(b->play);
++        if (state == AAUDIO_STREAM_STATE_STARTED || state == AAUDIO_STREAM_STATE_STARTING) {
++            uint64_t age = now_ms() - last_pcm_ms;
++            return age >= PLAY_IDLE_STOP_MS ? 20 : (int)(PLAY_IDLE_STOP_MS - age + 1);
++        }
++    }
++    return -1;
++}
++
+ static void *play_thread_func(void *arg)
+ {
+     struct audio_bridge *b = arg;
+@@ -513,8 +554,12 @@ static void *play_thread_func(void *arg)
+     uint64_t last_pcm_ms = now_ms();
+ 
+     while (b->running) {
+-        if (b->play_error)
+-            open_play_stream(b, false);
++        if (b->play_error && !open_play_stream(b, false)) {
++            /* Bounded retry only during a real stream error, never idle polling. */
++            b->play_error = true;
++            wait_control(b->play_wakeup, 200);
++            continue;
++        }
+ 
+         /* Power: with the keepalive callback the output stream never naturally
+          * idles, so once the desktop has been silent for PLAY_IDLE_STOP_MS we stop
+@@ -539,16 +584,16 @@ static void *play_thread_func(void *arg)
+         }
+ 
+         if (fd < 0) {
+-            usleep(20000);
++            wait_control(b->play_wakeup, playback_wait_timeout(b, last_pcm_ms));
+             continue;
+         }
+ 
+         /* Hand the producer the real device formats + latency presets for both
+          * directions: once when the socket comes up (just left fallback), and again
+          * whenever a preset/device change needs to re-size its PipeWire nodes live. */
+-        if (!had_fd || b->resend_formats) {
++        bool formats_changed = atomic_exchange(&b->resend_formats, false);
++        if (!had_fd || formats_changed) {
+             ensure_play_stream_started(b);
+-            b->resend_formats = false;
+             send_format(fd, AUDIO_ROLE_PLAYBACK, b->play_rate, b->play_channels,
+                         ms_to_frames(b->play_latency_ms, b->play_rate));
+             send_format(fd, AUDIO_ROLE_CAPTURE, b->cap_rate, b->cap_channels,
+@@ -556,21 +601,33 @@ static void *play_thread_func(void *arg)
+             had_fd = true;
+         }
+ 
+-        struct pollfd pfd = { .fd = fd, .events = POLLIN };
+-        int poll_result = poll(&pfd, 1, PLAY_POLL_MS);
++        /* One deadline to stop an active idle stream; thereafter block until
++         * PCM, a connection/setting change, an AAudio error, or shutdown. */
++        int timeout = playback_wait_timeout(b, last_pcm_ms);
++        struct pollfd pfds[2] = {
++            { .fd = fd, .events = POLLIN },
++            { .fd = b->play_wakeup, .events = POLLIN },
++        };
++        int poll_result = poll(pfds, 2, timeout);
+         if (poll_result == 0)
+             continue;
+         if (poll_result < 0)
+             continue;
+-        if (pfd.revents & (POLLHUP | POLLERR)) {
++        if (pfds[1].revents & POLLIN) {
++            consume_wakeup(b->play_wakeup);
++            continue; /* Re-read the live fd and flags before touching old fd. */
++        }
++        if (pfds[0].revents & (POLLHUP | POLLERR | POLLNVAL)) {
+             pthread_mutex_lock(&b->play_lock);
+             play_ring_reset_locked(b);
+             pthread_mutex_unlock(&b->play_lock);
+             had_fd = false;
+             last_fd = -1;
+-            usleep(20000);
++            wait_control(b->play_wakeup, timeout);
+             continue;
+         }
++        if (!(pfds[0].revents & POLLIN))
++            continue;
+ 
+         ssize_t n;
+         TracyCZoneN(zRecv, "audio recv PCM", 1);
+@@ -632,16 +689,16 @@ static void *cap_thread_func(void *arg)
+                 AAudioStream_requestStop(b->rec);
+                 started = false;
+             }
+-            usleep(20000);
++            wait_control(b->cap_wakeup, -1);
+             continue;
+         }
+         if (!b->rec) {
+-            usleep(20000);
++            wait_control(b->cap_wakeup, -1);
+             continue;
+         }
+         if (!started) {
+             if (AAudioStream_requestStart(b->rec) != AAUDIO_OK) {
+-                usleep(50000);
++                wait_control(b->cap_wakeup, 50);
+                 continue;
+             }
+             started = true;
+@@ -680,6 +737,22 @@ audio_bridge *audio_create(void)
+     audio_bridge *b = calloc(1, sizeof(struct audio_bridge));
+     if (!b)
+         return NULL;
++    atomic_init(&b->running, false);
++    atomic_init(&b->mic_enabled, false);
++    atomic_init(&b->ctx, NULL);
++    atomic_init(&b->play_latency_ms, 0);
++    atomic_init(&b->cap_latency_ms, 0);
++    atomic_init(&b->resend_formats, false);
++    atomic_init(&b->keepalive_enabled, false);
++    atomic_init(&b->play_error, false);
++    b->play_wakeup = eventfd(0, EFD_CLOEXEC | EFD_NONBLOCK);
++    b->cap_wakeup = eventfd(0, EFD_CLOEXEC | EFD_NONBLOCK);
++    if (b->play_wakeup < 0 || b->cap_wakeup < 0) {
++        if (b->play_wakeup >= 0) close(b->play_wakeup);
++        if (b->cap_wakeup >= 0) close(b->cap_wakeup);
++        free(b);
++        return NULL;
++    }
+     pthread_mutex_init(&b->play_lock, NULL);
+     return b;
+ }
+@@ -690,6 +763,8 @@ void audio_destroy(audio_bridge *b)
+         return;
+     audio_stop(b);
+     pthread_mutex_destroy(&b->play_lock);
++    close(b->play_wakeup);
++    close(b->cap_wakeup);
+     free(b->play_ring);
+     free(b);
+ }
+@@ -730,6 +805,8 @@ void audio_stop(audio_bridge *b)
+     if (!b || !b->running)
+         return;
+     b->running = false;
++    wake_audio(b->play_wakeup);
++    wake_audio(b->cap_wakeup);
+     pthread_join(b->play_thread, NULL);
+     pthread_join(b->cap_thread, NULL);
+ 
+@@ -751,8 +828,11 @@ void audio_stop(audio_bridge *b)
+ 
+ void audio_set_ctx(audio_bridge *b, display_ctx *ctx)
+ {
+-    if (b)
++    if (b) {
+         b->ctx = ctx;
++        wake_audio(b->play_wakeup);
++        wake_audio(b->cap_wakeup);
++    }
+ }
+ 
+ void audio_set_mic_enabled(audio_bridge *b, int enabled)
+@@ -760,6 +840,7 @@ void audio_set_mic_enabled(audio_bridge *b, int enabled)
+     if (!b)
+         return;
+     b->mic_enabled = enabled != 0;
++    wake_audio(b->cap_wakeup);
+     LOGI("mic %s", b->mic_enabled ? "enabled" : "disabled");
+ }
+ 
+@@ -770,6 +851,7 @@ void audio_set_latency(audio_bridge *b, int speaker_ms, int mic_ms)
+     b->play_latency_ms = speaker_ms;
+     b->cap_latency_ms = mic_ms;
+     b->resend_formats = true;   /* picked up by the playback thread on the live fd */
++    wake_audio(b->play_wakeup);
+     LOGI("latency preset: speaker=%dms mic=%dms", speaker_ms, mic_ms);
+ }
+ 
+@@ -778,5 +860,6 @@ void audio_set_keepalive(audio_bridge *b, int enabled)
+     if (!b)
+         return;
+     b->keepalive_enabled = enabled != 0;
++    wake_audio(b->play_wakeup);
+     LOGI("audio keep-alive %s", b->keepalive_enabled ? "enabled" : "disabled");
+ }
+diff --git a/consumers/anland_v5/android_consumer/app/src/main/jni/native_consumer.c b/consumers/anland_v5/android_consumer/app/src/main/jni/native_consumer.c
+index 0f76298..1450c93 100644
+--- a/consumers/anland_v5/android_consumer/app/src/main/jni/native_consumer.c
++++ b/consumers/anland_v5/android_consumer/app/src/main/jni/native_consumer.c
+@@ -139,6 +139,8 @@ static int collect_dmabufs(struct consumer_state *s)
+     LOGI("collecting %d dma-bufs via dequeue/queue", target);
+ 
+     for (int attempt = 0; attempt < target * 4 && found < target; attempt++) {
++        if (!s->running)
++            break;
+         ANativeWindowBuffer *anb = NULL;
+         int fence = -1;
+         if (api.dequeueBuffer(win, &anb, &fence) != 0 || !anb) {
+@@ -971,6 +973,10 @@ static void *render_thread_func(void *arg)
+         }
+ 
+         int idx = -1;
++        if (!s->running) {
++            api.cancelBuffer(s->window, anb, -1);
++            break;
++        }
+         for (int i = 0; i < s->buf_count; i++) {
+             if (s->buf_anb[i] == anb) {
+                 idx = i;
+@@ -1000,6 +1006,10 @@ static void *render_thread_func(void *arg)
+         TracyCZoneN(zRefresh, "refresh_done (producer render)", 1);
+         int rfence = refresh_done(s->ctx);
+         TracyCZoneEnd(zRefresh);
++        if (rfence == DISPLAY_REFRESH_CANCELLED) {
++            api.cancelBuffer(s->window, anb, -1);
++            continue;
++        }
+         api.queueBuffer(s->window, anb, rfence);
+         TracyCFrameMark;
+     }
+@@ -1060,6 +1070,7 @@ Java_com_anland_consumer_Native_nativeDestroy(JNIEnv *env, jclass clazz, jlong h
+     pthread_mutex_lock(&s->lock);
+     if (s->running) {
+         s->running = false;
++        interrupt_frame_wait(s->ctx);
+         pthread_mutex_unlock(&s->lock);
+         pthread_join(s->render_thread, NULL);
+         pthread_mutex_lock(&s->lock);
+@@ -1186,6 +1197,7 @@ Java_com_anland_consumer_Native_nativeStart(
+ 
+     if (s->running) {
+         s->running = false;
++        interrupt_frame_wait(s->ctx);
+         pthread_mutex_unlock(&s->lock);
+         pthread_join(s->render_thread, NULL);
+         pthread_mutex_lock(&s->lock);
+@@ -1251,6 +1263,7 @@ Java_com_anland_consumer_Native_nativeStop(
+ 
+     if (s->running) {
+         s->running = false;
++        interrupt_frame_wait(s->ctx);
+         pthread_mutex_unlock(&s->lock);
+         pthread_join(s->render_thread, NULL);
+         pthread_mutex_lock(&s->lock);
+diff --git a/libdisplay_consumer/display_consumer.c b/libdisplay_consumer/display_consumer.c
+index d2e56b2..6673fd7 100644
+--- a/libdisplay_consumer/display_consumer.c
++++ b/libdisplay_consumer/display_consumer.c
+@@ -58,6 +58,7 @@ struct display_ctx {
+     struct service_info *services;
+     int             num_services;
+     struct resources *resources;
++    int frame_stop_efd;
+ };
+ 
+ /* (Re)arm the data_fd write gate for a fresh connected session: writers take
+@@ -276,7 +277,7 @@ static void enter_fallback(display_ctx *ctx)
+     pthread_mutex_lock(&ctx->data_lock);
+     if (ctx->data_fd >= 0)         { int fd = ctx->data_fd; ctx->data_fd = -1; close(fd); }
+     if (ctx->buf_ready_efd >= 0)   { close(ctx->buf_ready_efd);   ctx->buf_ready_efd = -1; }
+-    if (ctx->fence_fd >= 0)        { close(ctx->fence_fd);        ctx->fence_fd = -1; }
++    if (ctx->fence_fd >= 0)        { shutdown(ctx->fence_fd, SHUT_RDWR); close(ctx->fence_fd); ctx->fence_fd = -1; }
+     if (ctx->audio_fd >= 0)        { close(ctx->audio_fd);        ctx->audio_fd = -1; }
+     if (ctx->shm_ptr) { volatile uint32_t *p = ctx->shm_ptr; ctx->shm_ptr = NULL; munmap((void *)p, sizeof(uint32_t)); }
+     if (ctx->shm_fd >= 0)         { close(ctx->shm_fd);           ctx->shm_fd = -1; }
+@@ -313,6 +314,7 @@ int connect_to_deamon_with_fd(display_ctx **out, int ctrl_fd)
+     ctx->fence_fd = -1;
+     ctx->shm_fd = -1;
+     ctx->audio_fd = -1;
++    ctx->frame_stop_efd = -1;
+     ctx->shm_ptr = NULL;
+     ctx->fallback = true;
+ 
+@@ -325,6 +327,9 @@ int connect_to_deamon_with_fd(display_ctx **out, int ctrl_fd)
+     ctx->buf_ready_efd = eventfd(0, EFD_CLOEXEC);
+     if (ctx->buf_ready_efd < 0)
+         goto fail;
++    ctx->frame_stop_efd = eventfd(0, EFD_CLOEXEC | EFD_NONBLOCK);
++    if (ctx->frame_stop_efd < 0)
++        goto fail;
+ 
+     if (create_shm(ctx) < 0)
+         goto fail;
+@@ -343,6 +348,7 @@ fail:
+     if (ctx->buf_ready_efd >= 0)   close(ctx->buf_ready_efd);
+     if (ctx->fence_fd >= 0)        close(ctx->fence_fd);
+     if (ctx->audio_fd >= 0)        close(ctx->audio_fd);
++    if (ctx->frame_stop_efd >= 0)   close(ctx->frame_stop_efd);
+     pthread_mutex_destroy(&ctx->state_lock);
+     pthread_mutex_destroy(&ctx->data_lock);
+     free(ctx);
+@@ -360,6 +366,7 @@ void disconnect(display_ctx *ctx)
+     if (ctx->buf_ready_efd >= 0)   close(ctx->buf_ready_efd);
+     if (ctx->fence_fd >= 0)        close(ctx->fence_fd);
+     if (ctx->audio_fd >= 0)        close(ctx->audio_fd);
++    if (ctx->frame_stop_efd >= 0)   close(ctx->frame_stop_efd);
+     free_resources(ctx);
+     pthread_mutex_destroy(&ctx->state_lock);
+     pthread_mutex_destroy(&ctx->data_lock);
+@@ -418,21 +425,30 @@ int select_dmabuf(display_ctx *ctx, int idx)
+  * GPU-side before scanout). The producer sends exactly one message per frame on the
+  * dedicated fence channel; the message itself is the "frame rendered" signal (no
+  * separate eventfd, no cross-channel ordering) and the optional fence rides as
+- * SCM_RIGHTS ancillary data. Returns the fence fd (caller owns it), or -1 if none /
+- * on error. */
++ * SCM_RIGHTS ancillary data. Returns the fence fd (caller owns it), -1 for a
++ * completed frame without a fence, or DISPLAY_REFRESH_CANCELLED on abort. */
+ int refresh_done(display_ctx *ctx)
+ {
+     if (!ctx->buffer_pending)
+-        return -1;
++        return DISPLAY_REFRESH_CANCELLED;
+ 
+-    /* Block (with a 5s safety timeout) on the fence channel: the arrival of the
+-     * producer's per-frame message is the render-done signal. Timeout / no POLLIN
+-     * (producer stalled or gone) -> fall back so the render thread never hangs. */
+-    struct pollfd pfd = { .fd = ctx->fence_fd, .events = POLLIN };
+-    int ret = poll(&pfd, 1, 5000);
+-    if (ret <= 0 || !(pfd.revents & POLLIN)) {
++    /* An idle compositor may not produce a frame for hours. Wait for actual
++     * damage or an explicit stop; EOF/HUP still detects a lost producer. */
++    struct pollfd pfds[2] = {
++        { .fd = ctx->fence_fd, .events = POLLIN },
++        { .fd = ctx->frame_stop_efd, .events = POLLIN },
++    };
++    int ret;
++    do { ret = poll(pfds, 2, -1); } while (ret < 0 && errno == EINTR);
++    if (pfds[1].revents & POLLIN) {
++        eventfd_t value;
++        eventfd_read(ctx->frame_stop_efd, &value);
++        ctx->buffer_pending = false;
++        return DISPLAY_REFRESH_CANCELLED;
++    }
++    if (ret < 0 || !(pfds[0].revents & POLLIN)) {
+         enter_fallback(ctx);
+-        return -1;
++        return DISPLAY_REFRESH_CANCELLED;
+     }
+     ctx->buffer_pending = false;
+ 
+@@ -455,9 +471,9 @@ int refresh_done(display_ctx *ctx)
+      * (n == 0) means the producer closed the channel -> fall back. No fence in the
+      * message => queue with -1 ("ready now"). */
+     ssize_t n = recvmsg(ctx->fence_fd, &msg, MSG_DONTWAIT);
+-    if (n == 0) {
++    if (n <= 0) {
+         enter_fallback(ctx);
+-        return -1;
++        return DISPLAY_REFRESH_CANCELLED;
+     }
+     if (n > 0) {
+         struct cmsghdr *c = CMSG_FIRSTHDR(&msg);
+@@ -467,6 +483,14 @@ int refresh_done(display_ctx *ctx)
+     return rfence;
+ }
+ 
++void interrupt_frame_wait(display_ctx *ctx)
++{
++    if (ctx && ctx->frame_stop_efd >= 0) {
++        eventfd_t value = 1;
++        eventfd_write(ctx->frame_stop_efd, value);
++    }
++}
++
+ int push_input_event(display_ctx *ctx, const struct InputEvent *event)
+ {
+     if (ctx->fallback)
+diff --git a/libdisplay_consumer/display_consumer.h b/libdisplay_consumer/display_consumer.h
+index 8b6c953..3acc597 100644
+--- a/libdisplay_consumer/display_consumer.h
++++ b/libdisplay_consumer/display_consumer.h
+@@ -12,6 +12,10 @@ int  set_screen_info(display_ctx *ctx, uint32_t width, uint32_t height, uint32_t
+ int  push_dmabufs(display_ctx *ctx, const int *fds, const struct buf_info *infos, int count);
+ int  select_dmabuf(display_ctx *ctx, int idx);
+ int  refresh_done(display_ctx *ctx);
++/* No frame was produced; cancel the dequeued window buffer rather than queue it. */
++#define DISPLAY_REFRESH_CANCELLED (-2)
++/* Wake a render thread waiting for scene damage before joining it on shutdown. */
++void interrupt_frame_wait(display_ctx *ctx);
+ int  push_input_event(display_ctx *ctx, const struct InputEvent *event);
+ int  push_input_event_with_length(display_ctx *ctx, const struct InputEvent *event, void* payload, size_t size);
+ int  set_fallback_callback(display_ctx *ctx, void (*on_fallback)(void *), void *userdata);
+diff --git a/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_backend.cpp b/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_backend.cpp
+index b87f9d3..6e3dce0 100644
+--- a/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_backend.cpp
++++ b/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_backend.cpp
+@@ -487,9 +487,8 @@ void AnlandBackend::onBufferReady()
+ 
+     m_consumerReady = true;
+ 
+-    // Buffer-ready is our frame-completion signal: complete the in-flight frame
+-    // (if any) and schedule the next one, keeping the render cycle paced by the
+-    // consumer rather than a timer.
++    // Buffer-ready completes the in-flight frame, if any. It must not request
++    // another frame without scene damage.
+     if (!m_outputs.isEmpty()) {
+         m_outputs[0]->onConsumerReady();
+     }
+diff --git a/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_egl_backend.cpp b/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_egl_backend.cpp
+index 66cb28e..3b64075 100644
+--- a/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_egl_backend.cpp
++++ b/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_egl_backend.cpp
+@@ -196,12 +196,9 @@ bool AnlandEglLayer::doEndFrame(const Region &renderedDeviceRegion, const Region
+         m_accumDamage[m_currentIndex] = Region();
+     }
+ 
+-    for (int i = 0; i < m_bufCount; i++) {
+-        if (!m_accumDamage[i].isEmpty()) {
+-            addDeviceRepaint(Region::infinite());
+-            break;
+-        }
+-    }
++    // Other buffers are repaired lazily by doBeginFrame() when selected for a
++    // genuine scene update. Scheduling a full-output repaint to repair them feeds
++    // that repaint back into damagedDeviceRegion and dirties every buffer again.
+ 
+     EGLNativeFence fence{m_backend->eglDisplayObject()};
+     set_render_fence(m_display, fence.takeFileDescriptor().take());
+diff --git a/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_output.cpp b/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_output.cpp
+index e419f26..08d7a2d 100644
+--- a/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_output.cpp
++++ b/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_output.cpp
+@@ -120,7 +120,8 @@ void AnlandOutput::onConsumerReady()
+         m_awaitingPresent = false;
+         completeFrame();
+     }
+-    m_renderLoop->scheduleRepaint();
++    // Completion only releases the in-flight frame. Real scene damage already
++    // schedules repaint; requesting another frame here keeps an idle output busy.
+ }
+ 
+ void AnlandOutput::resize(const QSize &newSize)
+diff --git a/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_output.h b/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_output.h
+index 301a51e..3d4d4c1 100644
+--- a/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_output.h
++++ b/producers/kde/anland_backend_Arch_v5/src/backends/anland/anland_output.h
+@@ -50,7 +50,7 @@ public:
+     void setRefreshRate(int refresh);
+ 
+     /** Consumer signalled buffer-ready (buf_ready_efd): complete the in-flight
+-     *  frame and schedule the next one, keeping the cycle consumer-paced. */
++     *  frame. New frames are requested by scene damage, not buffer availability. */
+     void onConsumerReady();
+ 
+     /** Reconfigure the output when the consumer uses a different buffer size

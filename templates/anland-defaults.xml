@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<map>
+    <boolean name="topapp_scheduling" value="false" />
+    <boolean name="disable_multi_finger_gestures" value="false" />
+    <boolean name="accessibility_key_intercept" value="true" />
+    <string name="screen_orientation">default</string>
+    <string name="extra_keys_mode">with_keyboard</string>
+    <boolean name="pointer_capture" value="true" />
+    <boolean name="touchpad_mode" value="false" />
+    <boolean name="mic_enabled" value="true" />
+    <boolean name="camera_enabled" value="true" />
+    <boolean name="use_root" value="false" />
+    <string name="socket_path">/data/local/archlinux/run/display.sock</string>
+</map>

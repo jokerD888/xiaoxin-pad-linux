@@ -1,0 +1,17 @@
+dist/
+.build/
+.anland-native-tools/
+.android-patch-tools/
+__pycache__/
+*.pyc
+*.apk
+*.so
+*.tar
+*.tar.*
+*.zip
+*.jks
+*.keystore
+.env
+*secret*
+*credential*
+*private-patterns*

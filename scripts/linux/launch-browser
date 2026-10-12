@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+export PATH=/usr/local/bin:/usr/bin:/bin
+if command -v firefox >/dev/null; then
+    exec /usr/local/libexec/linux-app-environment.py firefox "$@"
+elif command -v chromium >/dev/null; then
+    exec /usr/local/libexec/linux-app-environment.py chromium --no-sandbox --ozone-platform=wayland --disable-vulkan --password-store=basic "$@"
+fi
+printf '%s\n' 'The clean base image has no proprietary browser. Install a browser first.' >&2
+exit 1

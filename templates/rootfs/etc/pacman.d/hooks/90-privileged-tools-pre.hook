@@ -1,0 +1,12 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Type = Path
+Target = usr/bin/sudo
+Target = usr/bin/fusermount3
+
+[Action]
+Description = Releasing Android chroot privilege helper mounts...
+When = PreTransaction
+Exec = /usr/local/libexec/maintain-privileged-tools pre
+AbortOnFail

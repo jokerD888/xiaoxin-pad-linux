@@ -1,0 +1,69 @@
+{
+  "verified": true,
+  "assets": [
+    {
+      "file": "anland-corresponding-source-0.1.0-preview.tar.xz",
+      "bytes": 491948,
+      "sha256": "090686e0605eaebbc8c2975efe644d91bf3f0f04cabf2b00fd605578774ee4f0",
+      "entries": 385,
+      "uncompressed_file_bytes": 2682822,
+      "private_pattern_hits": 0,
+      "archive_paths_safe": true
+    },
+    {
+      "file": "anland-daemon-0.1.0-preview.zip",
+      "bytes": 25234,
+      "sha256": "c022d58fcea5a17b1c76878cbcc1c15d25e76d78b47cd67b1858213e0475ee2f",
+      "entries": 7,
+      "private_pattern_hits": 0
+    },
+    {
+      "file": "anland-linux-0.1.0-preview.apk",
+      "bytes": 366011,
+      "sha256": "52f78212485c2c151a9d84c875438f5913514742c2e7be5c4ab513dab78f251d",
+      "entries": 19,
+      "private_pattern_hits": 0
+    },
+    {
+      "file": "kwin-6.7.4-upstream-source.tar.xz",
+      "bytes": 8997844,
+      "sha256": "db7a7dba71aaca1e5218733b80f90a998d84e2ab36e4d62d0e3ea00376c5802d",
+      "entries": 3784,
+      "uncompressed_file_bytes": 48626153,
+      "private_pattern_hits": 0,
+      "archive_paths_safe": true
+    },
+    {
+      "file": "xiaoxin-host-0.1.0-preview.tar.xz",
+      "bytes": 20512,
+      "sha256": "a1a1d0bdaab1246ce5cbd03a3cd22cba9db1e36a024fdb5822a23a32ed8df1a5",
+      "entries": 13,
+      "uncompressed_file_bytes": 58201,
+      "private_pattern_hits": 0,
+      "archive_paths_safe": true
+    },
+    {
+      "file": "xiaoxin-rootfs-0.1.0-preview.tar.xz",
+      "bytes": 1408993176,
+      "sha256": "75e4bece75f69249c1d7f457964ac5e7f18446e09a3976d68c0f2f6a64651ca3",
+      "entries": 160536,
+      "uncompressed_file_bytes": 4672201571,
+      "private_pattern_hits": 0,
+      "archive_paths_safe": true
+    },
+    {
+      "file": "package-manifest.json",
+      "bytes": 163618,
+      "sha256": "5045e18756dd412716ea8b73907c446b98b15e1b09f30fbbd29ddbc08b7a554a",
+      "private_pattern_hits": 0
+    },
+    {
+      "file": "verification-report.json",
+      "bytes": 1840,
+      "sha256": "451f0e5308f3cec77b3705acf9c5899a70060cf65bd4bca5266a95249cbfa07c",
+      "private_pattern_hits": 0
+    }
+  ],
+  "includes_private_patterns": false,
+  "fresh_device_boot_test": false
+}

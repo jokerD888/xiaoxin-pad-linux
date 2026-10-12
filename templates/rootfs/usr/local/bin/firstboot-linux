@@ -1,0 +1,20 @@
+#!/bin/bash
+# Generate new identities on the recipient device, never in a distributed image.
+set -euo pipefail
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin
+[[ $(id -u) == 0 ]] || { echo 'Run as chroot root.' >&2; exit 1; }
+case "${1:-}" in ''|--prepare-only) ;; *) echo 'Usage: firstboot-linux [--prepare-only]' >&2; exit 2;; esac
+if [[ ! -s /etc/machine-id ]]; then
+    dbus-uuidgen > /etc/machine-id
+    chmod 644 /etc/machine-id
+fi
+ln -sfn /etc/machine-id /var/lib/dbus/machine-id
+ssh-keygen -A
+if [[ ! -s /etc/pacman.d/gnupg/pubring.gpg ]]; then
+    pacman-key --init
+    pacman-key --populate archlinuxarm
+fi
+if [[ "${1:-}" != --prepare-only ]]; then
+    [[ -t 0 ]] || { echo 'A terminal is required to set the new Linux password.' >&2; exit 1; }
+    passwd linux
+fi

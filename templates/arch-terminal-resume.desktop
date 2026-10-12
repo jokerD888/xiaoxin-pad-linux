@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=继续终端任务
+Comment=在 Konsole 中接回持久终端任务
+Exec=konsole --profile ArchPersistent -e /usr/local/bin/arch-terminal --resume
+Icon=utilities-terminal
+Terminal=false
+Categories=System;TerminalEmulator;

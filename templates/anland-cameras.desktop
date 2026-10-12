@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Anland WebRTC camera bridge
+Exec=/usr/local/bin/start-anland-cameras
+Terminal=false
+OnlyShowIn=KDE;
+X-KDE-autostart-phase=2

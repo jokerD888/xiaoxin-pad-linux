@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Linux 运行模式
+Comment=切换到仅终端模式或恢复 KDE 桌面
+Exec=/usr/local/bin/linux-mode menu
+Icon=preferences-system
+Terminal=true
+Categories=System;Utility;
+Keywords=终端;桌面;模式;Linux;terminal;desktop;

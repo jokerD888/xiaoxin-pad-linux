@@ -1,0 +1,60 @@
+#!/usr/bin/python
+import argparse
+import json
+import os
+from pathlib import Path
+import stat
+import subprocess
+import sys
+
+parser = argparse.ArgumentParser(description='在 Arch Linux 桌面与仅终端模式之间切换')
+parser.add_argument('mode', nargs='?', choices=['menu', 'terminal', 'desktop', 'status'], default='menu')
+parser.add_argument('--yes', action='store_true', help='已经保存工作，跳过关闭桌面的提示')
+args = parser.parse_args()
+mode = args.mode
+if mode == 'menu':
+    chosen = subprocess.run(['/usr/bin/dialog', '--keep-tite', '--stdout', '--title', 'Linux 运行模式',
+                             '--menu', '选择当前运行方式（不改变开机默认模式）', '15', '66', '4',
+                             'terminal', '仅终端模式：退出 KDE，打开 Arch 终端',
+                             'desktop', '恢复 KDE 图形桌面', 'status', '查看当前状态'],
+                            text=True, stdout=subprocess.PIPE)
+    if chosen.returncode:
+        raise SystemExit(0)
+    mode = chosen.stdout.strip()
+if mode == 'status':
+    try:
+        data = json.loads(Path('/run/linux-mode.json').read_text())
+        label = {'desktop': 'KDE 桌面', 'terminal': '仅终端', 'switching': '正在切换'}.get(data['mode'], data['mode'])
+        message = (f'当前模式：{label}\n{data["detail"]}\n\n'
+                   f'最近采样：Linux 用户进程占用约 {data["linux_user_PSS_MiB"]} MiB（PSS）\n'
+                   f'Linux 用户进程数量：{data["linux_user_processes"]}\n'
+                   '此内存统计不包含 Android 终端应用。')
+    except FileNotFoundError:
+        message = '运行模式尚未记录。'
+    if args.mode == 'menu':
+        subprocess.run(['/usr/bin/dialog', '--keep-tite', '--title', 'Linux 运行状态', '--msgbox', message, '13', '72'])
+    else:
+        print(message)
+    raise SystemExit(0)
+if mode == 'terminal' and not args.yes:
+    if not sys.stdin.isatty():
+        raise SystemExit('切换会关闭图形应用。保存工作后，在交互终端执行，或明确使用 --yes。')
+    decision = subprocess.run(['/usr/bin/dialog', '--keep-tite', '--title', '切换到仅终端模式', '--yesno',
+                                'KDE 和图形应用将关闭，请先保存工作。\n\n'
+                                '新 Konsole 标签页中的命令行任务会继续运行，可在 Termux 中接回。\n'
+                                '如发现尚未受保护的旧 Konsole 标签页，将保留桌面并提示处理。\n\n'
+                                'Linux 和 SD 卡挂载保留。恢复桌面输入：linux-mode desktop', '15', '72'])
+    if decision.returncode:
+        raise SystemExit(0)
+fifo = Path('/run/host_cmd.fifo')
+if not stat.S_ISFIFO(fifo.stat().st_mode):
+    raise SystemExit('宿主切换接口不可用。')
+try:
+    fd = os.open(fifo, os.O_WRONLY | os.O_NONBLOCK)
+    try:
+        os.write(fd, (mode + '-mode\n').encode())
+    finally:
+        os.close(fd)
+except OSError as error:
+    raise SystemExit(f'无法连接宿主切换服务：{error}')
+print('已请求切换到' + ('仅终端模式。恢复桌面：linux-mode desktop' if mode == 'terminal' else 'KDE 桌面。'))

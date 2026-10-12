@@ -1,0 +1,8 @@
+[Hotkey]
+AltTriggerKeys=
+ModifierOnlyKeyTimeout=500
+
+[Hotkey/TriggerKeys]
+0=Control+space
+1=Shift_L
+2=Shift_R

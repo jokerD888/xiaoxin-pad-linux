@@ -1,0 +1,26 @@
+{
+  "database": {
+    "code": 0,
+    "stdout": "No database errors have been found!\n",
+    "stderr": "warning: database file for 'core' does not exist (use '-Sy' to download)\nwarning: database file for 'extra' does not exist (use '-Sy' to download)\nwarning: database file for 'alarm' does not exist (use '-Sy' to download)\nwarning: database file for 'aur' does not exist (use '-Sy' to download)\n"
+  },
+  "libs": {
+    "code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "account": {
+    "code": 0,
+    "stdout": "uid=1000(linux) gid=1000(linux) groups=1000(linux),983(video),987(render),995(audio),998(wheel),3003(aid_inet),3004(aid_net_raw),3005(aid_net_admin)\n",
+    "stderr": ""
+  },
+  "firstboot": {
+    "code": 0,
+    "machine_id_generated": true,
+    "ssh_keys_generated": true,
+    "package_keyring_generated": true
+  },
+  "fresh_device_boot_test": false,
+  "source_system_configuration_unchanged": true,
+  "corrected_templates_verified": true
+}

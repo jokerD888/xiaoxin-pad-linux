@@ -1,0 +1,7 @@
+#!/bin/sh
+# A process lock in the manager makes repeated desktop/Chrome starts harmless.
+set -eu
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+mkdir -p "$XDG_RUNTIME_DIR/anland-cameras"
+nohup /usr/bin/python /usr/local/libexec/anland-camera-manager.py \
+    >> "$XDG_RUNTIME_DIR/anland-cameras/manager.log" 2>&1 < /dev/null &

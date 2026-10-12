@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Type = Path
+Target = usr/bin/sudo
+Target = usr/bin/fusermount3
+
+[Action]
+Description = Refreshing Android chroot privilege helpers...
+When = PostTransaction
+Exec = /usr/local/libexec/maintain-privileged-tools post

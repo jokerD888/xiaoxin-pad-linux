@@ -1,0 +1,238 @@
+#!/usr/bin/python
+"""Headless Fcitx5 for the existing linux-terminal tmux server (linux only)."""
+import fcntl
+import json
+import os
+from pathlib import Path
+import re
+import shlex
+import shutil
+import signal
+import subprocess
+import sys
+import time
+
+BASE = Path('/run/user/1000/arch-terminal-input')
+SELF = '/usr/local/bin/arch-terminal-input'
+TM = ['/usr/bin/tmux', '-L', 'linux-terminal']
+os.environ['PATH'] = '/usr/local/bin:/usr/bin:/bin'
+os.environ['XDG_RUNTIME_DIR'] = '/run/user/1000'
+
+def tm(*args, check=True):
+    return subprocess.run(TM + list(args), text=True, capture_output=True, check=check).stdout.rstrip('\n')
+
+def identity(pid):
+    try:
+        p = Path(f'/proc/{pid}')
+        if p.stat().st_uid != 1000:
+            return None
+        stat = (p / 'stat').read_text().rsplit(')', 1)[1].split()
+        return stat[19] if stat[0] != 'Z' else None
+    except (OSError, IndexError):
+        return None
+
+def live():
+    try:
+        state = json.loads((BASE / 'process.json').read_text())
+        return state if identity(state['pid']) == state['start'] else None
+    except (OSError, ValueError, KeyError):
+        return None
+
+def server():
+    if subprocess.run(TM + ['has-session', '-t', '=linux'], stderr=subprocess.DEVNULL).returncode:
+        return None
+    return tm('display-message', '-p', '-t', '=linux', '#{pid}')
+
+def desktop():
+    return subprocess.run(['/usr/bin/pgrep', '-u', '1000', '-x', 'plasmashell'],
+                          stdout=subprocess.DEVNULL).returncode == 0
+
+def restore():
+    try:
+        snapshot = json.loads((BASE / 'restore.json').read_text())
+        if server() != snapshot['server']:
+            return
+        tm('unbind-key', '-a', '-T', 'root')
+        tm('source-file', str(BASE / 'keys.conf'))
+        for key, value in snapshot['options'].items():
+            tm('set-option', '-g', key, value)
+        tm('set-option', '-gu', '@fcitx5', check=False)
+        (BASE / 'restore.json').unlink()
+    except (OSError, ValueError, KeyError, subprocess.CalledProcessError):
+        pass
+
+def bindings(pid):
+    # Snapshot the user's root table; prefix/copy-mode tables are untouched.
+    (BASE / 'keys.conf').write_text(tm('list-keys', '-T', 'root') + '\n')
+    opts = {key: tm('show-option', '-gqv', key) for key in ('status-right', 'status-right-length')}
+    (BASE / 'restore.json').write_text(json.dumps({'server': pid, 'options': opts}))
+    tm('set-option', '-g', 'status-right-length', '180')
+    tm('set-option', '-g', 'status-right', '#{@fcitx5} #[fg=colour110]Ctrl+Space:中/英')
+    keys = {('Space' if i == 32 else chr(i)): (i, 0) for i in range(32, 127)}
+    keys.update({f'C-{c}': (ord(c), 4) for c in 'acdefghijklmnopqrstuvwxyz'})
+    keys['C-Space'] = (32, 4)
+    for key, sym in {'BSpace': 0xff08, 'Tab': 0xff09, 'Enter': 0xff0d,
+                     'Escape': 0xff1b, 'Left': 0xff51, 'Up': 0xff52,
+                     'Right': 0xff53, 'Down': 0xff54, 'Home': 0xff50,
+                     'End': 0xff57, 'Delete': 0xffff, 'PageUp': 0xff55,
+                     'PageDown': 0xff56}.items():
+        keys[key] = (sym, 0)
+    address = shlex.quote(os.environ['DBUS_SESSION_BUS_ADDRESS'])
+    lines = []
+    for key, (sym, state) in keys.items():
+        cmd = (f'env DBUS_SESSION_BUS_ADDRESS={address} dbus-send --session --print-reply '
+               f'--reply-timeout=1000 --dest=org.fcitx.Fcitx5.Tmux-{pid} /tmux '
+               f'org.fcitx.Fcitx.TmuxProxy.ProcessKeyEvent uint32:{sym} uint32:{state} '
+               'string:#{pane_id} >/dev/null 2>&1 || '
+               f'tmux -L linux-terminal send-keys -t "#{{pane_id}}" -- {shlex.quote(key)}')
+        # JSON quotes are valid tmux double quotes for this ASCII shell command.
+        lines.append('bind-key -T root ' + shlex.quote(key) + ' run-shell ' + json.dumps(cmd))
+    (BASE / 'input.conf').write_text('\n'.join(lines) + '\n')
+    tm('source-file', str(BASE / 'input.conf'))
+
+def run_daemon():
+    pid = server()
+    if not pid:
+        return
+    env = dict(os.environ)
+    env.pop('DISPLAY', None)
+    env.pop('WAYLAND_DISPLAY', None)
+    env['XDG_CONFIG_HOME'] = str(BASE / 'config')
+    # Reuse desktop dictionaries and learned words. Desktop and terminal engines
+    # run sequentially, and the terminal profile/config have their own copy.
+    env['XDG_DATA_HOME'] = '/home/linux/.local/share'
+    config = BASE / 'config/fcitx5'
+    config.mkdir(parents=True, exist_ok=True)
+    for name in ('config', 'profile', 'conf'):
+        src = Path('/home/linux/.config/fcitx5') / name
+        dest = config / name
+        if src.is_dir():
+            shutil.copytree(src, dest, dirs_exist_ok=True)
+        elif src.exists():
+            shutil.copy2(src, dest)
+    env['TMUX'] = tm('display-message', '-p', '-t', '=linux', '#{socket_path}') + ',' + pid + ',0'
+    children = []
+    bus_pid = None
+    bus_start = None
+    def exiting(*_):
+        raise SystemExit(0)
+    signal.signal(signal.SIGTERM, exiting)
+    signal.signal(signal.SIGHUP, exiting)
+    try:
+        reply = subprocess.run(['/usr/bin/dbus-send', '--session', '--print-reply',
+                                '--dest=org.freedesktop.DBus', '/org/freedesktop/DBus',
+                                'org.freedesktop.DBus.GetConnectionUnixProcessID', 'string:org.freedesktop.DBus'],
+                               text=True, capture_output=True, check=True).stdout
+        bus_pid = int(re.search(r'uint32 (\d+)', reply).group(1))
+        bus_start = identity(bus_pid)
+        engine = subprocess.Popen(['/usr/bin/fcitx5', '--disable=all',
+                                  '--enable=dbus,dbusfrontend,keyboard,pinyin,punctuation,pinyinhelper', '-k', '-D'], env=env)
+        children.append(engine)
+        for _ in range(60):
+            ready = subprocess.run(['/usr/bin/dbus-send', '--session', '--print-reply',
+                                    '--dest=org.freedesktop.DBus', '/org/freedesktop/DBus',
+                                    'org.freedesktop.DBus.NameHasOwner', 'string:org.freedesktop.portal.Fcitx'],
+                                   text=True, capture_output=True)
+            if 'boolean true' in ready.stdout:
+                break
+            if engine.poll() is not None:
+                raise RuntimeError('Fcitx5 exited during startup')
+            time.sleep(.1)
+        else:
+            raise RuntimeError('Fcitx5 session bus unavailable')
+        proxy = subprocess.Popen(['/usr/local/libexec/arch-terminal-fcitx', pid], env=env)
+        children.append(proxy)
+        for _ in range(40):
+            ready = subprocess.run(['/usr/bin/dbus-send', '--session', '--print-reply',
+                                    '--dest=org.freedesktop.DBus', '/org/freedesktop/DBus',
+                                    'org.freedesktop.DBus.NameHasOwner', f'string:org.fcitx.Fcitx5.Tmux-{pid}'],
+                                   text=True, capture_output=True)
+            if 'boolean true' in ready.stdout:
+                break
+            if proxy.poll() is not None:
+                raise RuntimeError('tmux input bridge exited during startup')
+            time.sleep(.1)
+        else:
+            raise RuntimeError('tmux input bridge unavailable')
+        time.sleep(.2)  # The bridge's asynchronous input context must be ready.
+        bindings(pid)
+        (BASE / 'ready').write_text(pid)
+        while engine.poll() is None and proxy.poll() is None:
+            time.sleep(.5)
+    finally:
+        (BASE / 'ready').unlink(missing_ok=True)
+        restore()
+        for child in reversed(children):
+            if child.poll() is None:
+                child.terminate()
+                try:
+                    child.wait(timeout=3)
+                except subprocess.TimeoutExpired:
+                    child.kill()
+        # On this Android kernel dbus-run-session can leave its daemon behind.
+        # Close our private bus explicitly after restoring keys and saving words.
+        if bus_pid and bus_start and identity(bus_pid) == bus_start:
+            os.kill(bus_pid, signal.SIGTERM)
+
+def main():
+    if os.getuid() != 1000:
+        raise SystemExit('Run arch-terminal-input as linux.')
+    BASE.mkdir(mode=0o700, parents=True, exist_ok=True)
+    action = sys.argv[1] if len(sys.argv) == 2 else 'status'
+    if action == '_daemon':
+        return run_daemon()
+    with (BASE / 'lock').open('w') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        state = live()
+        if action == 'status':
+            print('ready' if state and (BASE / 'ready').exists() else 'stopped')
+        elif action == 'stop':
+            if state:
+                # This process group belongs exclusively to our private input bus.
+                # SIGTERM the daemon first so it restores the user's tmux keys.
+                for p in Path('/proc').iterdir():
+                    if not p.name.isdecimal():
+                        continue
+                    try:
+                        args = (p / 'cmdline').read_bytes().split(b'\0')
+                        if SELF.encode() in args and b'_daemon' in args and os.getpgid(int(p.name)) == state['pid']:
+                            os.kill(int(p.name), signal.SIGTERM)
+                    except (OSError, ProcessLookupError):
+                        pass
+                for _ in range(60):
+                    if not live():
+                        break
+                    time.sleep(.1)
+                try:
+                    os.killpg(state['pid'], signal.SIGTERM)
+                except ProcessLookupError:
+                    pass
+            restore()
+            (BASE / 'ready').unlink(missing_ok=True)
+            (BASE / 'process.json').unlink(missing_ok=True)
+        elif action == 'start':
+            if desktop() or not server():
+                return
+            if state and (BASE / 'ready').exists():
+                return
+            if state:
+                raise RuntimeError('Input method is already starting; retry shortly')
+            restore()  # Recover an interrupted previous run on the same server.
+            (BASE / 'ready').unlink(missing_ok=True)
+            with (BASE / 'service.log').open('w') as log:
+                child = subprocess.Popen(['/usr/bin/dbus-run-session', '--', SELF, '_daemon'],
+                                         stdin=subprocess.DEVNULL, stdout=log, stderr=log,
+                                         start_new_session=True)
+            (BASE / 'process.json').write_text(json.dumps({'pid': child.pid, 'start': identity(child.pid)}))
+            for _ in range(100):
+                if (BASE / 'ready').exists():
+                    return
+                if child.poll() is not None:
+                    raise RuntimeError('Input startup failed; see ' + str(BASE / 'service.log'))
+                time.sleep(.1)
+            raise RuntimeError('Input startup timed out; see ' + str(BASE / 'service.log'))
+        else:
+            raise SystemExit('Usage: arch-terminal-input start|stop|status')
+
+if __name__ == '__main__':
+    main()

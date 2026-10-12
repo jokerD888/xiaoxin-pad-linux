@@ -1,0 +1,8165 @@
+{
+  "format": 1,
+  "type": "clean-rootfs-preview",
+  "user": "linux",
+  "uid": 1000,
+  "packages": [
+    {
+      "name": "7zip",
+      "version": "26.02-1",
+      "licenses": [
+        "LGPL-2.1-or-later AND LicenseRef-UnRAR AND BSD-3-Clause AND BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://www.7-zip.org"
+      ]
+    },
+    {
+      "name": "aalib",
+      "version": "1.4rc5-19",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://aa-project.sourceforge.net/aalib/"
+      ]
+    },
+    {
+      "name": "abseil-cpp",
+      "version": "20260817.0-2",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://abseil.io"
+      ]
+    },
+    {
+      "name": "accountsservice",
+      "version": "26.27.3-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/accountsservice/accountsservice"
+      ]
+    },
+    {
+      "name": "acl",
+      "version": "2.4.0-1",
+      "licenses": [
+        "LGPL-2.1-or-later AND GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://savannah.nongnu.org/projects/acl"
+      ]
+    },
+    {
+      "name": "adwaita-cursors",
+      "version": "50.0-1",
+      "licenses": [
+        "CC-BY-SA-3.0 OR LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/adwaita-icon-theme"
+      ]
+    },
+    {
+      "name": "adwaita-fonts",
+      "version": "51.0-2",
+      "licenses": [
+        "OFL-1.1"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/adwaita-fonts"
+      ]
+    },
+    {
+      "name": "adwaita-icon-theme",
+      "version": "50.0-1",
+      "licenses": [
+        "CC-BY-SA-3.0 OR LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/adwaita-icon-theme"
+      ]
+    },
+    {
+      "name": "adwaita-icon-theme-legacy",
+      "version": "46.2-3",
+      "licenses": [
+        "CC-BY-SA-3.0 OR LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/adwaita-icon-theme-legacy"
+      ]
+    },
+    {
+      "name": "aha",
+      "version": "0.5.1-3",
+      "licenses": [
+        "MPL-1.1",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/theZiz/aha"
+      ]
+    },
+    {
+      "name": "alsa-card-profiles",
+      "version": "1:1.6.8-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://pipewire.org"
+      ]
+    },
+    {
+      "name": "alsa-lib",
+      "version": "1.2.16.1-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.alsa-project.org"
+      ]
+    },
+    {
+      "name": "alsa-topology-conf",
+      "version": "1.2.5.1-4",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://alsa-project.org/"
+      ]
+    },
+    {
+      "name": "alsa-ucm-conf",
+      "version": "1.2.16.1-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://alsa-project.org/"
+      ]
+    },
+    {
+      "name": "android-tools",
+      "version": "37.0.0-5",
+      "licenses": [
+        "Apache-2.0 AND BSD-3-Clause AND GPL-2.0-or-later AND LGPL-2.1-or-later AND MIT AND libselinux-1.0"
+      ],
+      "upstream": [
+        "https://developer.android.com/tools"
+      ]
+    },
+    {
+      "name": "aom",
+      "version": "3.15.1-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://aomedia.org/"
+      ]
+    },
+    {
+      "name": "appstream",
+      "version": "1.2.0-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://distributions.freedesktop.org/wiki/AppStream"
+      ]
+    },
+    {
+      "name": "appstream-qt",
+      "version": "1.2.0-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://distributions.freedesktop.org/wiki/AppStream"
+      ]
+    },
+    {
+      "name": "archlinux-keyring",
+      "version": "20260909-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.archlinux.org/archlinux/archlinux-keyring/"
+      ]
+    },
+    {
+      "name": "archlinuxarm-keyring",
+      "version": "20240419-2",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "http://archlinuxarm.org"
+      ]
+    },
+    {
+      "name": "ark",
+      "version": "26.08.1-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://apps.kde.org/ark/"
+      ]
+    },
+    {
+      "name": "assimp",
+      "version": "6.0.5-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/assimp/assimp"
+      ]
+    },
+    {
+      "name": "at-spi2-core",
+      "version": "2.60.7-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/at-spi2-core"
+      ]
+    },
+    {
+      "name": "attica",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "attr",
+      "version": "2.6.0-1",
+      "licenses": [
+        "LGPL-2.1-or-later AND GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://savannah.nongnu.org/projects/attr"
+      ]
+    },
+    {
+      "name": "audit",
+      "version": "4.2.1-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/linux-audit/audit-userspace"
+      ]
+    },
+    {
+      "name": "aurorae",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "autoconf",
+      "version": "2.73-1",
+      "licenses": [
+        "GPL2",
+        "GPL3",
+        "custom"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/autoconf"
+      ]
+    },
+    {
+      "name": "automake",
+      "version": "1.18.1-1",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/automake"
+      ]
+    },
+    {
+      "name": "avahi",
+      "version": "1:0.9rc5-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/avahi/avahi"
+      ]
+    },
+    {
+      "name": "baloo",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "baloo-widgets",
+      "version": "26.08.1-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.kde.org/"
+      ]
+    },
+    {
+      "name": "base",
+      "version": "3-3",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://www.archlinux.org"
+      ]
+    },
+    {
+      "name": "base-devel",
+      "version": "1-2",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://www.archlinux.org"
+      ]
+    },
+    {
+      "name": "bash",
+      "version": "5.3.20-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/bash/bash.html"
+      ]
+    },
+    {
+      "name": "bash-completion",
+      "version": "2.18.0-1",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://github.com/scop/bash-completion"
+      ]
+    },
+    {
+      "name": "benchmark",
+      "version": "1.9.5-2",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://github.com/google/benchmark"
+      ]
+    },
+    {
+      "name": "bind",
+      "version": "9.20.29-1",
+      "licenses": [
+        "MPL2"
+      ],
+      "upstream": [
+        "https://www.isc.org/software/bind/"
+      ]
+    },
+    {
+      "name": "binutils",
+      "version": "2.46+r70+g155188ea10a7-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "GPL-3.0-or-later",
+        "LGPL-2.0-or-later",
+        "LGPL-3.0-or-later",
+        "GFDL-1.3",
+        "FSFAP"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/binutils/"
+      ]
+    },
+    {
+      "name": "bison",
+      "version": "3.8.2-8",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/bison/bison.html"
+      ]
+    },
+    {
+      "name": "bluez-libs",
+      "version": "5.87-2",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "http://www.bluez.org/"
+      ]
+    },
+    {
+      "name": "boost-libs",
+      "version": "1.92.0-1",
+      "licenses": [
+        "BSL-1.0"
+      ],
+      "upstream": [
+        "https://www.boost.org/"
+      ]
+    },
+    {
+      "name": "breeze",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "breeze-cursors",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "breeze-icons",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-3.0-or-later",
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "brotli",
+      "version": "1.2.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/google/brotli"
+      ]
+    },
+    {
+      "name": "bubblewrap",
+      "version": "0.12.0-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/containers/bubblewrap"
+      ]
+    },
+    {
+      "name": "bzip2",
+      "version": "1.0.8-6",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://sourceware.org/bzip2/"
+      ]
+    },
+    {
+      "name": "ca-certificates",
+      "version": "20240618-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://src.fedoraproject.org/rpms/ca-certificates"
+      ]
+    },
+    {
+      "name": "ca-certificates-mozilla",
+      "version": "3.129-1",
+      "licenses": [
+        "MPL-2.0"
+      ],
+      "upstream": [
+        "https://firefox-source-docs.mozilla.org/security/nss/index.html"
+      ]
+    },
+    {
+      "name": "ca-certificates-utils",
+      "version": "20240618-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://src.fedoraproject.org/rpms/ca-certificates"
+      ]
+    },
+    {
+      "name": "cairo",
+      "version": "1.18.4-1",
+      "licenses": [
+        "LGPL-2.1-only OR MPL-1.1"
+      ],
+      "upstream": [
+        "https://cairographics.org/"
+      ]
+    },
+    {
+      "name": "cdparanoia",
+      "version": "10.2-10",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.xiph.org/paranoia/"
+      ]
+    },
+    {
+      "name": "cfitsio",
+      "version": "1:4.7.0-1",
+      "licenses": [
+        "LicenseRef-cfitsio"
+      ],
+      "upstream": [
+        "https://heasarc.gsfc.nasa.gov/fitsio/"
+      ]
+    },
+    {
+      "name": "cifs-utils",
+      "version": "7.5-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://wiki.samba.org/index.php/LinuxCIFS_utils"
+      ]
+    },
+    {
+      "name": "clinfo",
+      "version": "3.0.25.02.14-1",
+      "licenses": [
+        "custom:Public Domain"
+      ],
+      "upstream": [
+        "https://github.com/Oblomov/clinfo"
+      ]
+    },
+    {
+      "name": "cloudflared",
+      "version": "2026.9.3-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://github.com/cloudflare/cloudflared"
+      ]
+    },
+    {
+      "name": "convertlit",
+      "version": "1.8-13",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "http://www.convertlit.com/"
+      ]
+    },
+    {
+      "name": "coreutils",
+      "version": "9.11-2",
+      "licenses": [
+        "GPL-3.0-or-later",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/coreutils/"
+      ]
+    },
+    {
+      "name": "cpio",
+      "version": "2.15-3",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/cpio"
+      ]
+    },
+    {
+      "name": "cryptsetup",
+      "version": "2.8.8-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.com/cryptsetup/cryptsetup/"
+      ]
+    },
+    {
+      "name": "curl",
+      "version": "8.22.0-1",
+      "licenses": [
+        "curl"
+      ],
+      "upstream": [
+        "https://curl.se/"
+      ]
+    },
+    {
+      "name": "dav1d",
+      "version": "1.5.4-1",
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://code.videolan.org/videolan/dav1d"
+      ]
+    },
+    {
+      "name": "db5.3",
+      "version": "5.3.28-7",
+      "licenses": [
+        "Sleepycat"
+      ],
+      "upstream": [
+        "https://www.oracle.com/technology/software/products/berkeley-db/index.html"
+      ]
+    },
+    {
+      "name": "dbus",
+      "version": "1.16.2-1",
+      "licenses": [
+        "AFL-2.1 OR GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/dbus/"
+      ]
+    },
+    {
+      "name": "dbus-broker",
+      "version": "37-3",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://github.com/bus1/dbus-broker/wiki"
+      ]
+    },
+    {
+      "name": "dbus-broker-units",
+      "version": "37-3",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://github.com/bus1/dbus-broker/wiki"
+      ]
+    },
+    {
+      "name": "dbus-units",
+      "version": "37-3",
+      "licenses": [
+        "CC0-1.0"
+      ],
+      "upstream": [
+        "https://github.com/bus1/dbus-broker/wiki"
+      ]
+    },
+    {
+      "name": "dconf",
+      "version": "0.49.0-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://wiki.gnome.org/Projects/dconf"
+      ]
+    },
+    {
+      "name": "ddcutil",
+      "version": "3.0.1-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.ddcutil.com/"
+      ]
+    },
+    {
+      "name": "debugedit",
+      "version": "5.3-2",
+      "licenses": [
+        "GPL-3.0-or-later",
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://sourceware.org/debugedit/"
+      ]
+    },
+    {
+      "name": "default-cursors",
+      "version": "3-1",
+      "licenses": [
+        "CC0-1.0"
+      ],
+      "upstream": [
+        "https://archlinux.org"
+      ]
+    },
+    {
+      "name": "desktop-file-utils",
+      "version": "0.28-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/desktop-file-utils"
+      ]
+    },
+    {
+      "name": "device-mapper",
+      "version": "2.03.42-1",
+      "licenses": [
+        "GPL-2.0-only",
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "http://sourceware.org/dm/"
+      ]
+    },
+    {
+      "name": "dialog",
+      "version": "1:1.3_20260721-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://invisible-island.net/dialog/"
+      ]
+    },
+    {
+      "name": "diffutils",
+      "version": "3.12-2",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/diffutils"
+      ]
+    },
+    {
+      "name": "dmidecode",
+      "version": "3.7-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.nongnu.org/dmidecode"
+      ]
+    },
+    {
+      "name": "dnssec-anchors",
+      "version": "20250524-1",
+      "licenses": [
+        "custom:none"
+      ],
+      "upstream": [
+        "https://data.iana.org/root-anchors/"
+      ]
+    },
+    {
+      "name": "docbook-xml",
+      "version": "4.5-11",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://www.oasis-open.org/docbook/"
+      ]
+    },
+    {
+      "name": "docbook-xsl",
+      "version": "1.79.2-9",
+      "licenses": [
+        "LicenseRef-docbook-XSL"
+      ],
+      "upstream": [
+        "https://docbook.org/"
+      ]
+    },
+    {
+      "name": "dolphin",
+      "version": "26.08.1-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://apps.kde.org/dolphin/"
+      ]
+    },
+    {
+      "name": "dolphin-plugins",
+      "version": "26.08.1-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://apps.kde.org/dolphin_plugins/"
+      ]
+    },
+    {
+      "name": "double-conversion",
+      "version": "3.4.0-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/google/double-conversion"
+      ]
+    },
+    {
+      "name": "duktape",
+      "version": "2.7.0-7",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://duktape.org/"
+      ]
+    },
+    {
+      "name": "e2fsprogs",
+      "version": "1.47.4-1",
+      "licenses": [
+        "GPL",
+        "LGPL",
+        "MIT"
+      ],
+      "upstream": [
+        "http://e2fsprogs.sourceforge.net"
+      ]
+    },
+    {
+      "name": "ebook-tools",
+      "version": "0.2.2-9",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://sourceforge.net/projects/ebook-tools/"
+      ]
+    },
+    {
+      "name": "editorconfig-core-c",
+      "version": "0.12.11-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/editorconfig/editorconfig-core-c"
+      ]
+    },
+    {
+      "name": "elfutils",
+      "version": "0.196-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://sourceware.org/elfutils/"
+      ]
+    },
+    {
+      "name": "enchant",
+      "version": "2.8.21-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://rrthomas.github.io/enchant/"
+      ]
+    },
+    {
+      "name": "exfatprogs",
+      "version": "1.4.3-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/exfatprogs/exfatprogs"
+      ]
+    },
+    {
+      "name": "exiv2",
+      "version": "0.28.9-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://exiv2.org"
+      ]
+    },
+    {
+      "name": "expat",
+      "version": "2.8.4-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://libexpat.github.io/"
+      ]
+    },
+    {
+      "name": "fakeroot-tcp",
+      "version": "1.37.1.1-1",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://tracker.debian.org/pkg/fakeroot"
+      ]
+    },
+    {
+      "name": "fastfetch",
+      "version": "2.68.1-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/fastfetch-cli/fastfetch"
+      ]
+    },
+    {
+      "name": "fcitx5",
+      "version": "5.1.22-1",
+      "licenses": [
+        "LGPL-2.1-or-later",
+        "Unicode-DFS-2016"
+      ],
+      "upstream": [
+        "https://github.com/fcitx/fcitx5"
+      ]
+    },
+    {
+      "name": "fcitx5-chinese-addons",
+      "version": "5.1.14-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/fcitx/fcitx5-chinese-addons"
+      ]
+    },
+    {
+      "name": "fcitx5-configtool",
+      "version": "5.1.15-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/fcitx/fcitx5-configtool"
+      ]
+    },
+    {
+      "name": "fcitx5-gtk",
+      "version": "5.1.7-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/fcitx/fcitx5-gtk"
+      ]
+    },
+    {
+      "name": "fcitx5-qt",
+      "version": "5.1.15-1",
+      "licenses": [
+        "LGPL-2.1-or-later",
+        "BSD-3-Clause",
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/fcitx/fcitx5-qt"
+      ]
+    },
+    {
+      "name": "ffmpeg",
+      "version": "2:9.0.1-4",
+      "licenses": [
+        "GPL-3.0-only"
+      ],
+      "upstream": [
+        "https://ffmpeg.org"
+      ]
+    },
+    {
+      "name": "ffmpegthumbs",
+      "version": "26.08.1-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://apps.kde.org/ffmpegthumbs/"
+      ]
+    },
+    {
+      "name": "fftw",
+      "version": "3.3.11-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "http://www.fftw.org/"
+      ]
+    },
+    {
+      "name": "file",
+      "version": "5.48-1",
+      "licenses": [
+        "BSD-2-Clause-Darwin"
+      ],
+      "upstream": [
+        "https://www.darwinsys.com/file/"
+      ]
+    },
+    {
+      "name": "filelight",
+      "version": "26.08.1-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://apps.kde.org/filelight/"
+      ]
+    },
+    {
+      "name": "filesystem",
+      "version": "2025.10.12-1",
+      "licenses": [
+        "0BSD"
+      ],
+      "upstream": [
+        "https://archlinux.org"
+      ]
+    },
+    {
+      "name": "findutils",
+      "version": "4.11.0-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/findutils/"
+      ]
+    },
+    {
+      "name": "flac",
+      "version": "1.5.0-1",
+      "licenses": [
+        "BSD-3-Clause",
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://xiph.org/flac/"
+      ]
+    },
+    {
+      "name": "flex",
+      "version": "2.6.4-6",
+      "licenses": [
+        "custom:flex"
+      ],
+      "upstream": [
+        "https://github.com/westes/flex"
+      ]
+    },
+    {
+      "name": "fmt",
+      "version": "12.2.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://fmt.dev"
+      ]
+    },
+    {
+      "name": "fontconfig",
+      "version": "2:2.18.3-2",
+      "licenses": [
+        "HPND AND Unicode-DFS-2016"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/fontconfig/"
+      ]
+    },
+    {
+      "name": "frameworkintegration",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "freeglut",
+      "version": "3.8.0-1",
+      "licenses": [
+        "X11"
+      ],
+      "upstream": [
+        "https://freeglut.sourceforge.net/"
+      ]
+    },
+    {
+      "name": "freetype2",
+      "version": "2.14.3-1",
+      "licenses": [
+        "FTL OR GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.freetype.org/"
+      ]
+    },
+    {
+      "name": "fribidi",
+      "version": "1.0.16-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/fribidi/fribidi"
+      ]
+    },
+    {
+      "name": "fuse-common",
+      "version": "3.18.3-1",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://github.com/libfuse/libfuse"
+      ]
+    },
+    {
+      "name": "fuse2",
+      "version": "2.9.9-6",
+      "licenses": [
+        "GPL-2.0-only",
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://github.com/libfuse/libfuse"
+      ]
+    },
+    {
+      "name": "fuse3",
+      "version": "3.18.3-1",
+      "licenses": [
+        "GPL-2.0-only",
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://github.com/libfuse/libfuse"
+      ]
+    },
+    {
+      "name": "gawk",
+      "version": "5.4.1-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/gawk/"
+      ]
+    },
+    {
+      "name": "gc",
+      "version": "8.2.12-1",
+      "licenses": [
+        "LicenseRef-GC",
+        "MIT"
+      ],
+      "upstream": [
+        "https://www.hboehm.info/gc/"
+      ]
+    },
+    {
+      "name": "gcc",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "gcc-libs",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "gcr-4",
+      "version": "4.4.1-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/gcr"
+      ]
+    },
+    {
+      "name": "gdb",
+      "version": "17.2-1",
+      "licenses": [
+        "GPL-3.0-or-later",
+        "LGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/gdb/"
+      ]
+    },
+    {
+      "name": "gdb-common",
+      "version": "17.2-1",
+      "licenses": [
+        "GPL-3.0-or-later",
+        "LGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/gdb/"
+      ]
+    },
+    {
+      "name": "gdbm",
+      "version": "1.26-2",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/gdbm/gdbm.html"
+      ]
+    },
+    {
+      "name": "gdk-pixbuf2",
+      "version": "2.44.6-2",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/gdk-pixbuf"
+      ]
+    },
+    {
+      "name": "gettext",
+      "version": "1.0-2",
+      "licenses": [
+        "GFDL-1.2-only",
+        "GPL-2.0-only",
+        "GPL-2.0-or-later",
+        "LGPL-2.0-only"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/gettext/"
+      ]
+    },
+    {
+      "name": "ghostscript",
+      "version": "10.08.0-1",
+      "licenses": [
+        "AGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.ghostscript.com/"
+      ]
+    },
+    {
+      "name": "giflib",
+      "version": "6.1.3-2",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://giflib.sourceforge.net/"
+      ]
+    },
+    {
+      "name": "git",
+      "version": "2.55.0-1",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://git-scm.com/"
+      ]
+    },
+    {
+      "name": "glib-networking",
+      "version": "1:2.80.1-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/glib-networking"
+      ]
+    },
+    {
+      "name": "glib2",
+      "version": "2.88.3-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/glib"
+      ]
+    },
+    {
+      "name": "glibc",
+      "version": "2.43+r22+g8362e8ce10b2-2",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/libc"
+      ]
+    },
+    {
+      "name": "glmark2",
+      "version": "2023.01-2",
+      "licenses": [
+        "GPL3",
+        "custom:SGI"
+      ],
+      "upstream": [
+        "https://github.com/glmark2/glmark2"
+      ]
+    },
+    {
+      "name": "glslang",
+      "version": "1:1.4.357.0-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/KhronosGroup/glslang"
+      ]
+    },
+    {
+      "name": "glu",
+      "version": "9.0.3-3",
+      "licenses": [
+        "SGI-B-2.0",
+        "MIT"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/mesa/glu"
+      ]
+    },
+    {
+      "name": "glycin",
+      "version": "2.1.5-2",
+      "licenses": [
+        "MPL-2.0 OR LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gnome.pages.gitlab.gnome.org/glycin/"
+      ]
+    },
+    {
+      "name": "gmp",
+      "version": "6.3.0-3",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://gmplib.org/"
+      ]
+    },
+    {
+      "name": "gnulib-l10n",
+      "version": "20241231-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/gnulib/"
+      ]
+    },
+    {
+      "name": "gnupg",
+      "version": "2.4.9-3",
+      "licenses": [
+        "BSD-2-Clause",
+        "BSD-3-Clause",
+        "BSD-4-Clause",
+        "CC0-1.0",
+        "GPL-2.0-or-later",
+        "GPL-3.0-or-later",
+        "LGPL-2.1-or-later",
+        "LGPL-3.0-or-later OR GPL-2.0-or-later",
+        "MIT",
+        "Unicode-TOU"
+      ],
+      "upstream": [
+        "https://www.gnupg.org/"
+      ]
+    },
+    {
+      "name": "gnutls",
+      "version": "3.8.13-3",
+      "licenses": [
+        "GPL-3.0-or-later AND LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.gnutls.org/"
+      ]
+    },
+    {
+      "name": "gperftools",
+      "version": "2.18.1-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/gperftools/gperftools"
+      ]
+    },
+    {
+      "name": "gpgme",
+      "version": "2.2.0-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later",
+        "LGPL-2.1-or-later",
+        "MIT"
+      ],
+      "upstream": [
+        "https://www.gnupg.org/related_software/gpgme/"
+      ]
+    },
+    {
+      "name": "gpgmepp",
+      "version": "2.2.0-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://gnupg.org/software/gpgme/index.html"
+      ]
+    },
+    {
+      "name": "gpm",
+      "version": "1.20.7.r38.ge82d1a6-7",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://www.nico.schottelius.org/software/gpm/"
+      ]
+    },
+    {
+      "name": "graphene",
+      "version": "1.10.8-2.1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://ebassi.github.io/graphene/"
+      ]
+    },
+    {
+      "name": "graphite",
+      "version": "1:1.3.15-1",
+      "licenses": [
+        "LGPL-2.1-or-later OR MPL-2.0 OR GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://graphite.sil.org/"
+      ]
+    },
+    {
+      "name": "grep",
+      "version": "3.12-2",
+      "licenses": [
+        "GPL3"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/grep/"
+      ]
+    },
+    {
+      "name": "groff",
+      "version": "1.24.1-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/groff/groff.html"
+      ]
+    },
+    {
+      "name": "gsettings-desktop-schemas",
+      "version": "50.1-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/gsettings-desktop-schemas"
+      ]
+    },
+    {
+      "name": "gsettings-system-schemas",
+      "version": "50.1-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/gsettings-desktop-schemas"
+      ]
+    },
+    {
+      "name": "gsm",
+      "version": "1.0.24-1",
+      "licenses": [
+        "custom"
+      ],
+      "upstream": [
+        "https://www.quut.com/gsm/"
+      ]
+    },
+    {
+      "name": "gssdp",
+      "version": "1.6.6-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://wiki.gnome.org/Projects/GUPnP"
+      ]
+    },
+    {
+      "name": "gst-plugins-bad-libs",
+      "version": "1.28.7-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gstreamer.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "gst-plugins-base",
+      "version": "1.28.7-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gstreamer.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "gst-plugins-base-libs",
+      "version": "1.28.7-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gstreamer.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "gst-plugins-good",
+      "version": "1.28.7-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gstreamer.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "gstreamer",
+      "version": "1.28.7-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gstreamer.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "gtest",
+      "version": "1.18.0-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/google/googletest"
+      ]
+    },
+    {
+      "name": "gtk-update-icon-cache",
+      "version": "1:4.22.5-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.gtk.org/"
+      ]
+    },
+    {
+      "name": "gtk3",
+      "version": "1:3.24.52-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.gtk.org/"
+      ]
+    },
+    {
+      "name": "guile",
+      "version": "3.0.11-1",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/guile/"
+      ]
+    },
+    {
+      "name": "gumbo-parser",
+      "version": "0.13.2-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://codeberg.org/gumbo-parser/gumbo-parser/"
+      ]
+    },
+    {
+      "name": "gupnp",
+      "version": "1:1.6.10-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://wiki.gnome.org/Projects/GUPnP"
+      ]
+    },
+    {
+      "name": "gupnp-igd",
+      "version": "1.6.0-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://wiki.gnome.org/Projects/GUPnP"
+      ]
+    },
+    {
+      "name": "gvfs",
+      "version": "1.60.3-3",
+      "licenses": [
+        "LGPL-2.0-only"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/gvfs"
+      ]
+    },
+    {
+      "name": "gvfs-mtp",
+      "version": "1.60.3-3",
+      "licenses": [
+        "LGPL-2.0-only"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/gvfs"
+      ]
+    },
+    {
+      "name": "gzip",
+      "version": "1.14-2",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/gzip/"
+      ]
+    },
+    {
+      "name": "harfbuzz",
+      "version": "14.5.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://harfbuzz.github.io/"
+      ]
+    },
+    {
+      "name": "harfbuzz-icu",
+      "version": "14.5.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://harfbuzz.github.io/"
+      ]
+    },
+    {
+      "name": "hdf5",
+      "version": "2.2.0-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://www.hdfgroup.org/hdf5"
+      ]
+    },
+    {
+      "name": "hicolor-icon-theme",
+      "version": "0.18-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xdg/default-icon-theme"
+      ]
+    },
+    {
+      "name": "hidapi",
+      "version": "0.15.0-1",
+      "licenses": [
+        "GPL3",
+        "BSD",
+        "custom"
+      ],
+      "upstream": [
+        "https://github.com/libusb/hidapi"
+      ]
+    },
+    {
+      "name": "highway",
+      "version": "1.4.0-1",
+      "licenses": [
+        "Apache-2.0 OR BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/google/highway/"
+      ]
+    },
+    {
+      "name": "hunspell",
+      "version": "1.7.3-1",
+      "licenses": [
+        "LGPL-2.1-or-later OR GPL-2.0-or-later OR MPL-1.1"
+      ],
+      "upstream": [
+        "https://github.com/hunspell/hunspell"
+      ]
+    },
+    {
+      "name": "hwdata",
+      "version": "0.411-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/vcrhonek/hwdata"
+      ]
+    },
+    {
+      "name": "hwloc",
+      "version": "2.14.0-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://www.open-mpi.org/projects/hwloc/"
+      ]
+    },
+    {
+      "name": "hyphen",
+      "version": "2.8.9-1",
+      "licenses": [
+        "GPL-2.0-only OR LGPL-2.1-or-later OR MPL-1.1"
+      ],
+      "upstream": [
+        "https://github.com/hunspell/hyphen"
+      ]
+    },
+    {
+      "name": "i2c-tools",
+      "version": "4.4-4",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://i2c.wiki.kernel.org/index.php/I2C_Tools"
+      ]
+    },
+    {
+      "name": "iana-etc",
+      "version": "20260617-1",
+      "licenses": [
+        "custom:none"
+      ],
+      "upstream": [
+        "https://www.iana.org/protocols"
+      ]
+    },
+    {
+      "name": "icu",
+      "version": "78.3-1",
+      "licenses": [
+        "LicenseRef-Unicode-3.0",
+        "BSD-2-Clause",
+        "BSD-3-Clause",
+        "NAIST-2003"
+      ],
+      "upstream": [
+        "https://icu.unicode.org"
+      ]
+    },
+    {
+      "name": "iio-sensor-proxy",
+      "version": "3.9-1",
+      "licenses": [
+        "GPL-3.0-only"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/"
+      ]
+    },
+    {
+      "name": "ijs",
+      "version": "0.35-7",
+      "licenses": [
+        "AGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.openprinting.org/download/ijs/"
+      ]
+    },
+    {
+      "name": "imath",
+      "version": "3.2.3-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://www.openexr.com/"
+      ]
+    },
+    {
+      "name": "imlib2",
+      "version": "1.12.7-3",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://sourceforge.net/projects/enlightenment/"
+      ]
+    },
+    {
+      "name": "iproute2",
+      "version": "7.2.0-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://git.kernel.org/pub/scm/network/iproute2/iproute2.git"
+      ]
+    },
+    {
+      "name": "iptables",
+      "version": "1:1.8.13-1",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://www.netfilter.org/projects/iptables/index.html"
+      ]
+    },
+    {
+      "name": "iputils",
+      "version": "20250605-1",
+      "licenses": [
+        "BSD-3-Clause",
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/iputils/iputils"
+      ]
+    },
+    {
+      "name": "iso-codes",
+      "version": "4.20.1-1",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://salsa.debian.org/iso-codes-team/iso-codes"
+      ]
+    },
+    {
+      "name": "jack2",
+      "version": "1.9.22-2",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL2.1"
+      ],
+      "upstream": [
+        "https://github.com/jackaudio/jack2"
+      ]
+    },
+    {
+      "name": "jansson",
+      "version": "2.15.1-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://www.digip.org/jansson/"
+      ]
+    },
+    {
+      "name": "jbig2dec",
+      "version": "0.20-1",
+      "licenses": [
+        "GPL3"
+      ],
+      "upstream": [
+        "https://jbig2dec.com/"
+      ]
+    },
+    {
+      "name": "jbigkit",
+      "version": "2.1-8",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.cl.cam.ac.uk/~mgk25/jbigkit/"
+      ]
+    },
+    {
+      "name": "jemalloc",
+      "version": "1:5.4.0-1",
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://jemalloc.net/"
+      ]
+    },
+    {
+      "name": "jq",
+      "version": "1.8.2-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://jqlang.github.io/jq/"
+      ]
+    },
+    {
+      "name": "json-c",
+      "version": "0.19-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/json-c/json-c/wiki"
+      ]
+    },
+    {
+      "name": "json-glib",
+      "version": "1.10.8-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gnome.pages.gitlab.gnome.org/json-glib/"
+      ]
+    },
+    {
+      "name": "kaccounts-integration",
+      "version": "26.08.1-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.kde.org/"
+      ]
+    },
+    {
+      "name": "kactivitymanagerd",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "karchive",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kate",
+      "version": "26.08.1-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://apps.kde.org/kate/"
+      ]
+    },
+    {
+      "name": "kauth",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kbd",
+      "version": "2.10.0-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "http://www.kbd-project.org"
+      ]
+    },
+    {
+      "name": "kbookmarks",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kcmutils",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kcodecs",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kcolorscheme",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kcompletion",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kconfig",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kconfigwidgets",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kcoreaddons",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kcrash",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kdbusaddons",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kde-cli-tools",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "kdeclarative",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kdecoration",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "kded",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kdegraphics-mobipocket",
+      "version": "26.08.1-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://invent.kde.org/graphics/kdegraphics-mobipocket"
+      ]
+    },
+    {
+      "name": "kdegraphics-thumbnailers",
+      "version": "26.08.1-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://apps.kde.org/kdegraphics_thumbnailers/"
+      ]
+    },
+    {
+      "name": "kdesu",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kdnssd",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kdoctools",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kdsoap",
+      "version": "2.3.0-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/KDAB/KDSoap"
+      ]
+    },
+    {
+      "name": "kdsoap-ws-discovery-client",
+      "version": "0.4.0-3",
+      "licenses": [
+        "CC0-1.0",
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://caspermeijn.gitlab.io/kdsoap-ws-discovery-client/"
+      ]
+    },
+    {
+      "name": "keyutils",
+      "version": "1.6.3-4",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.kernel.org/"
+      ]
+    },
+    {
+      "name": "kfilemetadata",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kfind",
+      "version": "26.08.1-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://apps.kde.org/kfind/"
+      ]
+    },
+    {
+      "name": "kglobalaccel",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kglobalacceld",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "kguiaddons",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kholidays",
+      "version": "1:6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "ki18n",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kiconthemes",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kidletime",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kimageformats",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kinfocenter",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "kio",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kio-extras",
+      "version": "26.08.1-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.kde.org/"
+      ]
+    },
+    {
+      "name": "kio-fuse",
+      "version": "5.1.1-2",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/"
+      ]
+    },
+    {
+      "name": "kirigami",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kirigami-addons",
+      "version": "1.14.1-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://invent.kde.org/libraries/kirigami-addons"
+      ]
+    },
+    {
+      "name": "kitemmodels",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kitemviews",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kjobwidgets",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kmenuedit",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "kmod",
+      "version": "34.2-1",
+      "licenses": [
+        "LGPL-2.1-or-later",
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git"
+      ]
+    },
+    {
+      "name": "knewstuff",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "knighttime",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "knotifications",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "knotifyconfig",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "konsole",
+      "version": "26.08.1-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://apps.kde.org/konsole/"
+      ]
+    },
+    {
+      "name": "kpackage",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kparts",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kpipewire",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "kpty",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kquickcharts",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "krb5",
+      "version": "1.22.2-1",
+      "licenses": [
+        "custom"
+      ],
+      "upstream": [
+        "https://web.mit.edu/kerberos/"
+      ]
+    },
+    {
+      "name": "krunner",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kscreen",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "kscreenlocker",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "kservice",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kstatusnotifieritem",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "ksvg",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "ksystemstats",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "ktexteditor",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "ktextwidgets",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kunitconversion",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kuserfeedback",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kwallet",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kwayland",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "kwidgetsaddons",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kwin",
+      "version": "6.7.4-1.1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "kwin-x11",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "kwindowsystem",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "kxmlgui",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "l-smash",
+      "version": "2.14.5-4",
+      "licenses": [
+        "custom"
+      ],
+      "upstream": [
+        "https://github.com/l-smash/l-smash"
+      ]
+    },
+    {
+      "name": "lame",
+      "version": "4.0-1",
+      "licenses": [
+        "LGPL-2.0-only"
+      ],
+      "upstream": [
+        "http://lame.sourceforge.net/"
+      ]
+    },
+    {
+      "name": "layer-shell-qt",
+      "version": "6.7.5-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "lcms2",
+      "version": "2.19.1-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "http://www.littlecms.com/"
+      ]
+    },
+    {
+      "name": "ldb",
+      "version": "2:4.24.7-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://ldb.samba.org/"
+      ]
+    },
+    {
+      "name": "leancrypto",
+      "version": "1.9.0-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LicenseRef-BSDvariant",
+        "LicenseRef-leancrypto"
+      ],
+      "upstream": [
+        "https://leancrypto.org"
+      ]
+    },
+    {
+      "name": "libaccounts-glib",
+      "version": "1.27-3",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.com/accounts-sso/libaccounts-glib"
+      ]
+    },
+    {
+      "name": "libaccounts-qt",
+      "version": "1.17-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.com/accounts-sso/libaccounts-qt"
+      ]
+    },
+    {
+      "name": "libaec",
+      "version": "1.1.7-1",
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://gitlab.dkrz.de/k202009/libaec"
+      ]
+    },
+    {
+      "name": "libarchive",
+      "version": "3.8.9-1",
+      "licenses": [
+        "BSD-2-Clause",
+        "BSD-4-Clause-UC",
+        "Apache-2.0 OR CC0-1.0 OR OpenSSL"
+      ],
+      "upstream": [
+        "https://libarchive.org/"
+      ]
+    },
+    {
+      "name": "libasan",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "libass",
+      "version": "0.17.5-1",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://github.com/libass/libass/"
+      ]
+    },
+    {
+      "name": "libassuan",
+      "version": "3.0.0-1",
+      "licenses": [
+        "FSFULLR",
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.gnupg.org/related_software/libassuan/"
+      ]
+    },
+    {
+      "name": "libasyncns",
+      "version": "1:0.8+r3+g68cd5af-3",
+      "licenses": [
+        "LGPL"
+      ],
+      "upstream": [
+        "https://0pointer.net/lennart/projects/libasyncns/"
+      ]
+    },
+    {
+      "name": "libatasmart",
+      "version": "0.19-8",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://0pointer.de/blog/projects/being-smart.html"
+      ]
+    },
+    {
+      "name": "libatomic",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "libavc1394",
+      "version": "0.5.4-7",
+      "licenses": [
+        "GPL-2.0-or-later AND LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://sourceforge.net/projects/libavc1394/"
+      ]
+    },
+    {
+      "name": "libavif",
+      "version": "1.4.2-1",
+      "licenses": [
+        "LicenseRef-libavif"
+      ],
+      "upstream": [
+        "https://github.com/AOMediaCodec/libavif"
+      ]
+    },
+    {
+      "name": "libayatana-appindicator",
+      "version": "0.6.0-2",
+      "licenses": [
+        "GPL-3.0-only"
+      ],
+      "upstream": [
+        "https://github.com/AyatanaIndicators/libayatana-appindicator"
+      ]
+    },
+    {
+      "name": "libb2",
+      "version": "0.98.1-3",
+      "licenses": [
+        "CC0-1.0"
+      ],
+      "upstream": [
+        "https://blake2.net/"
+      ]
+    },
+    {
+      "name": "libblake3",
+      "version": "1.8.7-1",
+      "licenses": [
+        "CC0-1.0 OR Apache-2.0 OR Apache-2.0 WITH LLVM-exception"
+      ],
+      "upstream": [
+        "https://github.com/BLAKE3-team/BLAKE3"
+      ]
+    },
+    {
+      "name": "libblockdev",
+      "version": "3.5.0-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/storaged-project/libblockdev"
+      ]
+    },
+    {
+      "name": "libblockdev-crypto",
+      "version": "3.5.0-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/storaged-project/libblockdev"
+      ]
+    },
+    {
+      "name": "libblockdev-fs",
+      "version": "3.5.0-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/storaged-project/libblockdev"
+      ]
+    },
+    {
+      "name": "libblockdev-loop",
+      "version": "3.5.0-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/storaged-project/libblockdev"
+      ]
+    },
+    {
+      "name": "libblockdev-mdraid",
+      "version": "3.5.0-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/storaged-project/libblockdev"
+      ]
+    },
+    {
+      "name": "libblockdev-nvme",
+      "version": "3.5.0-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/storaged-project/libblockdev"
+      ]
+    },
+    {
+      "name": "libblockdev-part",
+      "version": "3.5.0-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/storaged-project/libblockdev"
+      ]
+    },
+    {
+      "name": "libblockdev-smart",
+      "version": "3.5.0-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/storaged-project/libblockdev"
+      ]
+    },
+    {
+      "name": "libblockdev-swap",
+      "version": "3.5.0-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/storaged-project/libblockdev"
+      ]
+    },
+    {
+      "name": "libbluray",
+      "version": "1.5.1-1",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://www.videolan.org/developers/libbluray.html"
+      ]
+    },
+    {
+      "name": "libbpf",
+      "version": "1.7.0-1",
+      "licenses": [
+        "LGPL-2.1-only OR BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://github.com/libbpf/libbpf"
+      ]
+    },
+    {
+      "name": "libbs2b",
+      "version": "3.1.0-10",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "http://bs2b.sourceforge.net"
+      ]
+    },
+    {
+      "name": "libbsd",
+      "version": "0.12.2-2",
+      "licenses": [
+        "custom"
+      ],
+      "upstream": [
+        "https://libbsd.freedesktop.org"
+      ]
+    },
+    {
+      "name": "libbytesize",
+      "version": "2.12-3",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/storaged-project/libbytesize"
+      ]
+    },
+    {
+      "name": "libcaca",
+      "version": "0.99.beta20-7",
+      "licenses": [
+        "WTFPL"
+      ],
+      "upstream": [
+        "http://caca.zoy.org/wiki/libcaca"
+      ]
+    },
+    {
+      "name": "libcanberra",
+      "version": "1:0.30+r2+gc0620e4-6",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://0pointer.net/lennart/projects/libcanberra/"
+      ]
+    },
+    {
+      "name": "libcap",
+      "version": "2.78-1",
+      "licenses": [
+        "BSD-3-Clause OR GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://sites.google.com/site/fullycapable/"
+      ]
+    },
+    {
+      "name": "libcap-ng",
+      "version": "0.9.6-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://people.redhat.com/sgrubb/libcap-ng/"
+      ]
+    },
+    {
+      "name": "libcdio",
+      "version": "2.4.0-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/libcdio/"
+      ]
+    },
+    {
+      "name": "libcdio-paranoia",
+      "version": "10.2+2.0.2-3",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/libcdio/"
+      ]
+    },
+    {
+      "name": "libcgif",
+      "version": "0.5.4-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/dloebl/cgif"
+      ]
+    },
+    {
+      "name": "libcloudproviders",
+      "version": "0.4.1-1",
+      "licenses": [
+        "LGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/libcloudproviders"
+      ]
+    },
+    {
+      "name": "libcolord",
+      "version": "1.4.8-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/software/colord/"
+      ]
+    },
+    {
+      "name": "libcups",
+      "version": "2:2.4.19-1",
+      "licenses": [
+        "Apache-2.0 WITH LLVM-exception AND BSD-3-Clause AND Zlib AND BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://openprinting.github.io/cups/"
+      ]
+    },
+    {
+      "name": "libdaemon",
+      "version": "0.14-6",
+      "licenses": [
+        "LGPL"
+      ],
+      "upstream": [
+        "http://0pointer.de/lennart/projects/libdaemon/"
+      ]
+    },
+    {
+      "name": "libdatrie",
+      "version": "0.2.14-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://linux.thai.net/projects/datrie"
+      ]
+    },
+    {
+      "name": "libdbusmenu-glib",
+      "version": "18.10.20180917-2",
+      "licenses": [
+        "LGPL-2.1-only OR LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://launchpad.net/libdbusmenu"
+      ]
+    },
+    {
+      "name": "libdbusmenu-gtk3",
+      "version": "18.10.20180917-2",
+      "licenses": [
+        "LGPL-2.1-only OR LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://launchpad.net/libdbusmenu"
+      ]
+    },
+    {
+      "name": "libde265",
+      "version": "1.1.3-1",
+      "licenses": [
+        "LGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/strukturag/libde265"
+      ]
+    },
+    {
+      "name": "libdecor",
+      "version": "0.2.5-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/libdecor/libdecor"
+      ]
+    },
+    {
+      "name": "libdeflate",
+      "version": "1.26-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/ebiggers/libdeflate"
+      ]
+    },
+    {
+      "name": "libdisplay-info",
+      "version": "0.3.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/emersion/libdisplay-info"
+      ]
+    },
+    {
+      "name": "libdmtx",
+      "version": "0.7.8-1",
+      "licenses": [
+        "LicenseRef-libdmtx"
+      ],
+      "upstream": [
+        "https://libdmtx.sourceforge.net/"
+      ]
+    },
+    {
+      "name": "libdovi",
+      "version": "3.4.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/quietvoid/dovi_tool/tree/main/dolby_vision"
+      ]
+    },
+    {
+      "name": "libdrm",
+      "version": "2.4.134-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://dri.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libdv",
+      "version": "1.0.0-12",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://libdv.sourceforge.net/"
+      ]
+    },
+    {
+      "name": "libdvdnav",
+      "version": "7.0.0-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.videolan.org/developers/libdvdnav.html"
+      ]
+    },
+    {
+      "name": "libdvdread",
+      "version": "7.1.1-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.videolan.org/developers/libdvdnav.html"
+      ]
+    },
+    {
+      "name": "libebur128",
+      "version": "1.2.6-2",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/jiixyj/libebur128"
+      ]
+    },
+    {
+      "name": "libedit",
+      "version": "20260512_3.1-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://thrysoee.dk/editline/"
+      ]
+    },
+    {
+      "name": "libei",
+      "version": "1.6.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://libinput.pages.freedesktop.org/libei/"
+      ]
+    },
+    {
+      "name": "libelf",
+      "version": "0.196-1",
+      "licenses": [
+        "GPL-2.0-or-later OR LGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://sourceware.org/elfutils/"
+      ]
+    },
+    {
+      "name": "libepoxy",
+      "version": "1.5.10-3",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/anholt/libepoxy"
+      ]
+    },
+    {
+      "name": "libevdev",
+      "version": "1.13.7-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/libevdev/"
+      ]
+    },
+    {
+      "name": "libevent",
+      "version": "2.1.13-2",
+      "licenses": [
+        "BSD-3-Clause-Modification"
+      ],
+      "upstream": [
+        "https://libevent.org/"
+      ]
+    },
+    {
+      "name": "libexif",
+      "version": "0.6.26-1",
+      "licenses": [
+        "LGPL"
+      ],
+      "upstream": [
+        "https://github.com/libexif/libexif"
+      ]
+    },
+    {
+      "name": "libfdk-aac",
+      "version": "2.0.3-2",
+      "licenses": [
+        "custom"
+      ],
+      "upstream": [
+        "https://sourceforge.net/projects/opencore-amr/"
+      ]
+    },
+    {
+      "name": "libffi",
+      "version": "3.8.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://sourceware.org/libffi/"
+      ]
+    },
+    {
+      "name": "libfontenc",
+      "version": "1.1.9-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libfontenc"
+      ]
+    },
+    {
+      "name": "libfreeaptx",
+      "version": "0.2.2-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/regularhunter/libfreeaptx"
+      ]
+    },
+    {
+      "name": "libfyaml",
+      "version": "0.9.6-3",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://pantoniou.github.io/libfyaml/"
+      ]
+    },
+    {
+      "name": "libgcc",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "libgcrypt",
+      "version": "1.12.4-1",
+      "licenses": [
+        "BSD-3-Clause",
+        "BSD-3-Clause OR GPL-2.0-only",
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later",
+        "LGPL-2.1-or-later",
+        "X11",
+        "LicenseRef-scancode-public-domain",
+        "LicenseRef-OCB1"
+      ],
+      "upstream": [
+        "https://www.gnupg.org"
+      ]
+    },
+    {
+      "name": "libgfortran",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "libglvnd",
+      "version": "1.7.0-3",
+      "licenses": [
+        "custom:BSD-like"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/glvnd/libglvnd"
+      ]
+    },
+    {
+      "name": "libgomp",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "libgpg-error",
+      "version": "1.61-1",
+      "licenses": [
+        "LGPL-2.1-or-later",
+        "BSD-3-Clause OR LGPL-2.1-or-later",
+        "FSFULLR",
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnupg.org"
+      ]
+    },
+    {
+      "name": "libgudev",
+      "version": "238-3",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/libgudev"
+      ]
+    },
+    {
+      "name": "libheif",
+      "version": "1.23.5-1",
+      "licenses": [
+        "LGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/strukturag/libheif"
+      ]
+    },
+    {
+      "name": "libice",
+      "version": "1.1.2-1",
+      "licenses": [
+        "MIT-open-group"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libidn",
+      "version": "1.44-1",
+      "licenses": [
+        "GPL3",
+        "LGPL"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/libidn/"
+      ]
+    },
+    {
+      "name": "libidn2",
+      "version": "2.3.8-1",
+      "licenses": [
+        "GPL2",
+        "LGPL3"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/libidn/#libidn2"
+      ]
+    },
+    {
+      "name": "libiec61883",
+      "version": "1.2.0-9",
+      "licenses": [
+        "LGPL"
+      ],
+      "upstream": [
+        "https://www.kernel.org/pub/linux/libs/ieee1394/"
+      ]
+    },
+    {
+      "name": "libimagequant",
+      "version": "4.4.1-2",
+      "licenses": [
+        "GPL-3.0-or-later",
+        "ISC",
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://pngquant.org/lib/"
+      ]
+    },
+    {
+      "name": "libime",
+      "version": "1.1.16-1",
+      "licenses": [
+        "LGPL-2.1-or-later",
+        "BSD-3-Clause",
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/fcitx/libime"
+      ]
+    },
+    {
+      "name": "libimobiledevice",
+      "version": "1.4.0-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://libimobiledevice.org/"
+      ]
+    },
+    {
+      "name": "libimobiledevice-glue",
+      "version": "1.3.2-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://libimobiledevice.org/"
+      ]
+    },
+    {
+      "name": "libinih",
+      "version": "62-2",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/benhoyt/inih"
+      ]
+    },
+    {
+      "name": "libinput",
+      "version": "1.32.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://wayland.freedesktop.org/libinput/doc/latest/"
+      ]
+    },
+    {
+      "name": "libisl",
+      "version": "0.28-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://libisl.sourceforge.io"
+      ]
+    },
+    {
+      "name": "libjpeg-turbo",
+      "version": "3.2.0-2",
+      "licenses": [
+        "BSD-3-Clause",
+        "IJG"
+      ],
+      "upstream": [
+        "https://libjpeg-turbo.org/"
+      ]
+    },
+    {
+      "name": "libjxl",
+      "version": "0.12.0-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://jpeg.org/jpegxl/"
+      ]
+    },
+    {
+      "name": "libkdcraw",
+      "version": "26.08.1-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.kde.org/"
+      ]
+    },
+    {
+      "name": "libkexiv2",
+      "version": "26.08.1-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.kde.org/"
+      ]
+    },
+    {
+      "name": "libksba",
+      "version": "1.8.1-1",
+      "licenses": [
+        "GPL-2.0-only",
+        "GPL-3.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://www.gnupg.org/related_software/libksba/"
+      ]
+    },
+    {
+      "name": "libkscreen",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "libksysguard",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "liblc3",
+      "version": "1.1.3-2",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://github.com/google/liblc3"
+      ]
+    },
+    {
+      "name": "libldac",
+      "version": "2.0.2.6-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://github.com/EHfive/ldacBT"
+      ]
+    },
+    {
+      "name": "libldap",
+      "version": "2.7.1-1",
+      "licenses": [
+        "custom"
+      ],
+      "upstream": [
+        "https://www.openldap.org/"
+      ]
+    },
+    {
+      "name": "liblsan",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "libmakepkg-dropins",
+      "version": "20-2",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.archlinux.org/pacman/libmakepkg-dropins"
+      ]
+    },
+    {
+      "name": "libmanette",
+      "version": "0.2.13-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gnome.pages.gitlab.gnome.org/libmanette/"
+      ]
+    },
+    {
+      "name": "libmatio",
+      "version": "1.5.30-1",
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://sourceforge.net/projects/matio"
+      ]
+    },
+    {
+      "name": "libmaxminddb",
+      "version": "1.14.1-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://maxmind.github.io/libmaxminddb/"
+      ]
+    },
+    {
+      "name": "libmbim",
+      "version": "1.34.0-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/libmbim/"
+      ]
+    },
+    {
+      "name": "libmd",
+      "version": "1.2.0-1",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://www.hadrons.org/software/libmd/"
+      ]
+    },
+    {
+      "name": "libmm-glib",
+      "version": "1.24.2-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/ModemManager/"
+      ]
+    },
+    {
+      "name": "libmnl",
+      "version": "1.0.5-2",
+      "licenses": [
+        "LGPL2.1"
+      ],
+      "upstream": [
+        "https://www.netfilter.org/projects/libmnl/"
+      ]
+    },
+    {
+      "name": "libmodplug",
+      "version": "0.8.9.0-7",
+      "licenses": [
+        "LicenseRef-PublicDomain"
+      ],
+      "upstream": [
+        "http://modplug-xmms.sourceforge.net/"
+      ]
+    },
+    {
+      "name": "libmpc",
+      "version": "1.4.1-1",
+      "licenses": [
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "http://www.multiprecision.org/"
+      ]
+    },
+    {
+      "name": "libmtp",
+      "version": "1.1.23-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "http://libmtp.sourceforge.net"
+      ]
+    },
+    {
+      "name": "libmysofa",
+      "version": "1.3.5-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/hoene/libmysofa/"
+      ]
+    },
+    {
+      "name": "libndp",
+      "version": "1.9-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "http://libndp.org/"
+      ]
+    },
+    {
+      "name": "libnetfilter_conntrack",
+      "version": "1.1.1-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.netfilter.org/projects/libnetfilter_conntrack/"
+      ]
+    },
+    {
+      "name": "libnewt",
+      "version": "0.52.25-2",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://pagure.io/newt"
+      ]
+    },
+    {
+      "name": "libnfnetlink",
+      "version": "1.0.2-2",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://www.netfilter.org/projects/libnfnetlink/"
+      ]
+    },
+    {
+      "name": "libnftnl",
+      "version": "1.3.2-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://netfilter.org/projects/libnftnl/"
+      ]
+    },
+    {
+      "name": "libnghttp2",
+      "version": "1.70.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://nghttp2.org/"
+      ]
+    },
+    {
+      "name": "libnghttp3",
+      "version": "1.18.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/ngtcp2/nghttp3"
+      ]
+    },
+    {
+      "name": "libngtcp2",
+      "version": "1.25.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/ngtcp2/ngtcp2"
+      ]
+    },
+    {
+      "name": "libnice",
+      "version": "0.1.24-1",
+      "licenses": [
+        "MPL-1.1 OR LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://libnice.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libnl",
+      "version": "3.12.0-1",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://github.com/thom311/libnl/"
+      ]
+    },
+    {
+      "name": "libnm",
+      "version": "1.58.1-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://networkmanager.dev/"
+      ]
+    },
+    {
+      "name": "libnotify",
+      "version": "0.8.8-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/libnotify"
+      ]
+    },
+    {
+      "name": "libnsl",
+      "version": "2.0.1-2",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://github.com/thkukuk/libnsl"
+      ]
+    },
+    {
+      "name": "libntfs-3g",
+      "version": "2026.7.7-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.tuxera.com/community/open-source-ntfs-3g/"
+      ]
+    },
+    {
+      "name": "libnvme",
+      "version": "1.16.2-2",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://github.com/linux-nvme/libnvme"
+      ]
+    },
+    {
+      "name": "libobjc",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "libogg",
+      "version": "1.3.6-1",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://www.xiph.org/ogg/"
+      ]
+    },
+    {
+      "name": "libopenmpt",
+      "version": "0.8.9-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://lib.openmpt.org/libopenmpt/"
+      ]
+    },
+    {
+      "name": "libp11-kit",
+      "version": "0.26.5-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://p11-glue.freedesktop.org"
+      ]
+    },
+    {
+      "name": "libpaper",
+      "version": "2.2.8-1",
+      "licenses": [
+        "LGPL-2.1-or-later",
+        "LicenseRef-Public-Domain",
+        "GPL-3.0-or-later",
+        "LGPL-2.0-or-later",
+        "FSFAP",
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/rrthomas/libpaper"
+      ]
+    },
+    {
+      "name": "libpcap",
+      "version": "1.11.0-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://www.tcpdump.org/"
+      ]
+    },
+    {
+      "name": "libpciaccess",
+      "version": "0.19-1",
+      "licenses": [
+        "LicenseRef-libpciaccess"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libpciaccess"
+      ]
+    },
+    {
+      "name": "libpgm",
+      "version": "5.3.128-4",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/steve-o/openpgm"
+      ]
+    },
+    {
+      "name": "libpipewire",
+      "version": "1:1.6.8-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://pipewire.org"
+      ]
+    },
+    {
+      "name": "libplacebo",
+      "version": "7.360.1-6",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/haasn/libplacebo"
+      ]
+    },
+    {
+      "name": "libplasma",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "libplist",
+      "version": "2.7.0-3",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://libimobiledevice.org/"
+      ]
+    },
+    {
+      "name": "libpng",
+      "version": "1.6.58-2",
+      "licenses": [
+        "libpng-2.0"
+      ],
+      "upstream": [
+        "http://www.libpng.org/pub/png/libpng.html"
+      ]
+    },
+    {
+      "name": "libproxy",
+      "version": "0.5.12-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://libproxy.github.io/libproxy/"
+      ]
+    },
+    {
+      "name": "libpsl",
+      "version": "0.21.5-2",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/rockdaboot/libpsl"
+      ]
+    },
+    {
+      "name": "libpulse",
+      "version": "17.0+r98+gb096704c0-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/PulseAudio/"
+      ]
+    },
+    {
+      "name": "libqaccessibilityclient-qt6",
+      "version": "0.6.0-4",
+      "licenses": [
+        "LGPL2.1"
+      ],
+      "upstream": [
+        "https://www.kde.org"
+      ]
+    },
+    {
+      "name": "libqalculate",
+      "version": "5.12.0-1",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://qalculate.github.io/"
+      ]
+    },
+    {
+      "name": "libqmi",
+      "version": "1.38.0-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/libqmi/"
+      ]
+    },
+    {
+      "name": "libqrtr-glib",
+      "version": "1.4.0-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/mobile-broadband/libqrtr-glib"
+      ]
+    },
+    {
+      "name": "libquadmath",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "libraw",
+      "version": "0.22.2-1",
+      "licenses": [
+        "CDDL-1.0",
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://www.libraw.org/"
+      ]
+    },
+    {
+      "name": "libraw1394",
+      "version": "2.1.2-4",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://ieee1394.wiki.kernel.org/index.php/Main_Page"
+      ]
+    },
+    {
+      "name": "librsvg",
+      "version": "2:2.62.3-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/librsvg"
+      ]
+    },
+    {
+      "name": "libsamplerate",
+      "version": "0.2.2-3",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://libsndfile.github.io/libsamplerate/"
+      ]
+    },
+    {
+      "name": "libsasl",
+      "version": "2.1.28-5",
+      "licenses": [
+        "BSD-3-Clause-Attribution"
+      ],
+      "upstream": [
+        "https://www.cyrusimap.org/sasl/"
+      ]
+    },
+    {
+      "name": "libseccomp",
+      "version": "2.6.0-1",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://github.com/seccomp/libseccomp"
+      ]
+    },
+    {
+      "name": "libsecret",
+      "version": "0.21.8.2-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://gnome.pages.gitlab.gnome.org/libsecret/"
+      ]
+    },
+    {
+      "name": "libshout",
+      "version": "1:2.4.6-5",
+      "licenses": [
+        "LGPL"
+      ],
+      "upstream": [
+        "https://www.icecast.org/"
+      ]
+    },
+    {
+      "name": "libsm",
+      "version": "1.2.6-1",
+      "licenses": [
+        "MIT",
+        "MIT-open-group"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libsndfile",
+      "version": "1.2.2-4",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://libsndfile.github.io/libsndfile/"
+      ]
+    },
+    {
+      "name": "libsodium",
+      "version": "1.0.22-1",
+      "licenses": [
+        "custom:ISC"
+      ],
+      "upstream": [
+        "https://github.com/jedisct1/libsodium"
+      ]
+    },
+    {
+      "name": "libsoup3",
+      "version": "3.6.6-2",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://wiki.gnome.org/Projects/libsoup"
+      ]
+    },
+    {
+      "name": "libsoxr",
+      "version": "0.1.3-5",
+      "licenses": [
+        "LGPL-2.1-only",
+        "LicenseRef-soxr"
+      ],
+      "upstream": [
+        "https://sourceforge.net/p/soxr/wiki/Home/"
+      ]
+    },
+    {
+      "name": "libssc",
+      "version": "0.4.4-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://libssc.dylanvanassche.be/"
+      ]
+    },
+    {
+      "name": "libssh",
+      "version": "0.12.2-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.libssh.org/"
+      ]
+    },
+    {
+      "name": "libssh2",
+      "version": "1.11.1-7",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://www.libssh2.org/"
+      ]
+    },
+    {
+      "name": "libstdc++",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "libstemmer",
+      "version": "3.1.1-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://snowballstem.org/"
+      ]
+    },
+    {
+      "name": "libsysprof-capture",
+      "version": "50.0-6",
+      "licenses": [
+        "BSD-2-Clause-Patent"
+      ],
+      "upstream": [
+        "https://apps.gnome.org/Sysprof/"
+      ]
+    },
+    {
+      "name": "libtasn1",
+      "version": "4.21.0-1",
+      "licenses": [
+        "GPL-3.0-or-later",
+        "LGPL-2.1-or-later",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/libtasn1/"
+      ]
+    },
+    {
+      "name": "libtatsu",
+      "version": "1.0.5-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://libimobiledevice.org/"
+      ]
+    },
+    {
+      "name": "libteam",
+      "version": "1.32-3",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://libteam.org/"
+      ]
+    },
+    {
+      "name": "libthai",
+      "version": "0.1.30-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://linux.thai.net/projects/libthai"
+      ]
+    },
+    {
+      "name": "libtheora",
+      "version": "1.2.0-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://www.theora.org/"
+      ]
+    },
+    {
+      "name": "libtiff",
+      "version": "4.7.2-1",
+      "licenses": [
+        "libtiff"
+      ],
+      "upstream": [
+        "http://www.simplesystems.org/libtiff/"
+      ]
+    },
+    {
+      "name": "libtirpc",
+      "version": "1.3.8-1",
+      "licenses": [
+        "SISSL",
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "http://git.linux-nfs.org/?p=steved/libtirpc.git;a=summary"
+      ]
+    },
+    {
+      "name": "libtommath",
+      "version": "1.3.0-2",
+      "licenses": [
+        "Unlicense"
+      ],
+      "upstream": [
+        "https://www.libtom.net/"
+      ]
+    },
+    {
+      "name": "libtool",
+      "version": "2.6.0+r23+gb08cb0a0-1",
+      "licenses": [
+        "LGPL-2.0-or-later WITH Libtool-exception"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/libtool"
+      ]
+    },
+    {
+      "name": "libtsan",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "libubsan",
+      "version": "16.1.1+r12+g301eb08fa2c5-1",
+      "licenses": [
+        "GPL-3.0-or-later WITH GCC-exception-3.1",
+        "GFDL-1.3-or-later"
+      ],
+      "upstream": [
+        "https://gcc.gnu.org"
+      ]
+    },
+    {
+      "name": "libunibreak",
+      "version": "7.0-1",
+      "licenses": [
+        "custom:zlib/libpng"
+      ],
+      "upstream": [
+        "https://github.com/adah1972/libunibreak/"
+      ]
+    },
+    {
+      "name": "libunistring",
+      "version": "1.4.2-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/libunistring/"
+      ]
+    },
+    {
+      "name": "libunwind",
+      "version": "1.8.3-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://www.nongnu.org/libunwind/"
+      ]
+    },
+    {
+      "name": "liburcu",
+      "version": "0.15.7-1",
+      "licenses": [
+        "LGPL2.1"
+      ],
+      "upstream": [
+        "https://lttng.org/urcu"
+      ]
+    },
+    {
+      "name": "liburing",
+      "version": "2.15-1",
+      "licenses": [
+        "GPL-2.0-only WITH Linux-syscall-note OR MIT",
+        "LGPL-2.0-or-later",
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/axboe/liburing"
+      ]
+    },
+    {
+      "name": "libusb",
+      "version": "1.0.30-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://libusb.info/"
+      ]
+    },
+    {
+      "name": "libusbmuxd",
+      "version": "2.1.1-2",
+      "licenses": [
+        "GPL-2.0-or-later AND LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://libimobiledevice.org/"
+      ]
+    },
+    {
+      "name": "libutempter",
+      "version": "1.2.3-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/altlinux/libutempter"
+      ]
+    },
+    {
+      "name": "libuv",
+      "version": "1.52.1-2",
+      "licenses": [
+        "custom"
+      ],
+      "upstream": [
+        "https://github.com/libuv/libuv"
+      ]
+    },
+    {
+      "name": "libva",
+      "version": "2.24.1-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://intel.github.io/libva/"
+      ]
+    },
+    {
+      "name": "libvdpau",
+      "version": "1.5-4",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/VDPAU/"
+      ]
+    },
+    {
+      "name": "libverto",
+      "version": "0.3.2-6",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/latchset/libverto"
+      ]
+    },
+    {
+      "name": "libvips",
+      "version": "8.18.6-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://libvips.github.io/libvips/"
+      ]
+    },
+    {
+      "name": "libvorbis",
+      "version": "1.3.7-4",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://www.xiph.org/vorbis/"
+      ]
+    },
+    {
+      "name": "libvpx",
+      "version": "1.17.0-1",
+      "licenses": [
+        "custom:BSD"
+      ],
+      "upstream": [
+        "https://www.webmproject.org/"
+      ]
+    },
+    {
+      "name": "libwacom",
+      "version": "2.20.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/linuxwacom/libwacom/wiki"
+      ]
+    },
+    {
+      "name": "libwbclient",
+      "version": "2:4.24.7-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.samba.org"
+      ]
+    },
+    {
+      "name": "libwebp",
+      "version": "1.6.0-2",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://developers.google.com/speed/webp/"
+      ]
+    },
+    {
+      "name": "libwireplumber",
+      "version": "0.5.17-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://pipewire.pages.freedesktop.org/wireplumber/"
+      ]
+    },
+    {
+      "name": "libx11",
+      "version": "1.8.13-1",
+      "licenses": [
+        "MIT AND X11"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libx11"
+      ]
+    },
+    {
+      "name": "libxau",
+      "version": "1.0.12-1",
+      "licenses": [
+        "MIT-open-group"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxaw",
+      "version": "1.0.16-2",
+      "licenses": [
+        "MIT-open-group",
+        "X11",
+        "HPND",
+        "HPND-sell-variant",
+        "SMLNJ",
+        "NTP"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libxaw"
+      ]
+    },
+    {
+      "name": "libxcb",
+      "version": "1.17.0-1",
+      "licenses": [
+        "X11"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libxcb"
+      ]
+    },
+    {
+      "name": "libxcomposite",
+      "version": "0.4.7-1",
+      "licenses": [
+        "MIT",
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxcrypt",
+      "version": "4.5.2-1",
+      "licenses": [
+        "LGPL"
+      ],
+      "upstream": [
+        "https://github.com/besser82/libxcrypt/"
+      ]
+    },
+    {
+      "name": "libxcursor",
+      "version": "1.2.3-1",
+      "licenses": [
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libxcursor"
+      ]
+    },
+    {
+      "name": "libxcvt",
+      "version": "0.1.3-1",
+      "licenses": [
+        "MIT",
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libxcvt"
+      ]
+    },
+    {
+      "name": "libxdamage",
+      "version": "1.1.7-1",
+      "licenses": [
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxdmcp",
+      "version": "1.1.5-2",
+      "licenses": [
+        "MIT-open-group"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libxdmcp"
+      ]
+    },
+    {
+      "name": "libxext",
+      "version": "1.3.7-1",
+      "licenses": [
+        "LicenseRef-libxext"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libxext"
+      ]
+    },
+    {
+      "name": "libxfixes",
+      "version": "6.0.2-1",
+      "licenses": [
+        "MIT",
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxfont2",
+      "version": "2.0.9-1",
+      "licenses": [
+        "BSD-2-Clause",
+        "BSD-4-Clause-UC",
+        "HPND-sell-variant",
+        "MIT-open-group",
+        "SMLNJ",
+        "X11"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxft",
+      "version": "2.3.9-1",
+      "licenses": [
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxi",
+      "version": "1.8.3-1",
+      "licenses": [
+        "MIT-open-group",
+        "SMLNJ",
+        "MIT"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org"
+      ]
+    },
+    {
+      "name": "libxinerama",
+      "version": "1.1.6-1",
+      "licenses": [
+        "MIT",
+        "MIT-open-group",
+        "X11"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxkbcommon",
+      "version": "1.13.2-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://xkbcommon.org/"
+      ]
+    },
+    {
+      "name": "libxkbcommon-x11",
+      "version": "1.13.2-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://xkbcommon.org/"
+      ]
+    },
+    {
+      "name": "libxkbfile",
+      "version": "1.2.0-1",
+      "licenses": [
+        "LicenseRef-libxkbfile"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libxkbfile"
+      ]
+    },
+    {
+      "name": "libxml2",
+      "version": "2.15.4-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home"
+      ]
+    },
+    {
+      "name": "libxmlb",
+      "version": "0.3.29-1",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://github.com/hughsie/libxmlb"
+      ]
+    },
+    {
+      "name": "libxmu",
+      "version": "1.3.1-1",
+      "licenses": [
+        "MIT-open-group AND SMLNJ AND X11 AND ISC"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libxmu"
+      ]
+    },
+    {
+      "name": "libxpm",
+      "version": "3.5.19-1",
+      "licenses": [
+        "MIT",
+        "X11-distribute-modifications-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxrandr",
+      "version": "1.5.5-1",
+      "licenses": [
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxrender",
+      "version": "0.9.12-1",
+      "licenses": [
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxshmfence",
+      "version": "1.3.3-1",
+      "licenses": [
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxslt",
+      "version": "1.1.45-2",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/libxslt/-/wikis/home"
+      ]
+    },
+    {
+      "name": "libxss",
+      "version": "1.2.5-1",
+      "licenses": [
+        "X11"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libxscrnsaver"
+      ]
+    },
+    {
+      "name": "libxt",
+      "version": "1.3.1-1",
+      "licenses": [
+        "MIT",
+        "HPND-sell-variant",
+        "SMLNJ",
+        "MIT-open-group",
+        "X11"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxtst",
+      "version": "1.2.5-1",
+      "licenses": [
+        "MIT-open-group",
+        "HPND-sell-variant",
+        "X11",
+        "HPND-doc",
+        "HPND-doc-sell"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/lib/libxtst"
+      ]
+    },
+    {
+      "name": "libxv",
+      "version": "1.0.13-1",
+      "licenses": [
+        "SMLNJ",
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libxxf86vm",
+      "version": "1.1.7-1",
+      "licenses": [
+        "X11-distribute-modifications-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "libyuv",
+      "version": "r2921+644251f25-1",
+      "licenses": [
+        "custom"
+      ],
+      "upstream": [
+        "https://chromium.googlesource.com/libyuv/libyuv/"
+      ]
+    },
+    {
+      "name": "libzip",
+      "version": "1.11.4-1",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://libzip.org"
+      ]
+    },
+    {
+      "name": "licenses",
+      "version": "20240728-1",
+      "licenses": [
+        "LicenseRef-None"
+      ],
+      "upstream": [
+        "https://www.archlinux.org/"
+      ]
+    },
+    {
+      "name": "lilv",
+      "version": "0.28.0-1",
+      "licenses": [
+        "0BSD OR ISC",
+        "ISC"
+      ],
+      "upstream": [
+        "https://gitlab.com/lv2/lilv"
+      ]
+    },
+    {
+      "name": "linux-api-headers",
+      "version": "7.2-1",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/libc"
+      ]
+    },
+    {
+      "name": "litehtml",
+      "version": "0.10-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "http://www.litehtml.com/"
+      ]
+    },
+    {
+      "name": "llvm-libs",
+      "version": "22.1.8-2",
+      "licenses": [
+        "Apache-2.0 WITH LLVM-exception"
+      ],
+      "upstream": [
+        "https://llvm.org/"
+      ]
+    },
+    {
+      "name": "lm_sensors",
+      "version": "1:3.6.2-1",
+      "licenses": [
+        "GPL-2.0-only OR LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://hwmon.wiki.kernel.org/lm_sensors"
+      ]
+    },
+    {
+      "name": "lmdb",
+      "version": "0.9.35-1",
+      "licenses": [
+        "custom:OpenLDAP"
+      ],
+      "upstream": [
+        "https://symas.com/lmdb"
+      ]
+    },
+    {
+      "name": "logrotate",
+      "version": "3.22.0-1",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://github.com/logrotate/logrotate"
+      ]
+    },
+    {
+      "name": "lua",
+      "version": "5.5.1-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://www.lua.org/"
+      ]
+    },
+    {
+      "name": "lua54",
+      "version": "5.4.9-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://www.lua.org/"
+      ]
+    },
+    {
+      "name": "lv2",
+      "version": "1.18.10-2",
+      "licenses": [
+        "ISC"
+      ],
+      "upstream": [
+        "https://lv2plug.in/"
+      ]
+    },
+    {
+      "name": "lz4",
+      "version": "1:1.10.0-2",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://lz4.github.io/lz4/"
+      ]
+    },
+    {
+      "name": "lzo",
+      "version": "2.10-5",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://www.oberhumer.com/opensource/lzo"
+      ]
+    },
+    {
+      "name": "m4",
+      "version": "1.4.21-2",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/m4"
+      ]
+    },
+    {
+      "name": "make",
+      "version": "4.4.1-3",
+      "licenses": [
+        "GPL3"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/make"
+      ]
+    },
+    {
+      "name": "marisa",
+      "version": "0.3.1-1",
+      "licenses": [
+        "BSD-2-Clause OR LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/s-yata/marisa-trie"
+      ]
+    },
+    {
+      "name": "md4c",
+      "version": "0.5.3-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/mity/md4c"
+      ]
+    },
+    {
+      "name": "mdadm",
+      "version": "4.6-2",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://git.kernel.org/pub/scm/utils/mdadm"
+      ]
+    },
+    {
+      "name": "media-player-info",
+      "version": "26-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/media-player-info/"
+      ]
+    },
+    {
+      "name": "mesa",
+      "version": "1:26.3.0-1",
+      "licenses": [
+        "MIT AND BSD-3-Clause AND SGI-B-2.0"
+      ],
+      "upstream": [
+        "https://www.mesa3d.org/"
+      ]
+    },
+    {
+      "name": "mesa-docs",
+      "version": "1:26.3.0-1",
+      "licenses": [
+        "MIT AND BSD-3-Clause AND SGI-B-2.0"
+      ],
+      "upstream": [
+        "https://www.mesa3d.org/"
+      ]
+    },
+    {
+      "name": "mesa-utils",
+      "version": "9.0.0-7",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://www.mesa3d.org/"
+      ]
+    },
+    {
+      "name": "milou",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "minizip",
+      "version": "1:1.3.2-3",
+      "licenses": [
+        "Zlib"
+      ],
+      "upstream": [
+        "https://www.zlib.net/"
+      ]
+    },
+    {
+      "name": "mobile-broadband-provider-info",
+      "version": "20251101-1",
+      "licenses": [
+        "CC-PDDC"
+      ],
+      "upstream": [
+        "https://gitlab.gnome.org/GNOME/mobile-broadband-provider-info"
+      ]
+    },
+    {
+      "name": "mpdecimal",
+      "version": "4.0.1-3",
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://www.bytereef.org/mpdecimal/index.html"
+      ]
+    },
+    {
+      "name": "mpfr",
+      "version": "4.2.2-1",
+      "licenses": [
+        "GPL-3.0-or-later",
+        "LGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.mpfr.org/"
+      ]
+    },
+    {
+      "name": "mpg123",
+      "version": "1.33.7-1",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://mpg123.de/"
+      ]
+    },
+    {
+      "name": "mtdev",
+      "version": "1.1.7-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://bitmath.org/code/mtdev/"
+      ]
+    },
+    {
+      "name": "nano",
+      "version": "9.2-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.nano-editor.org"
+      ]
+    },
+    {
+      "name": "ncurses",
+      "version": "6.6-2",
+      "licenses": [
+        "MIT-open-group"
+      ],
+      "upstream": [
+        "https://invisible-island.net/ncurses/ncurses.html"
+      ]
+    },
+    {
+      "name": "net-tools",
+      "version": "2.10-3",
+      "licenses": [
+        "GPL2"
+      ],
+      "upstream": [
+        "http://net-tools.sourceforge.net/"
+      ]
+    },
+    {
+      "name": "nettle",
+      "version": "4.0-1",
+      "licenses": [
+        "LGPL-3.0-or-later OR GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.lysator.liu.se/~nisse/nettle"
+      ]
+    },
+    {
+      "name": "networkmanager",
+      "version": "1.58.1-1",
+      "licenses": [
+        "LGPL-2.1-or-later",
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://networkmanager.dev/"
+      ]
+    },
+    {
+      "name": "networkmanager-qt",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "nftables",
+      "version": "1:1.1.7-3",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://netfilter.org/projects/nftables/"
+      ]
+    },
+    {
+      "name": "noto-fonts",
+      "version": "1:2026.09.01-1",
+      "licenses": [
+        "OFL-1.1-no-RFN"
+      ],
+      "upstream": [
+        "https://fonts.google.com/noto"
+      ]
+    },
+    {
+      "name": "noto-fonts-cjk",
+      "version": "20240730-1",
+      "licenses": [
+        "OFL-1.1"
+      ],
+      "upstream": [
+        "https://www.google.com/get/noto/"
+      ]
+    },
+    {
+      "name": "noto-fonts-emoji",
+      "version": "1:2.051-1",
+      "licenses": [
+        "OFL-1.1-no-RFN"
+      ],
+      "upstream": [
+        "https://www.google.com/get/noto/"
+      ]
+    },
+    {
+      "name": "npth",
+      "version": "1.8-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.gnupg.org/software/npth/index.html"
+      ]
+    },
+    {
+      "name": "nspr",
+      "version": "4.40-1",
+      "licenses": [
+        "MPL-2.0"
+      ],
+      "upstream": [
+        "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR"
+      ]
+    },
+    {
+      "name": "nss",
+      "version": "3.129-1",
+      "licenses": [
+        "MPL-2.0"
+      ],
+      "upstream": [
+        "https://firefox-source-docs.mozilla.org/security/nss/index.html"
+      ]
+    },
+    {
+      "name": "ntfs-3g",
+      "version": "2026.7.7-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.tuxera.com/community/open-source-ntfs-3g/"
+      ]
+    },
+    {
+      "name": "numactl",
+      "version": "2.0.19-1",
+      "licenses": [
+        "GPL-2.0-only",
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://github.com/numactl/numactl"
+      ]
+    },
+    {
+      "name": "ocean-sound-theme",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "ocl-icd",
+      "version": "2.3.5-1",
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://github.com/OCL-dev/ocl-icd"
+      ]
+    },
+    {
+      "name": "onetbb",
+      "version": "2023.1.0-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://uxlfoundation.github.io/oneTBB/"
+      ]
+    },
+    {
+      "name": "oniguruma",
+      "version": "6.9.10-1",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://github.com/kkos/oniguruma"
+      ]
+    },
+    {
+      "name": "opencc",
+      "version": "1.3.2-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://github.com/BYVoid/OpenCC"
+      ]
+    },
+    {
+      "name": "opencore-amr",
+      "version": "0.1.6-2",
+      "licenses": [
+        "Apache"
+      ],
+      "upstream": [
+        "https://sourceforge.net/projects/opencore-amr/"
+      ]
+    },
+    {
+      "name": "openexr",
+      "version": "3.4.15-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://www.openexr.com/"
+      ]
+    },
+    {
+      "name": "openh264",
+      "version": "2.6.0-2",
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://www.openh264.org/"
+      ]
+    },
+    {
+      "name": "openjpeg2",
+      "version": "2.5.4-1",
+      "licenses": [
+        "BSD-2-Clause",
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/uclouvain/openjpeg"
+      ]
+    },
+    {
+      "name": "openjph",
+      "version": "0.31.0-1",
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://github.com/aous72/OpenJPH/"
+      ]
+    },
+    {
+      "name": "openssh",
+      "version": "10.5p1-1",
+      "licenses": [
+        "0BSD",
+        "BSD-2-Clause",
+        "BSD-3-Clause",
+        "ISC",
+        "LicenseRef-Public-Domain",
+        "MIT"
+      ],
+      "upstream": [
+        "https://www.openssh.com/portable.html"
+      ]
+    },
+    {
+      "name": "openssl",
+      "version": "3.6.4-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://www.openssl.org"
+      ]
+    },
+    {
+      "name": "opus",
+      "version": "1.6.1-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://www.opus-codec.org/"
+      ]
+    },
+    {
+      "name": "orc",
+      "version": "0.4.44-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://gstreamer.freedesktop.org/modules/orc.html"
+      ]
+    },
+    {
+      "name": "p11-kit",
+      "version": "0.26.5-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://p11-glue.freedesktop.org"
+      ]
+    },
+    {
+      "name": "pacman",
+      "version": "7.1.0.r9.g54d9411-2",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.archlinux.org/pacman/"
+      ]
+    },
+    {
+      "name": "pacman-mirrorlist",
+      "version": "20260411-2",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://www.archlinuxarm.org/about/mirrors"
+      ]
+    },
+    {
+      "name": "pam",
+      "version": "1.7.2-2",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "http://linux-pam.org"
+      ]
+    },
+    {
+      "name": "pambase",
+      "version": "20260616-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.archlinux.org"
+      ]
+    },
+    {
+      "name": "pango",
+      "version": "1:1.58.2-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.pango.org/"
+      ]
+    },
+    {
+      "name": "parted",
+      "version": "3.7-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/parted/parted.html"
+      ]
+    },
+    {
+      "name": "patch",
+      "version": "2.8-1",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/patch/"
+      ]
+    },
+    {
+      "name": "pciutils",
+      "version": "3.15.0-1",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://mj.ucw.cz/sw/pciutils/"
+      ]
+    },
+    {
+      "name": "pcre",
+      "version": "8.45-5",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://www.pcre.org/"
+      ]
+    },
+    {
+      "name": "pcre2",
+      "version": "10.48-1",
+      "licenses": [
+        "BSD-2-Clause",
+        "BSD-3-Clause WITH PCRE2-exception"
+      ],
+      "upstream": [
+        "https://github.com/PCRE2Project/pcre2"
+      ]
+    },
+    {
+      "name": "pcsclite",
+      "version": "2.5.2-1",
+      "licenses": [
+        "BSD-3-Clause",
+        "GPL-3.0-or-later",
+        "BSD-2-Clause",
+        "0BSD"
+      ],
+      "upstream": [
+        "https://pcsclite.apdu.fr/"
+      ]
+    },
+    {
+      "name": "perl",
+      "version": "5.42.2-2",
+      "licenses": [
+        "Artistic-1.0-Perl",
+        "GPL-1.0-or-later"
+      ],
+      "upstream": [
+        "https://www.perl.org"
+      ]
+    },
+    {
+      "name": "perl-error",
+      "version": "0.17030-3",
+      "licenses": [
+        "PerlArtistic",
+        "GPL"
+      ],
+      "upstream": [
+        "https://search.cpan.org/dist/Error/"
+      ]
+    },
+    {
+      "name": "perl-mailtools",
+      "version": "2.22-3",
+      "licenses": [
+        "PerlArtistic",
+        "GPL"
+      ],
+      "upstream": [
+        "https://metacpan.org/release/MailTools"
+      ]
+    },
+    {
+      "name": "perl-mime-charset",
+      "version": "1.013.1-6",
+      "licenses": [
+        "PerlArtistic",
+        "GPL"
+      ],
+      "upstream": [
+        "https://metacpan.org/release/MIME-Charset"
+      ]
+    },
+    {
+      "name": "perl-timedate",
+      "version": "2.35-1",
+      "licenses": [
+        "PerlArtistic"
+      ],
+      "upstream": [
+        "https://search.cpan.org/dist/TimeDate/"
+      ]
+    },
+    {
+      "name": "perl-unicode-linebreak",
+      "version": "2019.001-9",
+      "licenses": [
+        "PerlArtistic",
+        "GPL"
+      ],
+      "upstream": [
+        "https://metacpan.org/release/Unicode-LineBreak"
+      ]
+    },
+    {
+      "name": "perl-yaml-tiny",
+      "version": "1.76-3",
+      "licenses": [
+        "PerlArtistic",
+        "GPL"
+      ],
+      "upstream": [
+        "https://search.cpan.org/dist/YAML-Tiny"
+      ]
+    },
+    {
+      "name": "pinentry",
+      "version": "1.3.3-1",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://gnupg.org/related_software/pinentry/"
+      ]
+    },
+    {
+      "name": "pipewire",
+      "version": "1:1.6.8-1",
+      "licenses": [
+        "MIT",
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://pipewire.org"
+      ]
+    },
+    {
+      "name": "pipewire-alsa",
+      "version": "1:1.6.8-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://pipewire.org"
+      ]
+    },
+    {
+      "name": "pipewire-audio",
+      "version": "1:1.6.8-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://pipewire.org"
+      ]
+    },
+    {
+      "name": "pipewire-pulse",
+      "version": "1:1.6.8-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://pipewire.org"
+      ]
+    },
+    {
+      "name": "pixman",
+      "version": "0.46.4-1.1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/pixman/pixman"
+      ]
+    },
+    {
+      "name": "pkgconf",
+      "version": "3.0.7-1",
+      "licenses": [
+        "ISC"
+      ],
+      "upstream": [
+        "https://github.com/pkgconf/pkgconf"
+      ]
+    },
+    {
+      "name": "plasma-activities",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "plasma-activities-stats",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "plasma-browser-integration",
+      "version": "6.7.5-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "plasma-desktop",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "plasma-integration",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "plasma-pa",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "plasma-systemmonitor",
+      "version": "6.7.5-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://apps.kde.org/plasma-systemmonitor/"
+      ]
+    },
+    {
+      "name": "plasma-workspace",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "plasma5support",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "po4a",
+      "version": "0.74-1",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://po4a.org/"
+      ]
+    },
+    {
+      "name": "polkit",
+      "version": "127-3",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/polkit-org/polkit"
+      ]
+    },
+    {
+      "name": "polkit-kde-agent",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "polkit-qt6",
+      "version": "0.201.1-1",
+      "licenses": [
+        "BSD-3-Clause",
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.kde.org/"
+      ]
+    },
+    {
+      "name": "poppler",
+      "version": "26.08.0-1",
+      "licenses": [
+        "GPL-2.0-only",
+        "GPL-3.0-or-later",
+        "LGPL-2.0-or-later",
+        "LGPL-2.1-or-later",
+        "MIT",
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://poppler.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "poppler-data",
+      "version": "0.4.12-2",
+      "licenses": [
+        "GPL-2.0-only OR GPL-3.0-only",
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://poppler.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "poppler-qt6",
+      "version": "26.08.0-1",
+      "licenses": [
+        "GPL-2.0-only",
+        "GPL-3.0-or-later",
+        "LGPL-2.0-or-later",
+        "LGPL-2.1-or-later",
+        "MIT",
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://poppler.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "popt",
+      "version": "1.19-2",
+      "licenses": [
+        "custom"
+      ],
+      "upstream": [
+        "https://github.com/rpm-software-management/popt"
+      ]
+    },
+    {
+      "name": "portaudio",
+      "version": "1:19.7.0-4",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/portaudio/portaudio/"
+      ]
+    },
+    {
+      "name": "powerdevil",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "prison",
+      "version": "6.30.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "procps-ng",
+      "version": "4.0.7-1",
+      "licenses": [
+        "GPL",
+        "LGPL"
+      ],
+      "upstream": [
+        "https://gitlab.com/procps-ng/procps"
+      ]
+    },
+    {
+      "name": "protobuf",
+      "version": "36.1-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://developers.google.com/protocol-buffers/"
+      ]
+    },
+    {
+      "name": "protobuf-c",
+      "version": "1.5.2-15",
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://github.com/protobuf-c/protobuf-c"
+      ]
+    },
+    {
+      "name": "psmisc",
+      "version": "23.7-2",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://gitlab.com/psmisc/psmisc"
+      ]
+    },
+    {
+      "name": "pulseaudio-qt",
+      "version": "1.9.0-1",
+      "licenses": [
+        "LGPL-2.1-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://community.kde.org/Frameworks"
+      ]
+    },
+    {
+      "name": "purpose",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "python",
+      "version": "3.14.7-1",
+      "licenses": [
+        "PSF-2.0"
+      ],
+      "upstream": [
+        "https://www.python.org/"
+      ]
+    },
+    {
+      "name": "python-pyqt5",
+      "version": "5.15.11-7",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://riverbankcomputing.com/software/pyqt/intro"
+      ]
+    },
+    {
+      "name": "python-pyqt5-sip",
+      "version": "12.19.0-1",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://riverbankcomputing.com/software/pyqt/intro"
+      ]
+    },
+    {
+      "name": "qca-qt6",
+      "version": "2.3.12-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://userbase.kde.org/QCA"
+      ]
+    },
+    {
+      "name": "qcoro",
+      "version": "0.13.0-2",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/danvratil/qcoro"
+      ]
+    },
+    {
+      "name": "qqc2-breeze-style",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "qqc2-desktop-style",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "qrencode",
+      "version": "4.1.1-4",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://fukuchi.org/works/qrencode/"
+      ]
+    },
+    {
+      "name": "qt5-base",
+      "version": "5.15.19+kde+r96-1",
+      "licenses": [
+        "GPL3",
+        "LGPL3",
+        "FDL",
+        "custom"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt5-declarative",
+      "version": "5.15.19+kde+r23-1",
+      "licenses": [
+        "GPL3",
+        "LGPL3",
+        "FDL",
+        "custom"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt5-svg",
+      "version": "5.15.19+kde+r5-1",
+      "licenses": [
+        "GPL3",
+        "LGPL3",
+        "FDL",
+        "custom"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt5-translations",
+      "version": "5.15.19-1",
+      "licenses": [
+        "GPL3",
+        "LGPL3",
+        "FDL",
+        "custom"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt5-wayland",
+      "version": "5.15.19+kde+r55-1",
+      "licenses": [
+        "GPL3",
+        "LGPL3",
+        "FDL",
+        "custom"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-5compat",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-base",
+      "version": "6.11.2-3",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-declarative",
+      "version": "6.11.2-2",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-location",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-multimedia",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-multimedia-ffmpeg",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-positioning",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-sensors",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-shadertools",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-speech",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-svg",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-tools",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-translations",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-virtualkeyboard",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-webchannel",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-webengine",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "qt6-websockets",
+      "version": "6.11.2-1",
+      "licenses": [
+        "GPL-3.0-only",
+        "LGPL-3.0-only",
+        "LicenseRef-Qt-Commercial",
+        "Qt-GPL-exception-1.0"
+      ],
+      "upstream": [
+        "https://www.qt.io"
+      ]
+    },
+    {
+      "name": "rav1e",
+      "version": "0.8.1-3",
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://github.com/xiph/rav1e/"
+      ]
+    },
+    {
+      "name": "re2",
+      "version": "2:2025.11.05-6",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/google/re2"
+      ]
+    },
+    {
+      "name": "readline",
+      "version": "8.3.6-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://tiswww.case.edu/php/chet/readline/rltop.html"
+      ]
+    },
+    {
+      "name": "ripgrep",
+      "version": "15.2.0-1",
+      "licenses": [
+        "MIT OR Unlicense"
+      ],
+      "upstream": [
+        "https://github.com/BurntSushi/ripgrep"
+      ]
+    },
+    {
+      "name": "ripgrep-all",
+      "version": "0.10.10-3",
+      "licenses": [
+        "AGPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://github.com/phiresky/ripgrep-all"
+      ]
+    },
+    {
+      "name": "rubberband",
+      "version": "4.0.0-2",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.breakfastquay.com/rubberband/"
+      ]
+    },
+    {
+      "name": "sbc",
+      "version": "2.2-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://git.kernel.org/pub/scm/bluetooth/sbc.git"
+      ]
+    },
+    {
+      "name": "sdl2-compat",
+      "version": "2.32.72-1",
+      "licenses": [
+        "Zlib"
+      ],
+      "upstream": [
+        "https://github.com/libsdl-org/sdl2-compat"
+      ]
+    },
+    {
+      "name": "sdl3",
+      "version": "3.4.16-1",
+      "licenses": [
+        "Zlib"
+      ],
+      "upstream": [
+        "https://www.libsdl.org"
+      ]
+    },
+    {
+      "name": "sed",
+      "version": "4.10-2",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/sed/"
+      ]
+    },
+    {
+      "name": "serd",
+      "version": "0.32.10-1",
+      "licenses": [
+        "0BSD OR ISC",
+        "BSD-3-Clause",
+        "ISC"
+      ],
+      "upstream": [
+        "https://drobilla.net/software/serd.html"
+      ]
+    },
+    {
+      "name": "shaderc",
+      "version": "2026.3-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://github.com/google/shaderc"
+      ]
+    },
+    {
+      "name": "shadow",
+      "version": "4.20.0.arch1-1",
+      "licenses": [
+        "0BSD",
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/shadow-maint/shadow"
+      ]
+    },
+    {
+      "name": "shared-mime-info",
+      "version": "2.5.1-2",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec/"
+      ]
+    },
+    {
+      "name": "signon-kwallet-extension",
+      "version": "26.08.1-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.kde.org"
+      ]
+    },
+    {
+      "name": "signon-plugin-oauth2",
+      "version": "0.25-4",
+      "licenses": [
+        "LGPL"
+      ],
+      "upstream": [
+        "https://gitlab.com/accounts-sso/signon-plugin-oauth2"
+      ]
+    },
+    {
+      "name": "signon-ui",
+      "version": "0.17+20231016-4",
+      "licenses": [
+        "GPL-3.0-only"
+      ],
+      "upstream": [
+        "https://launchpad.net/online-accounts-signon-ui"
+      ]
+    },
+    {
+      "name": "signond",
+      "version": "8.61-3",
+      "licenses": [
+        "LGPL"
+      ],
+      "upstream": [
+        "https://gitlab.com/accounts-sso/signond/"
+      ]
+    },
+    {
+      "name": "slang",
+      "version": "2.3.3-4",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.jedsoft.org/slang/"
+      ]
+    },
+    {
+      "name": "smbclient",
+      "version": "2:4.24.7-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.samba.org"
+      ]
+    },
+    {
+      "name": "snappy",
+      "version": "1.2.2-3",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://github.com/google/snappy"
+      ]
+    },
+    {
+      "name": "sndio",
+      "version": "1.10.0-1",
+      "licenses": [
+        "ISC"
+      ],
+      "upstream": [
+        "https://sndio.org"
+      ]
+    },
+    {
+      "name": "solid",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "sonnet",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "sord",
+      "version": "0.16.22-1",
+      "licenses": [
+        "ISC"
+      ],
+      "upstream": [
+        "https://drobilla.net/software/sord.html"
+      ]
+    },
+    {
+      "name": "sound-theme-freedesktop",
+      "version": "0.8-6",
+      "licenses": [
+        "GPL-2.0-only",
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later",
+        "CC-BY-SA-3.0",
+        "CC-BY-3.0",
+        "CC-BY-4.0"
+      ],
+      "upstream": [
+        "https://freedesktop.org/wiki/Specifications/sound-theme-spec"
+      ]
+    },
+    {
+      "name": "source-highlight",
+      "version": "3.1.9-19",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/src-highlite/"
+      ]
+    },
+    {
+      "name": "spandsp",
+      "version": "0.0.6-7",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://www.soft-switch.org/"
+      ]
+    },
+    {
+      "name": "speex",
+      "version": "1.2.1-2",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://www.speex.org/"
+      ]
+    },
+    {
+      "name": "speexdsp",
+      "version": "1.2.1-2",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://www.speex.org/"
+      ]
+    },
+    {
+      "name": "spirv-tools",
+      "version": "1:1.4.357.0-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://www.khronos.org/spirv/"
+      ]
+    },
+    {
+      "name": "sqlite",
+      "version": "3.53.4-1",
+      "licenses": [
+        "LicenseRef-Sqlite"
+      ],
+      "upstream": [
+        "https://www.sqlite.org/"
+      ]
+    },
+    {
+      "name": "sratom",
+      "version": "0.6.22-1",
+      "licenses": [
+        "ISC"
+      ],
+      "upstream": [
+        "https://drobilla.net/software/sratom.html"
+      ]
+    },
+    {
+      "name": "srt",
+      "version": "1.5.7-1",
+      "licenses": [
+        "MPL-2.0"
+      ],
+      "upstream": [
+        "https://www.srtalliance.org/"
+      ]
+    },
+    {
+      "name": "strace",
+      "version": "7.2-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://strace.io/"
+      ]
+    },
+    {
+      "name": "sudo",
+      "version": "1.9.17.p2-6",
+      "licenses": [
+        "custom"
+      ],
+      "upstream": [
+        "https://www.sudo.ws/sudo/"
+      ]
+    },
+    {
+      "name": "syndication",
+      "version": "6.30.0-1",
+      "licenses": [
+        "LGPL-2.0-only",
+        "LGPL-3.0-only"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "syntax-highlighting",
+      "version": "6.30.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://develop.kde.org/products/frameworks/"
+      ]
+    },
+    {
+      "name": "systemd",
+      "version": "261.3-1",
+      "licenses": [
+        "LGPL-2.1-or-later",
+        "CC0-1.0",
+        "GPL-2.0-or-later",
+        "MIT-0"
+      ],
+      "upstream": [
+        "https://www.github.com/systemd/systemd"
+      ]
+    },
+    {
+      "name": "systemd-libs",
+      "version": "261.3-1",
+      "licenses": [
+        "LGPL-2.1-or-later",
+        "CC0-1.0",
+        "GPL-2.0-or-later WITH Linux-syscall-note"
+      ],
+      "upstream": [
+        "https://www.github.com/systemd/systemd"
+      ]
+    },
+    {
+      "name": "systemd-sysvcompat",
+      "version": "261.3-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://www.github.com/systemd/systemd"
+      ]
+    },
+    {
+      "name": "systemsettings",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "taglib",
+      "version": "2.3.2-1",
+      "licenses": [
+        "LGPL-2.1-only",
+        "MPL-1.1"
+      ],
+      "upstream": [
+        "https://taglib.github.io/"
+      ]
+    },
+    {
+      "name": "talloc",
+      "version": "2.5.0-2",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://talloc.samba.org/"
+      ]
+    },
+    {
+      "name": "tar",
+      "version": "1.35-5",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/tar/"
+      ]
+    },
+    {
+      "name": "tdb",
+      "version": "1.4.15-2",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://tdb.samba.org/"
+      ]
+    },
+    {
+      "name": "tevent",
+      "version": "1:0.17.2-2",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://tevent.samba.org/"
+      ]
+    },
+    {
+      "name": "texinfo",
+      "version": "7.3-1",
+      "licenses": [
+        "GPL3"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/texinfo/"
+      ]
+    },
+    {
+      "name": "tinysparql",
+      "version": "3.11.1-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://tinysparql.org/"
+      ]
+    },
+    {
+      "name": "tmux",
+      "version": "3.7_c-1",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://github.com/tmux/tmux/wiki"
+      ]
+    },
+    {
+      "name": "tpm2-tss",
+      "version": "4.2.0-2",
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "upstream": [
+        "https://github.com/tpm2-software/tpm2-tss"
+      ]
+    },
+    {
+      "name": "tslib",
+      "version": "1.24-1",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://github.com/kergoth/tslib"
+      ]
+    },
+    {
+      "name": "ttf-hack",
+      "version": "3.003-7",
+      "licenses": [
+        "custom:ttf-hack"
+      ],
+      "upstream": [
+        "https://sourcefoundry.org/hack/"
+      ]
+    },
+    {
+      "name": "ttf-liberation",
+      "version": "2.1.5-2",
+      "licenses": [
+        "custom:OFL"
+      ],
+      "upstream": [
+        "https://github.com/liberationfonts/liberation-fonts"
+      ]
+    },
+    {
+      "name": "twolame",
+      "version": "0.4.0-4",
+      "licenses": [
+        "LGPL2.1"
+      ],
+      "upstream": [
+        "http://www.twolame.org/"
+      ]
+    },
+    {
+      "name": "tzdata",
+      "version": "2026d-1",
+      "licenses": [
+        "LicenseRef-tz"
+      ],
+      "upstream": [
+        "https://www.iana.org/time-zones"
+      ]
+    },
+    {
+      "name": "udisks2",
+      "version": "2.11.2-1",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/udisks/"
+      ]
+    },
+    {
+      "name": "unzip",
+      "version": "6.0-23",
+      "licenses": [
+        "custom"
+      ],
+      "upstream": [
+        "http://infozip.sourceforge.net/UnZip.html"
+      ]
+    },
+    {
+      "name": "upower",
+      "version": "1.91.4-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://upower.freedesktop.org"
+      ]
+    },
+    {
+      "name": "util-linux",
+      "version": "2.42.3-1",
+      "licenses": [
+        "BSD-2-Clause",
+        "BSD-3-Clause",
+        "BSD-4-Clause-UC",
+        "GPL-2.0-only",
+        "GPL-2.0-or-later",
+        "GPL-3.0-or-later",
+        "ISC",
+        "LGPL-2.1-or-later",
+        "LicenseRef-PublicDomain"
+      ],
+      "upstream": [
+        "https://github.com/util-linux/util-linux"
+      ]
+    },
+    {
+      "name": "util-linux-libs",
+      "version": "2.42.3-1",
+      "licenses": [
+        "BSD-2-Clause",
+        "BSD-3-Clause",
+        "BSD-4-Clause-UC",
+        "GPL-2.0-only",
+        "GPL-2.0-or-later",
+        "GPL-3.0-or-later",
+        "ISC",
+        "LGPL-2.1-or-later",
+        "LicenseRef-PublicDomain"
+      ],
+      "upstream": [
+        "https://github.com/util-linux/util-linux"
+      ]
+    },
+    {
+      "name": "v4l-utils",
+      "version": "1.32.0-2",
+      "licenses": [
+        "LGPL"
+      ],
+      "upstream": [
+        "https://linuxtv.org/"
+      ]
+    },
+    {
+      "name": "vapoursynth",
+      "version": "79-1",
+      "licenses": [
+        "LGPL-2.1-or-later",
+        "OFL-1.1"
+      ],
+      "upstream": [
+        "http://www.vapoursynth.com/"
+      ]
+    },
+    {
+      "name": "vid.stab",
+      "version": "1.1.2-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "http://public.hronopik.de/vid.stab"
+      ]
+    },
+    {
+      "name": "vkmark",
+      "version": "1:2025.01-2",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "upstream": [
+        "https://github.com/vkmark/vkmark"
+      ]
+    },
+    {
+      "name": "vmaf",
+      "version": "3.2.1-1",
+      "licenses": [
+        "BSD-2-Clause-Patent"
+      ],
+      "upstream": [
+        "https://github.com/Netflix/vmaf/"
+      ]
+    },
+    {
+      "name": "volume_key",
+      "version": "0.3.12-12",
+      "licenses": [
+        "GPL2"
+      ],
+      "upstream": [
+        "https://pagure.io/volume_key"
+      ]
+    },
+    {
+      "name": "vulkan-freedreno",
+      "version": "1:26.3.0-1",
+      "licenses": [
+        "MIT AND BSD-3-Clause AND SGI-B-2.0"
+      ],
+      "upstream": [
+        "https://www.mesa3d.org/"
+      ]
+    },
+    {
+      "name": "vulkan-icd-loader",
+      "version": "1.4.357.0-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://www.vulkan.org/"
+      ]
+    },
+    {
+      "name": "vulkan-mesa-implicit-layers",
+      "version": "1:26.3.0-1",
+      "licenses": [
+        "MIT AND BSD-3-Clause AND SGI-B-2.0"
+      ],
+      "upstream": [
+        "https://www.mesa3d.org/"
+      ]
+    },
+    {
+      "name": "vulkan-mesa-layers",
+      "version": "1:26.3.0-1",
+      "licenses": [
+        "MIT AND BSD-3-Clause AND SGI-B-2.0"
+      ],
+      "upstream": [
+        "https://www.mesa3d.org/"
+      ]
+    },
+    {
+      "name": "vulkan-tools",
+      "version": "1.4.357.0-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://www.vulkan.org/"
+      ]
+    },
+    {
+      "name": "wavpack",
+      "version": "5.9.0-1",
+      "licenses": [
+        "BSD"
+      ],
+      "upstream": [
+        "https://www.wavpack.com/"
+      ]
+    },
+    {
+      "name": "wayland",
+      "version": "1.26.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://wayland.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "wayland-utils",
+      "version": "1.3.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/wayland/wayland-utils"
+      ]
+    },
+    {
+      "name": "webkit2gtk-4.1",
+      "version": "2.52.6-1",
+      "licenses": [
+        "AFL-2.0 OR GPL-2.0-or-later",
+        "Apache-2.0",
+        "Apache-2.0 WITH LLVM-exception",
+        "BSD-2-Clause",
+        "BSD-2-Clause-Views",
+        "BSD-3-Clause",
+        "BSD-Source-Code",
+        "BSL-1.0",
+        "bzip2-1.0.6",
+        "GPL-2.0-only",
+        "GPL-3.0-only WITH Autoconf-exception-3.0",
+        "GPL-3.0-or-later WITH Bison-exception-2.2",
+        "ICU",
+        "ISC",
+        "LGPL-2.1-only",
+        "LGPL-2.1-or-later",
+        "MIT",
+        "MPL-1.1",
+        "MPL-2.0",
+        "NCSA",
+        "NCSA OR MIT",
+        "OFL-1.1",
+        "SunPro",
+        "Unicode-TOU"
+      ],
+      "upstream": [
+        "https://webkitgtk.org"
+      ]
+    },
+    {
+      "name": "webrtc-audio-processing-1",
+      "version": "1.3-5",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://freedesktop.org/software/pulseaudio/webrtc-audio-processing/"
+      ]
+    },
+    {
+      "name": "wget",
+      "version": "1.25.0-6",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://www.gnu.org/software/wget/wget.html"
+      ]
+    },
+    {
+      "name": "which",
+      "version": "2.25-1",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://savannah.gnu.org/projects/which/"
+      ]
+    },
+    {
+      "name": "wireplumber",
+      "version": "0.5.17-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://pipewire.pages.freedesktop.org/wireplumber/"
+      ]
+    },
+    {
+      "name": "woff2",
+      "version": "1.0.2-6",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/google/woff2"
+      ]
+    },
+    {
+      "name": "wpa_supplicant",
+      "version": "2:2.12-1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "upstream": [
+        "https://w1.fi/wpa_supplicant/"
+      ]
+    },
+    {
+      "name": "x264",
+      "version": "3:0.165.r3222.b35605a-2",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://www.videolan.org/developers/x264.html"
+      ]
+    },
+    {
+      "name": "x265",
+      "version": "4.3-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.x265.org/"
+      ]
+    },
+    {
+      "name": "xcb-imdkit",
+      "version": "1.0.9-1",
+      "licenses": [
+        "GPL"
+      ],
+      "upstream": [
+        "https://github.com/fcitx/xcb-imdkit"
+      ]
+    },
+    {
+      "name": "xcb-proto",
+      "version": "1.17.0-4",
+      "licenses": [
+        "X11-distribute-modifications-variant"
+      ],
+      "upstream": [
+        "https://xcb.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "xcb-util",
+      "version": "0.4.1-2",
+      "licenses": [
+        "X11-distribute-modifications-variant"
+      ],
+      "upstream": [
+        "https://xcb.freedesktop.org"
+      ]
+    },
+    {
+      "name": "xcb-util-cursor",
+      "version": "0.1.6-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://cgit.freedesktop.org/xcb/util-cursor"
+      ]
+    },
+    {
+      "name": "xcb-util-image",
+      "version": "0.4.1-3",
+      "licenses": [
+        "X11-distribute-modifications-variant"
+      ],
+      "upstream": [
+        "https://xcb.freedesktop.org"
+      ]
+    },
+    {
+      "name": "xcb-util-keysyms",
+      "version": "0.4.1-5",
+      "licenses": [
+        "X11-distribute-modifications-variant"
+      ],
+      "upstream": [
+        "https://xcb.freedesktop.org"
+      ]
+    },
+    {
+      "name": "xcb-util-renderutil",
+      "version": "0.3.10-2",
+      "licenses": [
+        "X11-distribute-modifications-variant",
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://xcb.freedesktop.org"
+      ]
+    },
+    {
+      "name": "xcb-util-wm",
+      "version": "0.4.2-2",
+      "licenses": [
+        "X11-distribute-modifications-variant"
+      ],
+      "upstream": [
+        "https://xcb.freedesktop.org"
+      ]
+    },
+    {
+      "name": "xdg-dbus-proxy",
+      "version": "0.1.9-1",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://github.com/flatpak/xdg-dbus-proxy"
+      ]
+    },
+    {
+      "name": "xdg-desktop-portal",
+      "version": "1.22.1-2",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://flatpak.github.io/xdg-desktop-portal/"
+      ]
+    },
+    {
+      "name": "xdg-desktop-portal-kde",
+      "version": "6.7.5-1",
+      "licenses": [
+        "LGPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://kde.org/plasma-desktop/"
+      ]
+    },
+    {
+      "name": "xdg-user-dirs",
+      "version": "0.20-1",
+      "licenses": [
+        "GPL-2.0-or-later"
+      ],
+      "upstream": [
+        "https://www.freedesktop.org/wiki/Software/xdg-user-dirs"
+      ]
+    },
+    {
+      "name": "xdg-utils",
+      "version": "1.2.1-2",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xdg/xdg-utils"
+      ]
+    },
+    {
+      "name": "xf86-input-libinput",
+      "version": "1.5.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "http://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "xkeyboard-config",
+      "version": "2.48-1",
+      "licenses": [
+        "LicenseRef-xkeyboard-config"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config"
+      ]
+    },
+    {
+      "name": "xorg-fonts-encodings",
+      "version": "1.1.0-2",
+      "licenses": [
+        "LicenseRef-xorg-fonts-encodings"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/font/encodings"
+      ]
+    },
+    {
+      "name": "xorg-server",
+      "version": "21.1.24-1",
+      "licenses": [
+        "LicenseRef-Adobe-Display-PostScript",
+        "BSD-3-Clause",
+        "LicenseRef-DEC-3-Clause",
+        "HPND",
+        "LicenseRef-HPND-sell-MIT-disclaimer-xserver",
+        "HPND-sell-variant",
+        "ICU",
+        "ISC",
+        "MIT",
+        "MIT-open-group",
+        "NTP",
+        "SGI-B-2.0",
+        "SMLNJ",
+        "X11",
+        "X11-distribute-modifications-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org"
+      ]
+    },
+    {
+      "name": "xorg-server-common",
+      "version": "21.1.24-1",
+      "licenses": [
+        "LicenseRef-Adobe-Display-PostScript",
+        "BSD-3-Clause",
+        "LicenseRef-DEC-3-Clause",
+        "HPND",
+        "LicenseRef-HPND-sell-MIT-disclaimer-xserver",
+        "HPND-sell-variant",
+        "ICU",
+        "ISC",
+        "MIT",
+        "MIT-open-group",
+        "NTP",
+        "SGI-B-2.0",
+        "SMLNJ",
+        "X11",
+        "X11-distribute-modifications-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org"
+      ]
+    },
+    {
+      "name": "xorg-setxkbmap",
+      "version": "1.3.5-1",
+      "licenses": [
+        "HPND"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "xorg-xdpyinfo",
+      "version": "1.4.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "xorg-xkbcomp",
+      "version": "1.5.0-1",
+      "licenses": [
+        "LicenseRef-xkbcomp"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/app/xkbcomp"
+      ]
+    },
+    {
+      "name": "xorg-xmessage",
+      "version": "1.0.7-2",
+      "licenses": [
+        "X11"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/app/xmessage"
+      ]
+    },
+    {
+      "name": "xorg-xprop",
+      "version": "1.2.8-1",
+      "licenses": [
+        "MIT-open-group"
+      ],
+      "upstream": [
+        "https://gitlab.freedesktop.org/xorg/app/xprop"
+      ]
+    },
+    {
+      "name": "xorg-xrandr",
+      "version": "1.5.4-1",
+      "licenses": [
+        "HPND-sell-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "xorg-xrdb",
+      "version": "1.2.3-1",
+      "licenses": [
+        "MIT-open-group"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "xorg-xwayland",
+      "version": "24.1.13-1.1",
+      "licenses": [
+        "LicenseRef-Adobe-Display-PostScript",
+        "BSD-3-Clause",
+        "LicenseRef-DEC-3-Clause",
+        "HPND",
+        "LicenseRef-HPND-sell-MIT-disclaimer-xserver",
+        "HPND-sell-variant",
+        "ICU",
+        "ISC",
+        "MIT",
+        "MIT-open-group",
+        "NTP",
+        "SGI-B-2.0",
+        "SMLNJ",
+        "X11",
+        "X11-distribute-modifications-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org"
+      ]
+    },
+    {
+      "name": "xorgproto",
+      "version": "2025.1-1",
+      "licenses": [
+        "BSD-2-Clause",
+        "HPND",
+        "HPND-sell-variant",
+        "ICU",
+        "MIT",
+        "MIT-open-group",
+        "SGI-B-2.0",
+        "SMLNJ",
+        "X11",
+        "X11-distribute-modifications-variant"
+      ],
+      "upstream": [
+        "https://xorg.freedesktop.org/"
+      ]
+    },
+    {
+      "name": "xvidcore",
+      "version": "1.3.7-4",
+      "licenses": [
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://www.xvid.com/"
+      ]
+    },
+    {
+      "name": "xxhash",
+      "version": "0.8.4-1",
+      "licenses": [
+        "GPL2",
+        "BSD"
+      ],
+      "upstream": [
+        "https://cyan4973.github.io/xxHash/"
+      ]
+    },
+    {
+      "name": "xz",
+      "version": "5.8.4-1",
+      "licenses": [
+        "GPL-2.0-or-later AND 0BSD AND LicenseRef-Public-Domain AND LGPL-2.1-or-later"
+      ],
+      "upstream": [
+        "https://tukaani.org/xz/"
+      ]
+    },
+    {
+      "name": "yoga",
+      "version": "3.2.1-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://github.com/facebook/yoga"
+      ]
+    },
+    {
+      "name": "yyjson",
+      "version": "0.13.0-1",
+      "licenses": [
+        "MIT"
+      ],
+      "upstream": [
+        "https://ibireme.github.io/yyjson"
+      ]
+    },
+    {
+      "name": "zeromq",
+      "version": "4.3.5-3",
+      "licenses": [
+        "MPL-2.0"
+      ],
+      "upstream": [
+        "http://www.zeromq.org"
+      ]
+    },
+    {
+      "name": "zimg",
+      "version": "3.0.6-2",
+      "licenses": [
+        "WTFPL"
+      ],
+      "upstream": [
+        "https://github.com/sekrit-twc/zimg"
+      ]
+    },
+    {
+      "name": "zint",
+      "version": "2.16.0-2",
+      "licenses": [
+        "GPL-3.0-or-later"
+      ],
+      "upstream": [
+        "https://zint.org.uk/"
+      ]
+    },
+    {
+      "name": "zip",
+      "version": "3.0-14",
+      "licenses": [
+        "LicenseRef-Info-ZIP"
+      ],
+      "upstream": [
+        "http://www.info-zip.org/Zip.html"
+      ]
+    },
+    {
+      "name": "zix",
+      "version": "0.8.2-1",
+      "licenses": [
+        "0BSD OR ISC"
+      ],
+      "upstream": [
+        "https://gitlab.com/drobilla/zix"
+      ]
+    },
+    {
+      "name": "zlib",
+      "version": "1:1.3.2-3",
+      "licenses": [
+        "Zlib"
+      ],
+      "upstream": [
+        "https://www.zlib.net/"
+      ]
+    },
+    {
+      "name": "zlib-ng",
+      "version": "2.3.3-1",
+      "licenses": [
+        "Zlib"
+      ],
+      "upstream": [
+        "https://github.com/zlib-ng/zlib-ng"
+      ]
+    },
+    {
+      "name": "zstd",
+      "version": "1.5.7-3",
+      "licenses": [
+        "BSD-3-Clause",
+        "GPL-2.0-only"
+      ],
+      "upstream": [
+        "https://facebook.github.io/zstd/"
+      ]
+    },
+    {
+      "name": "zxing-cpp",
+      "version": "3.1.1-1",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "upstream": [
+        "https://github.com/zxing-cpp/zxing-cpp"
+      ]
+    }
+  ],
+  "excluded_packages": [
+    "antigravity-cli",
+    "clash-verge",
+    "clash-verge-rev",
+    "google-chrome",
+    "google-chrome-stable"
+  ],
+  "rejected_modified_package_configs": [],
+  "package_file_count": 184809,
+  "fresh_device_boot_test": false,
+  "privacy_strategy": "package-owned files + generated accounts + reviewed config overlay"
+}

@@ -1,0 +1,35 @@
+#!/bin/bash
+set -e
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export HOME=/home/linux USER=linux LOGNAME=linux
+export XDG_RUNTIME_DIR=/run/user/1000
+export XDG_SESSION_TYPE=wayland XDG_CURRENT_DESKTOP=KDE
+export WAYLAND_DISPLAY=wayland-0
+export XMODIFIERS=@im=fcitx GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx SDL_IM_MODULE=fcitx
+export ANLAND=1 ANLAND_SOCKET=/run/display.sock ANLAND_DRM_DEVICE=/dev/dri/renderD128
+export MESA_LOADER_DRIVER_OVERRIDE=zink GALLIUM_DRIVER=zink
+export FD_FORCE_KGSL=1 TURNIP_KMD=kgsl KWIN_FORCE_OWN_QPA=1
+export QT_FORCE_STDERR_LOGGING=1
+unset QT_QPA_PLATFORM QT_PLUGIN_PATH QT_QPA_PLATFORM_PLUGIN_PATH
+
+# Put audio and desktop children on the same session bus from the first launch.
+if [ "${1:-}" != --with-session-bus ]; then
+    /usr/local/bin/arch-terminal-input stop
+    exec dbus-run-session -- /usr/local/bin/start-kde-session --with-session-bus
+fi
+
+# 启动音频服务 (PipeWire + PulseAudio 兼容层 + WirePlumber)
+if ! pidof pipewire >/dev/null 2>&1; then
+    /usr/bin/pipewire &
+fi
+if ! pidof pipewire-pulse >/dev/null 2>&1; then
+    /usr/bin/pipewire-pulse &
+fi
+if ! pidof wireplumber >/dev/null 2>&1; then
+    /usr/bin/wireplumber &
+fi
+
+# Starts/stops the Android microphone according to the real PipeWire source state.
+/usr/local/libexec/anland-mic-demand.py >/run/user/1000/anland-mic-demand.log 2>&1 &
+
+exec /usr/bin/startplasma-wayland

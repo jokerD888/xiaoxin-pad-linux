@@ -1,0 +1,9 @@
+{
+  "removed_generated_tablet_paths": 20,
+  "live_rootfs_preserved": true,
+  "live_desktop_preserved": true,
+  "live_tmux_preserved": true,
+  "release_intermediates_removed": true,
+  "git_remote_configured": false,
+  "fresh_device_boot_test": false
+}

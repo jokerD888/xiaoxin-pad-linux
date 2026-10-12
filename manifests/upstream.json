@@ -1,0 +1,10 @@
+{
+  "url": "https://github.com/SuperTurtleDev/anland.git",
+  "commit": "367a523ed591a701d98fcc49940b0b574ebd533c",
+  "architecture": "aarch64",
+  "device": "TB-J716F",
+  "android": "13 / ZUI15",
+  "linux_user": "linux",
+  "uid": 1000,
+  "tested_runtime": "original tablet only; fresh installation pending"
+}

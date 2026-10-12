@@ -1,0 +1,53 @@
+#!/bin/bash
+# Konsole views and the Android terminal share one persistent window group.
+set -euo pipefail
+export PATH=/usr/local/bin:/usr/bin:/bin
+export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
+TM=(/usr/bin/tmux -L linux-terminal)
+CONF=$HOME/.config/linux-terminal/tmux.conf
+mode=${1:---resume}
+case "$mode" in
+    --new|--resume) ;;
+    *) echo 'Usage: arch-terminal --new|--resume' >&2; exit 2;;
+esac
+if [ -n "${TMUX:-}" ]; then
+    echo 'Already inside tmux. Use Ctrl+B, C for a new task, or Ctrl+B, W to choose a task.'
+    exit 0
+fi
+mkdir -p "$XDG_RUNTIME_DIR"
+exec 9>"$XDG_RUNTIME_DIR/arch-terminal.lock"
+flock -x 9
+if ! "${TM[@]}" has-session -t '=linux' 2>/dev/null 9>&-; then
+    "${TM[@]}" -f "$CONF" new-session -d -s linux -c "$HOME" 9>&-
+fi
+# Inherit the current desktop environment for newly created windows only.
+# A Termux connection does not erase desktop variables needed after restoration.
+if [ "$mode" = --resume ]; then
+    cwd=$("${TM[@]}" display-message -p -t '=linux' '#{pane_current_path}' 9>&-)
+    if [ -d "$cwd" ]; then
+        cd -- "$cwd"
+    fi
+    flock -u 9
+    exec 9>&-
+    /usr/local/bin/arch-terminal-input start || echo 'Linux input method could not start; see /run/user/1000/arch-terminal-input/service.log' >&2
+    exec "${TM[@]}" attach-session -E -t '=linux'
+fi
+group=konsole-$$
+"${TM[@]}" new-session -d -t '=linux' -s "$group" 9>&-
+cleanup() {
+    trap - EXIT HUP TERM
+    # linux retains every window, so removing only this view cannot kill a job.
+    "${TM[@]}" kill-session -t "=$group" 2>/dev/null || true
+}
+trap cleanup EXIT
+trap 'exit 0' HUP TERM
+for name in DISPLAY WAYLAND_DISPLAY DBUS_SESSION_BUS_ADDRESS XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP XDG_SESSION_TYPE; do
+    if [ -n "${!name:-}" ]; then
+        "${TM[@]}" set-environment -t "$group" "$name" "${!name}" 9>&-
+    fi
+done
+window=$("${TM[@]}" new-window -P -F '#{window_id}' -t "$group:" -c "$PWD" 9>&-)
+"${TM[@]}" select-window -t "$group:$window" 9>&-
+flock -u 9
+exec 9>&-
+"${TM[@]}" attach-session -t "=$group" || true
