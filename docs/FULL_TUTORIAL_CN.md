@@ -23,11 +23,11 @@
 全流程所需的 **优化版 Arch Linux + KDE Wayland 桌面一键包**、**底层驱动**、**官方固件底包**、**BL 解锁文件** 与 **Magisk Root 镜像** 已全部通过以下 3 个夸克网盘链接分享：
 
 ### 1. 夸克网盘资源包一：「TB-J716F_ArchLinux_KDE桌面包」（Linux 桌面核心一键包）
-- **链接**：[https://pan.quark.cn/s/1249631c0930](https://pan.quark.cn/s/1249631c0930)
+- **链接**：[https://pan.quark.cn/s/dda7a083ddde](https://pan.quark.cn/s/dda7a083ddde)
 - **提取码**：`rrv5`
 - **手机端淘口令**（复制整段打开夸克 APP）：
   ```text
-  /~9c6c3bPo8d~:/
+  /~73f53bhDti~:/
   ```
 - **包含内容预览**：
   ![TB-J716F_ArchLinux_KDE桌面包网盘目录](assets/quark_share_3.png)

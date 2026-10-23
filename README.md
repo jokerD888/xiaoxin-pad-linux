@@ -41,7 +41,7 @@ chroot + Anland 使用 KDE Wayland 桌面和 Linux 终端。
 全流程所需的 **优化版 Arch Linux + KDE Wayland 桌面一键安装包**、**BL 解锁工具**、**ZUI 12.6 / ZUI 15 官方底包** 与 **Magisk Root 镜像** 已全部整理在夸克网盘（各目录文件详情见[全流程保姆级教程](docs/FULL_TUTORIAL_CN.md#一夸克网盘资源汇总与文件说明)）：
 
 1. **「TB-J716F_ArchLinux_KDE桌面包」**（**核心包**：含 1.31 GiB 干净 `xiaoxin-rootfs`、一键安装脚本 `xiaoxin-host`、`anland-daemon` 模块、修复版 `anland-linux.apk`、`AnlandTermux.apk`、对应源码与 `SHA256SUMS`）
-   - 链接：[https://pan.quark.cn/s/1249631c0930](https://pan.quark.cn/s/1249631c0930) ｜ 提取码：`rrv5` ｜ 口令：`/~9c6c3bPo8d~:/`
+   - 链接：[https://pan.quark.cn/s/dda7a083ddde](https://pan.quark.cn/s/dda7a083ddde) ｜ 提取码：`rrv5` ｜ 口令：`/~73f53bhDti~:/`
 2. **「小新pad pro 2021相关」**（含 ZUI 12.6 降级底包、ZUI 15.0.485 官方线刷包、9008 工具）
    - 链接：[https://pan.quark.cn/s/ba5e10d4736e](https://pan.quark.cn/s/ba5e10d4736e) ｜ 提取码：`TNwf` ｜ 口令：`/~3a353bPmPP~:/`
 3. **「Android_A16_TB_J716F」**（含 9008/ADB 驱动、QPST/搞机通、BL 解锁替换镜像与 `sn.img`、ZUI 15 修补版 Magisk Boot 镜像）

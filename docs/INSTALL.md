@@ -6,7 +6,7 @@
 
 ## 1. 准备文件
 
-从夸克网盘 **「TB-J716F_ArchLinux_KDE桌面包」**（链接：[https://pan.quark.cn/s/1249631c0930](https://pan.quark.cn/s/1249631c0930)，提取码：`rrv5`，口令：`/~9c6c3bPo8d~:/`）下载同一版本的 rootfs、Android 接入包、Anland 客户端 APK、daemon 模块、`AnlandTermux.apk` 和 `SHA256SUMS` 放入本地 `dist/` 目录。
+从夸克网盘 **「TB-J716F_ArchLinux_KDE桌面包」**（链接：[https://pan.quark.cn/s/dda7a083ddde](https://pan.quark.cn/s/dda7a083ddde)，提取码：`rrv5`，口令：`/~73f53bhDti~:/`）下载同一版本的 rootfs、Android 接入包、Anland 客户端 APK、daemon 模块、`AnlandTermux.apk` 和 `SHA256SUMS` 放入本地 `dist/` 目录。
 （如果设备尚未解锁 Bootloader 或尚未 Root，请先阅读 [**从零开始全流程教程**](FULL_TUTORIAL_CN.md)。）
 
 Windows 需要 Python 3、Git，以及 Android 官方 Platform Tools。
