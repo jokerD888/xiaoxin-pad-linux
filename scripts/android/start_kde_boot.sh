@@ -27,24 +27,27 @@ if [ -f "$MODE_FILE" ]; then
     echo "Configured boot_mode: '$REQ_MODE'" >> "$LOG"
     case "$REQ_MODE" in
         "android_once")
-            echo "kde" > "$MODE_FILE"
-            echo "Mode: android_once triggered. Reset to 'kde'. Staying in ZUI." >> "$LOG"
+            echo "linux" > "$MODE_FILE"
+            echo "Mode: android_once triggered. Reset to 'linux'. Staying in ZUI." >> "$LOG"
+            sh "$BASE/bin/unfreeze_android.sh" >/dev/null 2>&1 || true
             exit 0
             ;;
         "android_always")
             echo "Mode: android_always active. Staying in ZUI." >> "$LOG"
+            sh "$BASE/bin/unfreeze_android.sh" >/dev/null 2>&1 || true
             exit 0
             ;;
-        "kde"|"")
-            echo "Mode: kde. Proceeding to key check." >> "$LOG"
+        "kde"|"linux"|"")
+            echo "Mode: linux/kde. Proceeding to key check." >> "$LOG"
             ;;
         *)
             echo "Mode: unknown ('$REQ_MODE'). Fallback safety: staying in ZUI." >> "$LOG"
+            sh "$BASE/bin/unfreeze_android.sh" >/dev/null 2>&1 || true
             exit 0
             ;;
     esac
 else
-    echo "No boot_mode file. Default to KDE mode." >> "$LOG"
+    echo "No boot_mode file. Default to Linux mode." >> "$LOG"
 fi
 
 # 3. 第二防御线: 检查物理音量下键 (开机后 3 秒硬件按键检测窗口)
@@ -52,6 +55,7 @@ if [ -f "$BASE/bin/detect_boot_key.sh" ]; then
     echo "Starting 3-second physical Volume Down check..." >> "$LOG"
     if sh "$BASE/bin/detect_boot_key.sh" 3 >> "$LOG" 2>&1; then
         echo "Volume Down detected! User selected ZUI. Staying in ZUI." >> "$LOG"
+        sh "$BASE/bin/unfreeze_android.sh" >/dev/null 2>&1 || true
         exit 0
     fi
 fi
@@ -63,6 +67,7 @@ if [ -f "$BASE/bin/launch_kde_desktop.sh" ]; then
     EXIT_CODE=$?
     if [ "$EXIT_CODE" -ne 0 ]; then
         echo "ERROR: launch_kde_desktop.sh exited with code $EXIT_CODE! Fallback to ZUI." >> "$LOG"
+        sh "$BASE/bin/unfreeze_android.sh" >/dev/null 2>&1 || true
         am start -n com.zui.launcher/.drawer.NormalLauncher >/dev/null 2>&1 || true
     fi
 fi

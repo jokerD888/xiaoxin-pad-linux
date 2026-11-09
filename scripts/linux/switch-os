@@ -1,0 +1,149 @@
+#!/usr/bin/python3
+import os
+import sys
+import subprocess
+import argparse
+from pathlib import Path
+
+FIFO = Path('/run/host_cmd.fifo')
+
+def send_host_cmd(cmd):
+    if not FIFO.exists():
+        print("错误: 宿主通道 /run/host_cmd.fifo 不存在。")
+        return False
+    try:
+        fd = os.open(str(FIFO), os.O_WRONLY | os.O_NONBLOCK)
+        os.write(fd, (cmd.strip() + '\n').encode())
+        os.close(fd)
+        return True
+    except Exception as e:
+        print(f"命令发送失败: {e}")
+        return False
+
+def get_status():
+    status_file = Path('/run/android_freeze.status')
+    frozen = "未知"
+    if status_file.exists():
+        try:
+            txt = status_file.read_text().strip()
+            if txt == 'frozen':
+                frozen = "已深度冰封 (0% CPU, 算力与内存全部独占给 Linux)"
+            elif txt == 'running':
+                frozen = "未冰封 (Android 处于正常运行状态)"
+        except Exception:
+            pass
+
+    mem_avail = "未知"
+    try:
+        with open('/proc/meminfo') as f:
+            for line in f:
+                if 'MemAvailable' in line:
+                    mem_avail = line.split(':')[1].strip()
+                    break
+    except Exception:
+        pass
+
+    boot_mode_file = Path('/data/adb/boot_mode')
+    boot_mode = "Linux 独占模式 (默认)"
+    if boot_mode_file.exists():
+        try:
+            bm = boot_mode_file.read_text().strip()
+            if bm == 'android_once':
+                boot_mode = "单次启动 Android (下次仍回 Linux)"
+            elif bm == 'android_always':
+                boot_mode = "始终启动 Android"
+        except Exception:
+            pass
+
+    return f"""TB-J716F 操作系统状态:
+  当前运行环境: Arch Linux (Wayland / KDE Plasma 6)
+  Android 上层状态: {frozen}
+  当前可用内存: {mem_avail}
+  下次开机目标: {boot_mode}
+"""
+
+def main():
+    parser = argparse.ArgumentParser(description="TB-J716F 操作系统切换与冰封管理")
+    parser.add_argument('action', nargs='?', choices=['menu', 'android', 'android-always', 'reboot-android', 'freeze', 'unfreeze', 'status'], default='menu')
+    args = parser.parse_args()
+
+    action = args.action
+
+    if action == 'status':
+        print(get_status())
+        return
+
+    if action in ('android', 'reboot-android'):
+        print("正在准备重启并进入 Android 系统 (单次)...")
+        send_host_cmd('reboot-android-once')
+        return
+
+    if action == 'android-always':
+        print("正在准备重启并进入 Android 系统 (永久)...")
+        send_host_cmd('reboot-android-always')
+        return
+
+    if action == 'freeze':
+        print("正在执行 Android 深度冰封...")
+        send_host_cmd('freeze-android')
+        print("已发送冰封指令。")
+        return
+
+    if action == 'unfreeze':
+        print("正在解冻 Android 用户空间...")
+        send_host_cmd('unfreeze-android')
+        print("已发送解冻指令。")
+        return
+
+    # Interactive Menu via dialog or text
+    has_dialog = (subprocess.run(['which', 'dialog'], capture_output=True).returncode == 0)
+    if has_dialog and sys.stdin.isatty():
+        menu_cmd = [
+            '/usr/bin/dialog', '--keep-tite', '--stdout',
+            '--title', 'TB-J716F 操作系统与独占模式管理',
+            '--menu', '选择操作 (默认情况下 Android 处于深度冰封，资源 97%+ 归 Linux):\n\n开机按住「音量减」亦可随时进入 Android。',
+            '16', '70', '5',
+            '1', '重启进入 Android (单次，下次仍回 Linux)',
+            '2', '重启进入 Android (始终保持 Android)',
+            '3', '立即解冻 Android (不重启，临时唤醒安卓桌面)',
+            '4', '立即重新冰封 Android (压制后台，释放资源)',
+            '5', '查看系统资源与冰封状态'
+        ]
+        res = subprocess.run(menu_cmd, text=True, stdout=subprocess.PIPE)
+        if res.returncode != 0:
+            return
+        choice = res.stdout.strip()
+    else:
+        print("==================================================")
+        print("       TB-J716F 操作系统与独占模式管理")
+        print("==================================================")
+        print(" 1) 重启进入 Android (单次，下次开机仍回 Linux)")
+        print(" 2) 重启进入 Android (始终保持 Android)")
+        print(" 3) 立即解冻 Android (不重启，临时唤醒安卓桌面)")
+        print(" 4) 立即重新冰封 Android (压制后台，释放资源)")
+        print(" 5) 查看系统资源与冰封状态")
+        print(" 0) 退出")
+        print("==================================================")
+        choice = input("请选择 [0-5]: ").strip()
+
+    if choice == '1':
+        print("正在重启进入 Android (单次)...")
+        send_host_cmd('reboot-android-once')
+    elif choice == '2':
+        print("正在重启进入 Android (始终保持)...")
+        send_host_cmd('reboot-android-always')
+    elif choice == '3':
+        print("正在解冻 Android...")
+        send_host_cmd('unfreeze-android')
+    elif choice == '4':
+        print("正在深度冰封 Android...")
+        send_host_cmd('freeze-android')
+    elif choice == '5':
+        msg = get_status()
+        if has_dialog and sys.stdin.isatty():
+            subprocess.run(['/usr/bin/dialog', '--keep-tite', '--title', '系统状态', '--msgbox', msg, '12', '60'])
+        else:
+            print(msg)
+
+if __name__ == '__main__':
+    main()

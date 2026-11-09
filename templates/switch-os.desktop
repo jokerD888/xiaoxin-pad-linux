@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=切换系统 (Switch to Android)
+Name[zh_CN]=切换系统 (重启进 Android)
+Comment=选择重启进入 Android 或管理安卓冰封状态
+Exec=konsole -e /usr/local/bin/switch-os
+Icon=system-reboot
+Terminal=false
+Type=Application
+Categories=System;Settings;

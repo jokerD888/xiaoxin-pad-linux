@@ -32,12 +32,10 @@ chmod 700 "$ROOTFS/run/user/1000"
 # /data is nosuid. Preserve standard sudo/FUSE helpers on a dedicated tmpfs.
 /data/adb/kde-desktop/bin/setup_privileged_tools.sh
 
+# Adopted SD storage may become ready after the desktop; wait in the background.
+nohup /data/adb/kde-desktop/bin/mount_samsung_sd.sh --wait >"$LOG_DIR/samsung-sd.log" 2>&1 </dev/null &
 
-
-if [ "$(getenforce 2>/dev/null)" = Enforcing ]; then
-    [ -f "$ROOTFS/etc/xiaoxin-linux/allow-permissive" ] || { echo "This build requires explicit SELinux permissive consent." >&2; exit 1; }
-    setenforce 0
-fi
+setenforce 0 2>/dev/null || true
 chmod 666 /dev/kgsl-3d0 /dev/ion /dev/dri/* /dev/video* /dev/v4l-subdev* 2>/dev/null || true
 
 # 宿主桥独立于图形会话，桌面停止后仍能接收恢复命令；flock 保证单实例。
@@ -56,7 +54,7 @@ chmod 666 "$INNER_SOCK" 2>/dev/null || true
 # 启动 KDE Plasma 6 桌面会话
 if ! pidof kwin_wayland.real >/dev/null; then
     echo "[launch_kde] Starting KDE Plasma Session in chroot..."
-    nohup chroot "$ROOTFS" /bin/su - linux -c '/usr/local/bin/start-kde-session' >"$LOG" 2>&1 </dev/null &
+    nohup chroot "$ROOTFS" /bin/su - Gold -c '/usr/local/bin/start-kde-session' >"$LOG" 2>&1 </dev/null &
 fi
 
 # 等待 Wayland Socket 与 KWin 建立就绪 (测量耗时)
@@ -111,4 +109,11 @@ echo "[launch_kde] KDE Desktop successfully launched and verified!"
 if [ -f "$ROOTFS/usr/local/libexec/linux-mode-controller.py" ]; then
     chroot "$ROOTFS" /usr/bin/env PATH=/usr/local/bin:/usr/bin:/bin /usr/bin/python /usr/local/libexec/linux-mode-controller.py status || true
 fi
+
+# 阶段 C: 自动对 Android 执行深度冰封 (Linux 独占模式，剥离 Android 用户空间)
+if [ -f "/data/adb/kde-desktop/bin/freeze_android.sh" ]; then
+    echo "[launch_kde] === Stage C: Freezing Android userspace for Linux exclusive mode ==="
+    nohup /data/adb/kde-desktop/bin/freeze_android.sh >> "$LOG_DIR/freeze.log" 2>&1 &
+fi
+
 exit 0

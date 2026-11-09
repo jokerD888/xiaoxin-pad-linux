@@ -17,6 +17,13 @@ chroot + Anland 使用 KDE Wayland 桌面和 Linux 终端。
   Chromium 在该 chroot 中需要 `--no-sandbox`；这与常规 Linux 桌面的隔离条件不同。
 - 本项目不刷 Android ROM、不自动 Root、不转换或格式化 SD 卡、不卸载 Android 应用。
 
+## 分支版本说明
+
+本项目提供两个针对不同使用场景的分支：
+
+- **`main`（默认分支 / 双系统随时热切换）**：保留 Android 原生桌面与系统级手势，通过 Anland 与宿主桥实现随时随地无缝热切回 Android，适合需要频繁兼顾平板娱乐与 Linux 开发的用户。
+- **`linux-exclusive-mode`（本分支 / Linux 独占冷启动模式）**：专为 **99% 场景仅使用 Linux、追求极致性能与资源倾斜** 的用户设计。彻底注销 Android 桌面与多任务，手势物理防误触，通过内核级 cgroup v2 深度冰封 Android 后台，净释放 760MB+ 物理内存，4 颗高频大核（3.2GHz）100% 专供 Linux 独占；如需切换 Android 需通过冷重启。详情见 [Linux 独占模式深度说明与压测报告](docs/LINUX_EXCLUSIVE_MODE.md)。
+
 ## 已整理的功能
 
 - KDE Plasma / Wayland，Zink + Turnip，保留 90Hz。
