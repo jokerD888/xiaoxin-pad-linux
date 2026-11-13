@@ -17,15 +17,15 @@ chroot + Anland 使用 KDE Wayland 桌面和 Linux 终端。
   Chromium 在该 chroot 中需要 `--no-sandbox`；这与常规 Linux 桌面的隔离条件不同。
 - 本项目不刷 Android ROM、不自动 Root、不转换或格式化 SD 卡、不卸载 Android 应用。
 
-## 性能调优与独占模式（MemAvailable 1.88 GB ➔ 2.53 GB）
+## 深度性能调优与独占模式（极低系统底噪 / 净释放 650MB+ 物理运存）
 
-本项目已全量合入最新的深度性能调优与独占运行模式，整机可用物理内存从原始基准 **1.88 GB** 跃升至 **2.53 GB**（**净赚 650MB+ 物理运行内存，增幅超 35%**）：
+本项目已全量合入宿主底噪精简与 Linux 独占模式优化方案，**在不牺牲桌面完整功能的前提下，大幅削减系统常驻底噪，为前台重载生产力净腾出 650MB+ 物理运行内存**：
 
 - **Android 宿主端深度精简**：内置 `scripts/android/debloat_android.sh`，无损拔除搜狗输入法 OEM 版、联想 OTA、用户体验遥测、系统推送等 22 个后台臃肿进程，开机 0 残留（支持一键恢复）。
 - **Linux 独占模式与算力倾斜**：通过 cgroup v2 冰封 Android 用户层应用，限制宿主后台运行在小核（CPU 0-3），将骁龙 870 强悍的中核与超大核（3.2GHz）100% 专供 Linux 独占；锁定 Linux 关键进程为最高防御等级（`oom_score_adj -1000`），彻底免疫 LMK 杀进程。
 - **KDE Plasma 6 桌面轻量化**：彻底停用 Baloo 文件语义索引器，关闭 KWin 毛玻璃模糊（Blur）与沉重动效，彻底根除空闲 CPU 偷跑、闪存频繁读写与移动端 GPU 渲染负担。
 - **OLED 纯黑硬件级省电挂机**：内置 Wayland 原生 PyQt5 全屏黑屏框架（`black-screen-saver.py`），全屏 `#000000` 像素点硬件切断供电，兼顾防烧屏与极致省电；支持触控屏幕手势与任意键秒级无缝唤醒退出，挂机结束后进程退出，常驻物理内存 0 占用。
-- 详细实测报告见：[**深度性能调优与极致轻量化指南**](docs/PERFORMANCE_TUNING.md) ｜ [Linux 独占模式说明](docs/LINUX_EXCLUSIVE_MODE.md)。
+- 详细调优原理与实操见：[**深度性能调优与极致轻量化指南**](docs/PERFORMANCE_TUNING.md) ｜ [Linux 独占模式说明](docs/LINUX_EXCLUSIVE_MODE.md)。
 
 ## 已整理的功能
 
@@ -41,7 +41,7 @@ chroot + Anland 使用 KDE Wayland 桌面和 Linux 终端。
 ## 快速入口
 
 - [**从零开始：9008 解锁 BL、刷回 ZUI 15、Root 到安装 Linux 保姆级全流程教程**](docs/FULL_TUTORIAL_CN.md)
-- [**深度性能调优与极致轻量化指南（MemAvailable 1.88G ➔ 2.53G）**](docs/PERFORMANCE_TUNING.md)
+- [**深度性能调优与极致轻量化指南（双端深度瘦身 / 净释放 650MB+ 内存）**](docs/PERFORMANCE_TUNING.md)
 - [已 Root 设备安装与首次启动](docs/INSTALL.md)
 - [Linux 独占模式深度说明与压测报告](docs/LINUX_EXCLUSIVE_MODE.md)
 - [构建客户端、模块和干净镜像](docs/BUILD.md)
