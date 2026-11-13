@@ -17,12 +17,15 @@ chroot + Anland 使用 KDE Wayland 桌面和 Linux 终端。
   Chromium 在该 chroot 中需要 `--no-sandbox`；这与常规 Linux 桌面的隔离条件不同。
 - 本项目不刷 Android ROM、不自动 Root、不转换或格式化 SD 卡、不卸载 Android 应用。
 
-## 分支版本说明
+## 性能调优与独占模式（MemAvailable 1.88 GB ➔ 2.53 GB）
 
-本项目提供两个针对不同使用场景的分支：
+本项目已全量合入最新的深度性能调优与独占运行模式，整机可用物理内存从原始基准 **1.88 GB** 跃升至 **2.53 GB**（**净赚 650MB+ 物理运行内存，增幅超 35%**）：
 
-- **`main`（默认分支 / 双系统随时热切换）**：保留 Android 原生桌面与系统级手势，通过 Anland 与宿主桥实现随时随地无缝热切回 Android，适合需要频繁兼顾平板娱乐与 Linux 开发的用户。
-- **`linux-exclusive-mode`（本分支 / Linux 独占冷启动模式）**：专为 **99% 场景仅使用 Linux、追求极致性能与资源倾斜** 的用户设计。彻底注销 Android 桌面与多任务，手势物理防误触，通过内核级 cgroup v2 深度冰封 Android 后台，净释放 760MB+ 物理内存，4 颗高频大核（3.2GHz）100% 专供 Linux 独占；如需切换 Android 需通过冷重启。详情见 [Linux 独占模式深度说明与压测报告](docs/LINUX_EXCLUSIVE_MODE.md)。
+- **Android 宿主端深度精简**：内置 `scripts/android/debloat_android.sh`，无损拔除搜狗输入法 OEM 版、联想 OTA、用户体验遥测、系统推送等 22 个后台臃肿进程，开机 0 残留（支持一键恢复）。
+- **Linux 独占模式与算力倾斜**：通过 cgroup v2 冰封 Android 用户层应用，限制宿主后台运行在小核（CPU 0-3），将骁龙 870 强悍的中核与超大核（3.2GHz）100% 专供 Linux 独占；锁定 Linux 关键进程为最高防御等级（`oom_score_adj -1000`），彻底免疫 LMK 杀进程。
+- **KDE Plasma 6 桌面轻量化**：彻底停用 Baloo 文件语义索引器，关闭 KWin 毛玻璃模糊（Blur）与沉重动效，彻底根除空闲 CPU 偷跑、闪存频繁读写与移动端 GPU 渲染负担。
+- **OLED 纯黑硬件级省电挂机**：内置 Wayland 原生 PyQt5 全屏黑屏框架（`black-screen-saver.py`），全屏 `#000000` 像素点硬件切断供电，兼顾防烧屏与极致省电；支持触控屏幕手势与任意键秒级无缝唤醒退出，挂机结束后进程退出，常驻物理内存 0 占用。
+- 详细实测报告见：[**深度性能调优与极致轻量化指南**](docs/PERFORMANCE_TUNING.md) ｜ [Linux 独占模式说明](docs/LINUX_EXCLUSIVE_MODE.md)。
 
 ## 已整理的功能
 
@@ -33,11 +36,14 @@ chroot + Anland 使用 KDE Wayland 桌面和 Linux 终端。
 - 中文拼音、实体键盘、Esc、触控板滚动及 Konsole 色彩预览设置。
 - Konsole 与 Termux 共享 tmux；桌面退出后保留接入持久终端的命令行任务。
 - 终端内中文候选，Ctrl+空格切换中英文。
+- OLED 纯黑屏节能挂机桌面图标与触控唤醒。
 
 ## 快速入口
 
 - [**从零开始：9008 解锁 BL、刷回 ZUI 15、Root 到安装 Linux 保姆级全流程教程**](docs/FULL_TUTORIAL_CN.md)
+- [**深度性能调优与极致轻量化指南（MemAvailable 1.88G ➔ 2.53G）**](docs/PERFORMANCE_TUNING.md)
 - [已 Root 设备安装与首次启动](docs/INSTALL.md)
+- [Linux 独占模式深度说明与压测报告](docs/LINUX_EXCLUSIVE_MODE.md)
 - [构建客户端、模块和干净镜像](docs/BUILD.md)
 - [隐私边界与镜像生成方法](docs/PRIVACY.md)
 - [发布文件、许可与验收范围](docs/RELEASE.md)
@@ -61,12 +67,13 @@ chroot + Anland 使用 KDE Wayland 桌面和 Linux 终端。
 
 ```text
 build/          干净 rootfs 导出、上游获取、客户端构建
-patches/        Anland / KWin 源码修改
-scripts/        Android 接入、Linux 服务、Windows 部署工具
-src/            自定义桥接、监控及客户端补丁
-templates/      从零编写或审核的通用默认配置
+docs/           全套从零安装教程、独占模式说明与性能调优指南
 manifests/      上游版本、软件包和发布校验信息
+patches/        Anland / KWin 源码修改
 reports/        不含个人身份的检查结果
+scripts/        Android 接入、Linux 服务、精简脚本与 Windows 部署工具
+src/            自定义桥接、监控、黑屏屏保及客户端补丁
+templates/      从零编写或审核的通用默认配置与快捷方式
 dist/           本地 Release 附件；Git 默认忽略
 ```
 

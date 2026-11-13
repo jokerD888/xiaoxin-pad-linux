@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=纯黑屏挂机
+Name[zh_CN]=纯黑屏挂机
+GenericName=纯黑屏挂机
+Comment=OLED纯黑像素熄灭省电挂机（轻触屏幕任意位置唤醒）
+Exec=/usr/bin/python3 /usr/local/bin/black-screen-saver.py
+Icon=preferences-desktop-screensaver
+Terminal=false
+Categories=System;Utility;
