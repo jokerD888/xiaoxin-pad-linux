@@ -35,6 +35,10 @@ for name in linux-host-bridge.sh linux-terminal.sh launch_kde_desktop.sh setup_p
     cp "$HERE/$name" "$BASE/bin/$name"
     chmod 755 "$BASE/bin/$name"
 done
+if [ -f "$HERE/lenovo-kbd-bridge" ]; then
+    cp "$HERE/lenovo-kbd-bridge" "$BASE/bin/lenovo-kbd-bridge"
+    chmod 755 "$BASE/bin/lenovo-kbd-bridge"
+fi
 cp "$HERE/start_kde_boot.sh" /data/adb/service.d/90-xiaoxin-linux.sh
 chmod 755 /data/adb/service.d/90-xiaoxin-linux.sh
 cp "$APK" "$BASE/anland-linux.apk"

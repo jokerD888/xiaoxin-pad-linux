@@ -40,6 +40,9 @@ chmod 666 /dev/kgsl-3d0 /dev/ion /dev/dri/* /dev/video* /dev/v4l-subdev* 2>/dev/
 
 # 宿主桥独立于图形会话，桌面停止后仍能接收恢复命令；flock 保证单实例。
 nohup /data/adb/kde-desktop/bin/linux-host-bridge.sh >>"$LOG_DIR/linux-host-bridge.log" 2>&1 </dev/null &
+if [ -x /data/adb/kde-desktop/bin/lenovo-kbd-bridge ] && ! pidof lenovo-kbd-bridge >/dev/null; then
+    nohup /data/adb/kde-desktop/bin/lenovo-kbd-bridge >/dev/null 2>&1 </dev/null &
+fi
 
 # 启动 Display Daemon
 if [ ! -S "$INNER_SOCK" ] || ! pidof display_daemon >/dev/null; then

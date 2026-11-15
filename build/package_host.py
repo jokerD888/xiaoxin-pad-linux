@@ -8,8 +8,11 @@ root=Path(__file__).resolve().parents[1]
 dist=root/'dist';dist.mkdir(exist_ok=True)
 with tarfile.open(dist/'xiaoxin-host-0.1.0-preview.tar.xz','w:xz',preset=3) as tf:
     files=list((root/'scripts/android').glob('*.sh'))+[root/'templates/anland-defaults.xml']
+    kbd_bridge=root/'.build/lenovo-kbd-bridge'
+    if kbd_bridge.is_file():
+        files.append(kbd_bridge)
     for p in files:
-        info=tarfile.TarInfo(p.name);data=p.read_bytes();info.size=len(data);info.mode=0o755 if p.suffix=='.sh' else 0o644
+        info=tarfile.TarInfo(p.name);data=p.read_bytes();info.size=len(data);info.mode=0o755 if p.suffix=='.sh' or p.name=='lenovo-kbd-bridge' else 0o644
         tf.addfile(info,io.BytesIO(data))
     for name in ['LICENSE','README.md']:
         p=root/name;data=p.read_bytes();info=tarfile.TarInfo(name);info.size=len(data);info.mode=0o644;tf.addfile(info,io.BytesIO(data))

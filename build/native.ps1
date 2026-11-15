@@ -17,3 +17,5 @@ if ($LASTEXITCODE) { throw 'Audio policy build failed' }
 $crt = Join-Path $sysroot 'usr/lib/aarch64-linux-android/33'
 & $cc @common -fPIE -pie "$crt/crtbegin_dynamic.o" "-I$source/common" "-I$source/libdisplay_daemon" "$source/daemon/daemon.c" "$source/libdisplay_daemon/display_daemon.c" "$source/common/socket_utils.c" -o .build/display_daemon -lc "$crt/crtend_android.o"
 if ($LASTEXITCODE) { throw 'Display daemon build failed' }
+& $cc @common -fPIE -pie "$crt/crtbegin_dynamic.o" src/desktop/lenovo-kbd-bridge.c -o .build/lenovo-kbd-bridge -lc "$crt/crtend_android.o"
+if ($LASTEXITCODE) { throw 'Lenovo keyboard bridge build failed' }

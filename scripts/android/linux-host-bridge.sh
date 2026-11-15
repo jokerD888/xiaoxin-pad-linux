@@ -58,6 +58,9 @@ while IFS= read -r cmd <&3; do
             am start -n com.zui.launcher/.drawer.NormalLauncher >/dev/null 2>&1
             ;;
         switch-to-kde)
+            if [ -x "$BASE/bin/lenovo-kbd-bridge" ] && ! pidof lenovo-kbd-bridge >/dev/null; then
+                nohup "$BASE/bin/lenovo-kbd-bridge" >/dev/null 2>&1 </dev/null &
+            fi
             am start -n com.anland.consumer.desktop/com.anland.consumer.MainActivity >/dev/null 2>&1
             sh "$BASE/bin/freeze_android.sh" >/dev/null 2>&1 || true
             ;;
@@ -65,6 +68,7 @@ while IFS= read -r cmd <&3; do
             input keyevent 223 >/dev/null 2>&1 || true
             ;;
         terminal-mode)
+            pkill -x lenovo-kbd-bridge 2>/dev/null || true
             if chroot "$ROOTFS" /usr/bin/env PATH=/usr/local/bin:/usr/bin:/bin /usr/bin/python /usr/local/libexec/linux-mode-controller.py stop 9>&- 3>&-; then
                 for pid in $(pidof display_daemon); do
                     if [ "$(readlink /proc/$pid/exe)" = /data/adb/modules/anland-daemon/display_daemon ]; then
