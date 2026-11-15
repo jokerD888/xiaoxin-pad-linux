@@ -93,6 +93,19 @@ fi
 
 # 阶段 B: 切换前台并验证握手
 echo "[launch_kde] === Stage B: Switching Anland Consumer to Foreground ==="
+KEY_SVC="com.anland.consumer.desktop/com.anland.consumer.KeyInterceptor"
+CUR_A11Y=$(settings get secure enabled_accessibility_services 2>/dev/null || true)
+case ":$CUR_A11Y:" in
+    *":$KEY_SVC:"*) ;;
+    *)
+        if [ -z "$CUR_A11Y" ] || [ "$CUR_A11Y" = "null" ]; then
+            settings put secure enabled_accessibility_services "$KEY_SVC" >/dev/null 2>&1 || true
+        else
+            settings put secure enabled_accessibility_services "$CUR_A11Y:$KEY_SVC" >/dev/null 2>&1 || true
+        fi
+        ;;
+esac
+settings put secure accessibility_enabled 1 >/dev/null 2>&1 || true
 input keyevent 224 || true
 wm dismiss-keyguard || true
 am start -n com.anland.consumer.desktop/com.anland.consumer.MainActivity >/dev/null 2>&1 || true

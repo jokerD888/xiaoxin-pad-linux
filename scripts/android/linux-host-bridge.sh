@@ -61,6 +61,9 @@ while IFS= read -r cmd <&3; do
             am start -n com.anland.consumer.desktop/com.anland.consumer.MainActivity >/dev/null 2>&1
             sh "$BASE/bin/freeze_android.sh" >/dev/null 2>&1 || true
             ;;
+        lock-screen)
+            input keyevent 223 >/dev/null 2>&1 || true
+            ;;
         terminal-mode)
             if chroot "$ROOTFS" /usr/bin/env PATH=/usr/local/bin:/usr/bin:/bin /usr/bin/python /usr/local/libexec/linux-mode-controller.py stop 9>&- 3>&-; then
                 for pid in $(pidof display_daemon); do

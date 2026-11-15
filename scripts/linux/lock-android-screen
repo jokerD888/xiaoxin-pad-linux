@@ -1,0 +1,2 @@
+#!/bin/sh
+printf "lock-screen\n" > /run/host_cmd.fifo

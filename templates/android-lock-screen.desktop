@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Lock Screen (Android)
+Name[zh_CN]=锁定屏幕 (Android)
+Comment=使用 Win+L 锁定平板 Android 屏幕
+NoDisplay=true
+Exec=/usr/local/bin/lock-android-screen
+X-KDE-Shortcuts=Meta+L

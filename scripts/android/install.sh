@@ -45,6 +45,19 @@ printf '%s\n' android_always > /data/adb/boot_mode
 pm grant com.anland.consumer.desktop android.permission.RECORD_AUDIO
 pm grant com.anland.consumer.desktop android.permission.CAMERA
 pm grant com.anland.consumer.desktop android.permission.POST_NOTIFICATIONS || true
+KEY_SVC="com.anland.consumer.desktop/com.anland.consumer.KeyInterceptor"
+CUR_A11Y=$(settings get secure enabled_accessibility_services 2>/dev/null || true)
+case ":$CUR_A11Y:" in
+    *":$KEY_SVC:"*) ;;
+    *)
+        if [ -z "$CUR_A11Y" ] || [ "$CUR_A11Y" = "null" ]; then
+            settings put secure enabled_accessibility_services "$KEY_SVC" >/dev/null 2>&1 || true
+        else
+            settings put secure enabled_accessibility_services "$CUR_A11Y:$KEY_SVC" >/dev/null 2>&1 || true
+        fi
+        ;;
+esac
+settings put secure accessibility_enabled 1 >/dev/null 2>&1 || true
 APP=/data/user/0/com.anland.consumer.desktop
 am force-stop com.anland.consumer.desktop
 mkdir -p "$APP/shared_prefs"
