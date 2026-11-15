@@ -162,9 +162,9 @@ kwriteconfig6 --file kwinrc --group Plugins --key translucencyEnabled false
 小新 Pad Pro 2021 搭载了一块 2560×1600 分辨率的高素质 90Hz OLED 屏幕。OLED 的物理特性是**纯黑像素点直接切断供电、完全不发光**。
 
 - **实现机制**：
-  - 采用 Wayland 原生 PyQt5 全屏框架（`scripts/linux/black-screen-saver.py`），全屏渲染 `#000000`；
-  - 启动前 2.5 秒柔和提示操作方式，随后平滑淡出至全黑；
-  - **原生手势拦截**：完美监听 `TouchBegin`、`TouchEnd` 以及鼠标和键盘事件，触控屏幕任意位置瞬间唤醒；
-  - **0 常驻开销**：唤醒退出后直接终止退出，常驻内存为 0。
+  - 采用纯 Wayland 原生 C 程序（`src/desktop/black_screen.c` -> `/usr/local/bin/black-screen-saver-bin`），直接对接 `libwayland-client`、`xdg-shell` 全屏协议与 `wp_viewporter`（1×1 纯黑 `XRGB8888` SHM 缓冲零拷贝缩放至全屏），不依赖 X11/XWayland、Python 或 Qt/GTK GUI 库；
+  - 启动即全屏渲染 `#000000` 并通过 `wl_pointer::set_cursor(..., NULL)` 隐藏鼠标指针，单实例 `flock` 防重入锁（`/run/user/1000/black-screen-saver.lock`）；
+  - **超低内存开销**：实测挂机期间仅占用约 `1.3 MB` 物理内存（`VmRSS = 1308 kB`，单线程），相比原 PyQt5 方案（`~104.9 MB`）节省超 `103 MB` 内存；
+  - **原生唤醒与 0 常驻**：同时监听 `wl_touch::down`（触控）、`wl_pointer::button`（鼠标点击）和 `wl_keyboard::key`（任意按键），唤醒后立即销毁表面并退出，平时 0 常驻开销。
 - **桌面快捷方式**：
-  桌面预置 `templates/black-screen.desktop`，双击或单触桌面图标即可进入挂机状态。
+  桌面预置 `templates/black-screen.desktop`（`Exec=/usr/local/bin/black-screen-saver-bin`），双击或单触桌面图标即可进入挂机状态。

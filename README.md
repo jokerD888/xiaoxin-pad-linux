@@ -24,7 +24,7 @@ chroot + Anland 使用 KDE Wayland 桌面和 Linux 终端。
 - **Android 宿主端深度精简**：内置 `scripts/android/debloat_android.sh`，无损拔除搜狗输入法 OEM 版、联想 OTA、用户体验遥测、系统推送等 22 个后台臃肿进程，开机 0 残留（支持一键恢复）。
 - **Linux 独占模式与算力倾斜**：通过 cgroup v2 冰封 Android 用户层应用，限制宿主后台运行在小核（CPU 0-3），将骁龙 870 强悍的中核与超大核（3.2GHz）100% 专供 Linux 独占；锁定 Linux 关键进程为最高防御等级（`oom_score_adj -1000`），彻底免疫 LMK 杀进程。
 - **KDE Plasma 6 桌面轻量化**：彻底停用 Baloo 文件语义索引器，关闭 KWin 毛玻璃模糊（Blur）与沉重动效，彻底根除空闲 CPU 偷跑、闪存频繁读写与移动端 GPU 渲染负担。
-- **OLED 纯黑硬件级省电挂机**：内置 Wayland 原生 PyQt5 全屏黑屏框架（`black-screen-saver.py`），全屏 `#000000` 像素点硬件切断供电，兼顾防烧屏与极致省电；支持触控屏幕手势与任意键秒级无缝唤醒退出，挂机结束后进程退出，常驻物理内存 0 占用。
+- **OLED 纯黑硬件级省电挂机**：采用纯 Wayland 原生 C 程序（`src/desktop/black_screen.c` -> `black-screen-saver-bin`，直接基于 `libwayland-client`、`xdg-shell` 与 `wp_viewporter`，不依赖 X11/XWayland 或 PyQt5），全屏 `#000000` 像素点硬件切断供电并隐藏光标；运行时仅约 `1.3 MB` RSS（较原 PyQt5 方案 `~105 MB` 降低近 99%），支持触控/鼠标/任意键毫秒级唤醒退出，退出后常驻内存 0 占用。
 - 详细调优原理与实操见：[**深度性能调优与极致轻量化指南**](docs/PERFORMANCE_TUNING.md) ｜ [Linux 独占模式说明](docs/LINUX_EXCLUSIVE_MODE.md)。
 
 ## 已整理的功能
