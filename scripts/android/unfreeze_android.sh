@@ -6,7 +6,7 @@ LOG="/data/adb/kde-desktop/logs/freeze.log"
 echo "=== Android Unfreeze started at $(date) ===" >> "$LOG"
 
 # 1. 恢复沉浸式设置与外接键盘原生键位
-pkill -x lenovo-kbd-bridge 2>/dev/null || true
+for pid in $(pidof lenovo-kbd-bridge 2>/dev/null); do kill "$pid" 2>/dev/null || true; done
 settings delete global policy_control 2>/dev/null || true
 
 # 2. 重新启用 Android 桌面与设置

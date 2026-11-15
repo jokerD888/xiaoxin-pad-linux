@@ -29,9 +29,9 @@
 #define LENOVO_VENDOR  0x17ef
 #define LENOVO_PRODUCT 0x610b
 
-#define KEY_LENOVO_FULLSCREEN 633
-#define KEY_LENOVO_MUTE       634
-#define KEY_LENOVO_GLOBE      635
+#define KEY_LENOVO_GLOBE      633 /* HID Consumer Usage 0x0c0390 */
+#define KEY_LENOVO_MUTE       634 /* HID Consumer Usage 0x0c038f */
+#define KEY_LENOVO_FULLSCREEN 635 /* HID Consumer Usage 0x0c038d */
 
 #define BITS_PER_LONG (8 * (int)sizeof(unsigned long))
 #define NBITS(x)      ((((x) - 1) / BITS_PER_LONG) + 1)
@@ -169,8 +169,14 @@ static int open_and_grab_target(void)
     return target_fd;
 }
 
-static int remap_key(uint16_t code)
+static int remap_key(uint16_t code, uint32_t msc_scan)
 {
+    if (msc_scan == 0x0c0390U)
+        return KEY_LEFTMETA;
+    if (msc_scan == 0x0c038fU)
+        return KEY_MUTE;
+    if (msc_scan == 0x0c038dU)
+        return -1;
     switch (code) {
     case KEY_LENOVO_GLOBE:
         return KEY_LEFTMETA;
@@ -220,6 +226,7 @@ int main(void)
     int kfd = open_and_grab_target();
     bool held_meta = false;
     bool need_sync = false;
+    uint32_t last_msc_scan = 0;
 
     while (!g_quit) {
         if (kfd < 0)
@@ -253,8 +260,11 @@ int main(void)
                 size_t count = (size_t)r / sizeof(evs[0]);
                 for (size_t i = 0; i < count; i++) {
                     const struct input_event *e = &evs[i];
-                    if (e->type == EV_KEY) {
-                        int mapped = remap_key(e->code);
+                    if (e->type == EV_MSC && e->code == MSC_SCAN) {
+                        last_msc_scan = (uint32_t)e->value;
+                    } else if (e->type == EV_KEY) {
+                        int mapped = remap_key(e->code, last_msc_scan);
+                        last_msc_scan = 0;
                         if (mapped > 0) {
                             if (mapped == KEY_LEFTMETA)
                                 held_meta = (e->value != 0);
@@ -262,6 +272,7 @@ int main(void)
                             need_sync = true;
                         }
                     } else if (e->type == EV_SYN && e->code == SYN_REPORT) {
+                        last_msc_scan = 0;
                         if (need_sync) {
                             emit_ev(ufd, EV_SYN, SYN_REPORT, 0);
                             need_sync = false;

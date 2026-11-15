@@ -68,7 +68,7 @@ while IFS= read -r cmd <&3; do
             input keyevent 223 >/dev/null 2>&1 || true
             ;;
         terminal-mode)
-            pkill -x lenovo-kbd-bridge 2>/dev/null || true
+            for pid in $(pidof lenovo-kbd-bridge 2>/dev/null); do kill "$pid" 2>/dev/null || true; done
             if chroot "$ROOTFS" /usr/bin/env PATH=/usr/local/bin:/usr/bin:/bin /usr/bin/python /usr/local/libexec/linux-mode-controller.py stop 9>&- 3>&-; then
                 for pid in $(pidof display_daemon); do
                     if [ "$(readlink /proc/$pid/exe)" = /data/adb/modules/anland-daemon/display_daemon ]; then
