@@ -51,8 +51,8 @@
 
 ## 三、 Android Host 端精简实操
 
-### 1. 彻底剥离 22 个冗余系统包
-通过 Android 系统的 `pm uninstall -k --user 0` 机制，可以在不破坏系统分区（保留 OTA 回退能力）的前提下，实现开机 0 残留、绝不自启：
+### 1. 彻底剥离 32 个冗余系统包（兼杜绝冻结引发的服务拉起死循环）
+通过 Android 系统的 `pm uninstall -k --user 0` 机制，可以在不破坏系统分区（保留 OTA 回退能力）的前提下，实现开机 0 残留、绝不自启；同时避免部分接受系统广播/定位绑定的组件在被 `cgroup.freeze` 冻结后触发“每 10 秒拉起 ➔ 超时强杀”死循环：
 
 - **目标组件清单**：
   1. `com.sohu.inputmethod.sogou.oem`（搜狗输入法 OEM 版，常驻吃内存大户）
@@ -77,6 +77,21 @@
   20. `com.zui.game.service`（游戏助手）
   21. `com.zui.udevice`（设备互联后台）
   22. `com.motorola.mobiledesktop.core`（扩展桌面残留）
+  23. `com.baidu.map.location`（百度网络定位，冻结状态下易触发 `ServiceWatcher` 每 10 秒重启死循环）
+  24. `com.lenovo.lsf.device`（联想设备推送组件，冻结状态下易触发 `PushReceiver` 每 10 秒重启死循环）
+  25. `com.lenovo.lsf`（联想服务框架）
+  26. `com.tblenovo.tabpushout`（联想平板推送服务）
+  27. `com.lenovo.hec.lenovoextend` / `com.lenovo.hecplatform.hecagent`（联想远程设备扩展代理）
+  28. `com.lenovo.hyperengine`（联想超算/游戏引擎）
+  29. `com.zui.deviceidservice`（ZUI 设备标识与广告统计服务）
+  30. `com.zui.freeform.sidebar`（ZUI 侧边栏浮窗）
+  31. `com.android.smspush`（WAP/SMS 推送服务）
+
+### 2. 停用 ZUI 24 小时后台写盘与抓包诊断服务
+默认固件会常驻运行高通 Wi-Fi 抓包与持续 logcat 写盘守护进程（实测长期运行累计消耗 30+ 分钟 CPU 并持续向 `/data/local/newlog/` 轮转写盘近百 MB），已在 `freeze_android.sh` 与 `debloat_android.sh` 中统一停用：
+```bash
+stop vendor.cnss_diag mainlog_cur eventslog_cur vendor.ipacm-diag
+```
 
 - **一键执行命令**：
   ```bash
@@ -89,11 +104,11 @@
 
 ---
 
-## 四、 Linux 独占模式与资源保障
+## 四、 Linux 独占模式、内核 ZRAM 与 UFS I/O 资源保障
 
-在 `/data/adb/kde-desktop/bin/freeze_android.sh` 中集成了完整的资源倾斜机制：
+在 `/data/adb/kde-desktop/bin/freeze_android.sh` 中集成了完整的资源倾斜与内核参数调优机制：
 
-1. **cgroup 深度冻结**：将所有已识别的用户级 Android App UID 写入 `/sys/fs/cgroup/uid_<uid>/cgroup.freeze`；
+1. **cgroup 深度冻结**：将剩余已识别的安全用户级 Android App UID 写入 `/sys/fs/cgroup/uid_<uid>/cgroup.freeze`（已卸载的广播/服务包不列入冻结列表，避免拉起死循环）；
 2. **算力倾斜 (Core Isolation)**：
    ```bash
    echo 0-3 > /dev/cpuset/background/cpus
@@ -106,7 +121,16 @@
        echo -1000 > "/proc/$pid/oom_score_adj"
    done
    ```
-   锁定 Linux 关键进程为最高防御等级，确保在高负载内存紧张时 Android 的 LMK 绝不会误杀 Linux 桌面。
+   锁定 Linux 关键进程为最高防御等级，确保在高负载内存紧张时 Android 的 LMK 绝不会误杀 Linux 桌面；
+4. **内核 ZRAM 换页与 UFS 闪存 I/O 调度调优**：
+   ```bash
+   echo 0 > /proc/sys/vm/page-cluster
+   echo deadline > /sys/block/sda/queue/scheduler
+   echo 128 > /sys/block/sda/queue/read_ahead_kb
+   echo 128 > /sys/block/dm-10/queue/read_ahead_kb
+   ```
+   - `vm.page-cluster=0`：ZRAM 位于物理内存中无寻道延迟，消除默认 `page-cluster=3` 每次缺页强制预读解压 8 页的 CPU 浪费，显著加速换入响应；
+   - `deadline` + `read_ahead_kb=128`：摆脱机械硬盘时代的 CFQ 调度队列开销，减少数据库/编译/Node.js 等随机小文件读取时的 UFS 读放大。
 
 ---
 

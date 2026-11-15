@@ -1,15 +1,22 @@
 #!/system/bin/sh
 # ==============================================================================
-# debloat_android.sh: 彻底剥离 Android 冗余后台、遥测服务与搜狗输入法
+# debloat_android.sh: 彻底剥离 Android 冗余后台、遥测服务、推送与搜狗输入法
 # 适用设备: 联想小新 Pad Pro 2021 (TB-J716F)
-# 效果: 释放 ~450MB+ 物理运行内存，杜绝后台 CPU 偷跑与电量消耗
+# 效果: 释放 ~450MB+ 物理运行内存，彻底根除后台无限拉起崩溃死循环与持续写盘
 # ==============================================================================
 
 set -e
 
 echo "=== 开始执行 Android 深度精简与后台剥离 ==="
 
-# 待精简包清单（22 个经过实机严密验证的无痛精简包）
+# 先解除可能处于冻结状态的 UID，防止卸载广播与服务绑定异常
+for uid in 10070 10104 10060 10082 10097 10182; do
+    if [ -f "/sys/fs/cgroup/uid_$uid/cgroup.freeze" ]; then
+        su 1000 -c "echo 0 > /sys/fs/cgroup/uid_$uid/cgroup.freeze" 2>/dev/null || true
+    fi
+done
+
+# 待精简包清单（32 个经过实机严密验证的无痛精简包）
 PACKAGES="
 com.sohu.inputmethod.sogou.oem
 com.lenovo.ota
@@ -33,6 +40,16 @@ com.lenovo.leos.appstore
 com.zui.game.service
 com.zui.udevice
 com.motorola.mobiledesktop.core
+com.baidu.map.location
+com.lenovo.lsf.device
+com.lenovo.lsf
+com.tblenovo.tabpushout
+com.lenovo.hec.lenovoextend
+com.lenovo.hecplatform.hecagent
+com.lenovo.hyperengine
+com.zui.deviceidservice
+com.zui.freeform.sidebar
+com.android.smspush
 "
 
 UNINSTALLED_COUNT=0
@@ -55,6 +72,12 @@ for pkg in $PACKAGES; do
         done
     fi
 done
+
+# 停用 ZUI 24小时后台抓包与写盘日志服务
+for svc in vendor.cnss_diag mainlog_cur eventslog_cur vendor.ipacm-diag; do
+    stop "$svc" 2>/dev/null || true
+done
+rm -f /data/local/newlog/curlog/logcats/* 2>/dev/null || true
 
 # 清理系统级文件系统缓存
 echo 3 > /proc/sys/vm/drop_caches

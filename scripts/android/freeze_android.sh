@@ -1,6 +1,6 @@
 #!/system/bin/sh
 # ==============================================================================
-# freeze_android.sh: Linux 独占模式 - 深度剥离与锁死 Android
+# freeze_android.sh: Linux 独占模式 - 深度剥离与锁死 Android + 内核调优
 # ==============================================================================
 LOG="/data/adb/kde-desktop/logs/freeze.log"
 mkdir -p /data/adb/kde-desktop/logs
@@ -16,39 +16,33 @@ pm disable com.zui.launcher 2>/dev/null || true
 pm disable com.android.settings/.FallbackHome 2>/dev/null || true
 echo "[freeze] Disabled Launcher and FallbackHome." >> "$LOG"
 
-# 2. 终止非关键后台臃肿组件
+# 2. 终止非关键后台组件 & 停止 24 小时后台写盘诊断服务
 BLOAT_PKGS="
-com.lenovo.leos.appstore
-com.tblenovo.lenovowhatsnew
-com.tblenovo.center
 com.zui.weather
 com.lenovo.process.weathercenter
 com.zui.notes
 com.zui.gallery
 com.zui.recorder
 com.zui.deskclock
-com.zui.game.service
-com.zui.udevice
-com.lenovo.lsf.device
-com.zui.xlog
 com.zui.theme.settings
-com.android.smspush
 com.google.android.webview
-com.baidu.map.location
 com.netease.uuremote
-com.motorola.mobiledesktop.core
 "
 for pkg in $BLOAT_PKGS; do
     am force-stop "$pkg" 2>/dev/null || true
 done
-echo "[freeze] Force-stopped bloat packages." >> "$LOG"
 
-# 3. 冻结剩余已识别的用户层应用 UIDs
+for svc in vendor.cnss_diag mainlog_cur eventslog_cur vendor.ipacm-diag; do
+    stop "$svc" 2>/dev/null || true
+done
+echo "[freeze] Force-stopped bloat packages and stopped ZUI diagnostic loggers." >> "$LOG"
+
+# 3. 冻结剩余已识别的用户层应用 UIDs (排除易触发服务拉起超时死循环的组件，需通过 debloat_android.sh 卸载)
 ANLAND_UID=$(pm list packages -U com.anland.consumer.desktop 2>/dev/null | grep -o 'uid:[0-9]*' | cut -d: -f2)
 [ -z "$ANLAND_UID" ] && ANLAND_UID=10202
 
 FROZEN_COUNT=0
-TARGET_UIDS="10110 10055 10068 10017 10070 10060 10079 10082 10061 10067 10212 10129 10182 10097 10104 10062 10155"
+TARGET_UIDS="10110 10055 10068 10017 10061 10067 10212 10129 10062 10155"
 
 for uid in $TARGET_UIDS; do
     if [ "$uid" != "$ANLAND_UID" ] && [ -f "/sys/fs/cgroup/uid_$uid/cgroup.freeze" ]; then
@@ -67,10 +61,16 @@ for pid in $(pgrep -f "kwin_wayland|plasmashell|display_daemon|start-kde|pipewir
     echo -1000 > "/proc/$pid/oom_score_adj" 2>/dev/null || true
 done
 
-# 6. 清理无用缓存
+# 6. 内核 ZRAM 与 UFS I/O 调优 (消除 ZRAM 8页预读放大，使用 deadline 调度)
+echo 0 > /proc/sys/vm/page-cluster 2>/dev/null || true
+echo deadline > /sys/block/sda/queue/scheduler 2>/dev/null || true
+echo 128 > /sys/block/sda/queue/read_ahead_kb 2>/dev/null || true
+echo 128 > /sys/block/dm-10/queue/read_ahead_kb 2>/dev/null || true
+
+# 7. 清理无用缓存
 echo 3 > /proc/sys/vm/drop_caches
 
-# 7. 标记状态文件
+# 8. 标记状态文件
 ROOTFS=/data/local/archlinux
 echo "frozen" > "$ROOTFS/run/android_freeze.status" 2>/dev/null || true
 chmod 644 "$ROOTFS/run/android_freeze.status" 2>/dev/null || true

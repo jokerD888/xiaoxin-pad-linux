@@ -6,12 +6,15 @@
 if [ -n "$1" ]; then
     TARGET_PKGS="$1"
 else
-    # 默认恢复核心包（如搜狗输入法等）
+    # 默认恢复核心功能性组件
     TARGET_PKGS="
     com.sohu.inputmethod.sogou.oem
     com.tblenovo.center
     com.tblenovo.lenovowhatsnew
     com.lenovo.leos.appstore
+    com.baidu.map.location
+    com.lenovo.lsf.device
+    com.lenovo.lsf
     "
 fi
 
