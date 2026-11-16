@@ -9,7 +9,7 @@ export XMODIFIERS=@im=fcitx GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx SDL_IM_MODULE
 export ANLAND=1 ANLAND_SOCKET=/run/display.sock ANLAND_DRM_DEVICE=/dev/dri/renderD128
 export MESA_LOADER_DRIVER_OVERRIDE=zink GALLIUM_DRIVER=zink
 export FD_FORCE_KGSL=1 TURNIP_KMD=kgsl KWIN_FORCE_OWN_QPA=1
-export QT_FORCE_STDERR_LOGGING=1
+export QT_FORCE_STDERR_LOGGING=1 NO_AT_BRIDGE=1
 unset QT_QPA_PLATFORM QT_PLUGIN_PATH QT_QPA_PLATFORM_PLUGIN_PATH
 
 # Put audio and desktop children on the same session bus from the first launch.

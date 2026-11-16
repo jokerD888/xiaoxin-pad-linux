@@ -27,6 +27,8 @@ com.zui.deskclock
 com.zui.theme.settings
 com.google.android.webview
 com.netease.uuremote
+com.android.settings
+com.zui.safecenter
 "
 for pkg in $BLOAT_PKGS; do
     am force-stop "$pkg" 2>/dev/null || true
@@ -42,7 +44,7 @@ ANLAND_UID=$(pm list packages -U com.anland.consumer.desktop 2>/dev/null | grep 
 [ -z "$ANLAND_UID" ] && ANLAND_UID=10202
 
 FROZEN_COUNT=0
-TARGET_UIDS="10110 10055 10068 10017 10061 10067 10212 10129 10062 10155"
+TARGET_UIDS="10110 10055 10068 10017 10061 10067 10212 10129 10062 10155 10174 10184 10169 10133 10134"
 
 for uid in $TARGET_UIDS; do
     if [ "$uid" != "$ANLAND_UID" ] && [ -f "/sys/fs/cgroup/uid_$uid/cgroup.freeze" ]; then
@@ -55,6 +57,7 @@ echo "[freeze] Frozen $FROZEN_COUNT app UIDs." >> "$LOG"
 # 4. 算力倾斜：限制 Android 后台 cpuset 到 CPU 0-3
 echo 0-3 > /dev/cpuset/background/cpus 2>/dev/null || true
 echo 0-3 > /dev/cpuset/system-background/cpus 2>/dev/null || true
+echo 0-3 > /dev/cpuset/restricted/cpus 2>/dev/null || true
 
 # 5. 内存特权保障：确保 Linux 关键进程锁定在最高优先级 (-1000)
 for pid in $(pgrep -f "kwin_wayland|plasmashell|display_daemon|start-kde|pipewire"); do

@@ -34,10 +34,37 @@ kwriteconfig6 --file kglobalshortcutsrc --group kwin --key "Show Desktop" 'Meta+
 kwriteconfig6 --file kglobalshortcutsrc --group kwin --key "Walk Through Windows" 'Alt+Tab,Alt+Tab\tMeta+Tab,遍历窗口' 2>/dev/null || true
 kwriteconfig6 --file kglobalshortcutsrc --group kwin --key "Overview" 'Meta+W\tMeta+Tab,Meta+W,显示/隐藏桌面总览' 2>/dev/null || true
 kwriteconfig6 --file kglobalshortcutsrc --group ksmserver --key "Lock Session" 'Screensaver,Screensaver\tMeta+L,锁定会话' 2>/dev/null || true
-kwriteconfig6 --file kglobalshortcutsrc --group services --group org.kde.krunner.desktop --key _launch 'Search\tAlt+Space\tAlt+F2\tMeta+R' 2>/dev/null || true
+kwriteconfig6 --file kglobalshortcutsrc --group services --group org.kde.krunner.desktop --key _launch 'none' 2>/dev/null || true
 kwriteconfig6 --file kglobalshortcutsrc --group services --group org.kde.plasma-systemmonitor.desktop --key _launch 'Ctrl+Shift+Esc\tMeta+Esc' 2>/dev/null || true
 kwriteconfig6 --file kglobalshortcutsrc --group services --group org.kde.dolphin.desktop --key _launch 'Meta+E' 2>/dev/null || true
 kwriteconfig6 --file kglobalshortcutsrc --group services --group android-lock-screen.desktop --key _launch 'Meta+L' 2>/dev/null || true
+
+echo "=== 5. 禁用冗余 KDE 常驻进程、kded6 模块与 KRunner (释放 ~200-350MB 常驻内存) ==="
+kwriteconfig6 --file kwalletrc --group Wallet --key Enabled false 2>/dev/null || true
+kwriteconfig6 --file kwalletrc --group Wallet --key "First Use" false 2>/dev/null || true
+kwriteconfig6 --file krunnerrc --group Plugins --key baloosearchEnabled false 2>/dev/null || true
+
+for mod in baloosearchmodule smbwatcher remotenotifier wpad_detector donationmessage freespacenotifier lookandfeelautoswitcher browserintegrationflatpakintegrator; do
+    kwriteconfig6 --file kded6rc --group "Module-$mod" --key autoload false 2>/dev/null || true
+done
+
+mkdir -p "$HOME/.config/autostart" "$HOME/.local/share/dbus-1/services"
+for svc in powerdevil kaccess xembedsniproxy gmenudbusmenuproxy at-spi-dbus-bus baloo_file; do
+    cat > "$HOME/.config/autostart/${svc}.desktop" <<'EOF'
+[Desktop Entry]
+Hidden=true
+EOF
+done
+
+cat > "$HOME/.local/share/dbus-1/services/org.kde.krunner.service" <<'EOF'
+[D-BUS Service]
+Name=org.kde.krunner
+Exec=/usr/bin/true
+EOF
+
+for p in krunner baloorunner org_kde_powerdevil kaccess xembedsniproxy gmenudbusmenuproxy at-spi-bus-launcher at-spi2-registryd ksecretd kactivitymanagerd; do
+    pkill -x "$p" 2>/dev/null || pkill -f "/$p" 2>/dev/null || true
+done
 
 mkdir -p "$HOME/.local/share/applications"
 if [ ! -f "$HOME/.local/share/applications/android-lock-screen.desktop" ] && [ -x /usr/local/bin/lock-android-screen ]; then

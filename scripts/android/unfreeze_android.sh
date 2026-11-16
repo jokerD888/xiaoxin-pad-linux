@@ -23,6 +23,7 @@ done
 # 4. 恢复 cpuset 分配
 echo 0-7 > /dev/cpuset/background/cpus 2>/dev/null || true
 echo 0-7 > /dev/cpuset/system-background/cpus 2>/dev/null || true
+echo 0-7 > /dev/cpuset/restricted/cpus 2>/dev/null || true
 
 # 5. 拉起桌面 Launcher
 am start -n com.zui.launcher/.drawer.NormalLauncher >/dev/null 2>&1 || true
